@@ -356,7 +356,7 @@ MonoBehaviour:
   headPos: {fileID: 1657373739}
   enemyHP: 3
   bullet: {fileID: 1745000565607526113, guid: f3f84f314e0622845a671661702edb37, type: 3}
-  shootRate: 0
+  shootRate: 0.5
   player: {fileID: 3454923}
 --- !u!195 &687159715
 NavMeshAgent:
