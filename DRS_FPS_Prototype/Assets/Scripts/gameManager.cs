@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//added by Zachary D
+using UnityEngine.UI;
 
 
 public class gameManager : MonoBehaviour
@@ -11,6 +13,9 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+
+    //added by Zachary D
+    public Image playerHPBar;
 
     public GameObject damagePanel;
     public GameObject player;
