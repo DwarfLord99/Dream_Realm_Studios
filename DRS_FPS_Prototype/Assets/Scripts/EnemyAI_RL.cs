@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI_RL : MonoBehaviour
+public class EnemyAI_RL : MonoBehaviour, IDamage
 {
     [SerializeField] Renderer enemyModel;
     [SerializeField] NavMeshAgent enemyAgent;
@@ -83,7 +83,7 @@ public class EnemyAI_RL : MonoBehaviour
         isShooting = false;
     }
 
-    public void TakeDamage(int amountOfDamage)
+    public void takeDamage(int amountOfDamage)
     {
         // Enemy loses hp when taking damage
         enemyHP -= amountOfDamage;
