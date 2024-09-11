@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
     // number of jumps the player has preformed
     int numberOfJumps;
 
+    // player starting defualt HP at the start of the game
+    int DefaultHP;
     // bool that turns sprinting on or off based on player input 
     bool playerSprinting;
 
@@ -41,7 +43,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        
+        DefaultHP = HP;
+        UpdatePlayerUI();
     }
 
     // Update is called once per frame
@@ -142,8 +145,11 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     public void takeDamage(int damage)
     {
+        // reduce HP based on damage taken
         HP -= damage;
-        // player screen flashing when damage is taken
+
+        // updates the player UI 
+        UpdatePlayerUI();
 
         // calls the coroutine to have the players screen to falsh when damage is taken
         StartCoroutine(PlayerTakesDamage());
@@ -165,5 +171,10 @@ public class PlayerMovement : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.1f);
         // sets the damage panel to be inactive and hide it from the player
         gameManager.instance.damagePanel.SetActive(false);
+    }
+
+    public void UpdatePlayerUI()
+    {
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / DefaultHP;
     }
 }
