@@ -21,11 +21,11 @@ public class PlayerMovement : MonoBehaviour, IDamage
     [SerializeField] int effectiveRange;
     // damage
     [SerializeField] int ProjectileDamage;
-    // rate at whic hthe player will fire a projectile
+    // rate at which the player will fire a projectile
     [SerializeField] float RateOfFire;
 
 
-    // vectors for movemnt dircetion and player velocity 
+    // vectors for movement direction and player velocity 
     Vector3 MovementDirection;
     Vector3 PlayerVelocity;
 

@@ -25,6 +25,11 @@ public class Damage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.isTrigger)
+        {
+            return;
+        }
+
         IDamage dmg = other.GetComponent<IDamage>(); //does the entity have the IDamage component?
 
         if (dmg != null) //y - damage entity = to the amount
