@@ -92,10 +92,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
         if (enemyHP <= 0)
         {
-            enemyHP -= amountOfDamage;
+            //enemyHP -= amountOfDamage; 
             //access game manager to update game goal
 
-            StartCoroutine(DamageFlash());
+            //StartCoroutine(DamageFlash());  <--commented out due to redundancy, unknown whether this was intended -Destin
 
             if(enemyHP <= 0)
             {
