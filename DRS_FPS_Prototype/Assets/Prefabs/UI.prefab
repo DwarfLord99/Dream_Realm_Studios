@@ -1843,8 +1843,8 @@ MonoBehaviour:
   menuPause: {fileID: 7069662420291466718}
   menuWin: {fileID: 6736969050662267649}
   menuLose: {fileID: 2149767149490016426}
-  playerHPBar: {fileID: 0}
-  damagePanel: {fileID: 0}
+  playerHPBar: {fileID: 6329980094338368933}
+  damagePanel: {fileID: 5347330008631252141}
   player: {fileID: 0}
   playerScript: {fileID: 0}
   isPaused: 0
@@ -2891,6 +2891,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3133240757522989555, guid: d753f070cc3c63046b2bdba0c75e5f83, type: 3}
   m_PrefabInstance: {fileID: 1378418473356480674}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6329980094338368933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4970209374701802759, guid: d753f070cc3c63046b2bdba0c75e5f83, type: 3}
+  m_PrefabInstance: {fileID: 1378418473356480674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5368180309184408837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2991,6 +3002,11 @@ PrefabInstance:
 --- !u!224 &4152179572007267789 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8349703253990998216, guid: 240d6f44df260964d9bcd75454d39670, type: 3}
+  m_PrefabInstance: {fileID: 5368180309184408837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5347330008631252141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 20850877026695592, guid: 240d6f44df260964d9bcd75454d39670, type: 3}
   m_PrefabInstance: {fileID: 5368180309184408837}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5562584460055176157
