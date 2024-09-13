@@ -37,8 +37,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         if(playerInRange)
         {
             playerDirection = gameManager.instance.player.transform.position - headPos.position;
-
-            // gives enemy movement to pursue player
             enemyAgent.SetDestination(gameManager.instance.player.transform.position);
 
             if (enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
@@ -92,11 +90,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
         if (enemyHP <= 0)
         {
-            //enemyHP -= amountOfDamage; 
-            //access game manager to update game goal
-
-            //StartCoroutine(DamageFlash());  <--commented out due to redundancy, unknown whether this was intended -Destin
-
             if(enemyHP <= 0)
             {
                 gameManager.instance.updateGameGoal(-1);
