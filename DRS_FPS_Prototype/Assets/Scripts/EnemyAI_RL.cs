@@ -16,10 +16,14 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [SerializeField] float shootRate;
 
+    [SerializeField] Animator animator;
+
     private Color colorOriginal;
 
     private bool isShooting;
     private bool playerInRange;
+
+    private bool canAttack;
 
     private Vector3 playerDirection;
 
@@ -39,16 +43,23 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             playerDirection = gameManager.instance.player.transform.position - headPos.position;
             enemyAgent.SetDestination(gameManager.instance.player.transform.position);
 
+            animator.SetBool("seePlayer", true);
+
             if (enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
             {
                 FaceTarget();
-            }
+                canAttack = true;
 
-            if (!isShooting)
-            {
-                StartCoroutine(Shoot());
+                if (!isShooting && canAttack)
+                {
+                    StartCoroutine(Shoot());
+                }
             }
-        }        
+        }
+        else
+        {
+            animator.SetBool("seePlayer", false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

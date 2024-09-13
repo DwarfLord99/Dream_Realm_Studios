@@ -1209,7 +1209,7 @@ Transform:
   m_GameObject: {fileID: 4304936819207311213}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.098, y: 0.134, z: 0}
+  m_LocalPosition: {x: -0.12530689, y: 0.06311658, z: 0.49999976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2752,6 +2752,7 @@ MonoBehaviour:
   faceTargetSpeed: 5
   bullet: {fileID: 1745000565607526113, guid: f3f84f314e0622845a671661702edb37, type: 3}
   shootRate: 0.5
+  animator: {fileID: 9194353214323893583}
 --- !u!95 &9194353214323893583
 Animator:
   serializedVersion: 5
@@ -2814,10 +2815,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.10615747
-  m_Height: 0.52478004
+  m_Radius: 0.3197947
+  m_Height: 1.4199998
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.85, z: 0.06973514}
 --- !u!135 &6173799399053808395
 SphereCollider:
   m_ObjectHideFlags: 0
