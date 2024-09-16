@@ -396,10 +396,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4055151376186400469, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-      propertyPath: enemyCountText
-      value: 
-      objectReference: {fileID: 9176008243491025102}
     - target: {fileID: 4115672511269675044, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
       propertyPath: m_Name
       value: UI
@@ -409,17 +405,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
---- !u!114 &9176008243491025102 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 96269496383440874, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-  m_PrefabInstance: {fileID: 9176008243491025101}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
