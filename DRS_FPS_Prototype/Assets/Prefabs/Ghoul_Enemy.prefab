@@ -2708,7 +2708,7 @@ GameObject:
   - component: {fileID: 6241034722218073794}
   - component: {fileID: 6173799399053808395}
   m_Layer: 0
-  m_Name: Ghoul_Enemy1_RL
+  m_Name: Ghoul_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -43,7 +43,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             playerDirection = gameManager.instance.player.transform.position - headPos.position;
             enemyAgent.SetDestination(gameManager.instance.player.transform.position);
 
-            animator.SetBool("seePlayer", true);
+            animator.SetBool("seePlayer", false);
 
             if (enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
             {
