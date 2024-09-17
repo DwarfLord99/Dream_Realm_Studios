@@ -26,6 +26,7 @@ public class DoorMovement : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             drawGUI = true;
+            Debug.Log("Working");
         }
     }
 
