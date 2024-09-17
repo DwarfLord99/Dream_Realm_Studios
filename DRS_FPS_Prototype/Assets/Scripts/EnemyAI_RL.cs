@@ -18,6 +18,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     [SerializeField] Animator animator;
 
+    [SerializeField] public float detectionRange = 10f; // detection radius for fear meter to indicate how close the player needs to be within enemy reach to trigger a fear increase - Adriana V
+
     private Color colorOriginal;
 
     private bool isShooting;
