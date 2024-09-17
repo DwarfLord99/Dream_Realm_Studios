@@ -46,8 +46,12 @@ PrefabInstance:
       value: Villa1_Base_Stairs_A
       objectReference: {fileID: 0}
     - target: {fileID: 426776, guid: 35a756c42404b894ea8cc2e61487fabb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1473966
+      objectReference: {fileID: 0}
+    - target: {fileID: 426776, guid: 35a756c42404b894ea8cc2e61487fabb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.01910019
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 426776, guid: 35a756c42404b894ea8cc2e61487fabb, type: 3}
       propertyPath: m_LocalPosition.y
