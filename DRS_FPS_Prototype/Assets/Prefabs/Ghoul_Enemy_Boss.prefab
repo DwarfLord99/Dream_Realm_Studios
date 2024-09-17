@@ -2044,6 +2044,7 @@ MonoBehaviour:
   bullet: {fileID: 1745000565607526113, guid: f3f84f314e0622845a671661702edb37, type: 3}
   shootRate: 0.5
   animator: {fileID: 960577286822467011}
+  detectionRange: 10
 --- !u!95 &960577286822467011
 Animator:
   serializedVersion: 5

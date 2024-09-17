@@ -2753,6 +2753,7 @@ MonoBehaviour:
   bullet: {fileID: 1745000565607526113, guid: f3f84f314e0622845a671661702edb37, type: 3}
   shootRate: 0.5
   animator: {fileID: 9194353214323893583}
+  detectionRange: 10
 --- !u!95 &9194353214323893583
 Animator:
   serializedVersion: 5
@@ -2783,7 +2784,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 9170250860317119234}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 8
+  m_Radius: 4
   m_Speed: 15
   m_Acceleration: 32
   avoidancePriority: 50
