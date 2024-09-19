@@ -41,10 +41,11 @@ public class FearMeter_AV : MonoBehaviour
     void Update()
     {
         // update fear based on range to enemies
-        FearUpdate(); 
+        FearUpdate();
 
         // update fear meter UI
         UpdateFearMeter(); 
+       
     }
 
     // update fear based on enemy distance range
