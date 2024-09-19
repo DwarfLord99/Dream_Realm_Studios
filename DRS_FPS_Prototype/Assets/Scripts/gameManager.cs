@@ -15,10 +15,14 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
     [SerializeField] TMP_Text enemyCountText; // added by Adriana V
+    public TMP_Text ammoCur, ammoMax; // added by Fuad H
 
     //added by Zachary D
     public Image playerHPBar;
 
+    public GameObject playerSpawnPos; // added by Fuad H
+
+    public GameObject checkpointPopup; // added by Fuad H
     public GameObject damagePanel;
     public GameObject player;
     public PlayerMovement playerScript;
@@ -36,6 +40,7 @@ public class gameManager : MonoBehaviour
         timeScaleOrig = Time.timeScale;
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerMovement>();
+        playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos"); // added by Fuad H
     }
 
     // Update is called once per frame
