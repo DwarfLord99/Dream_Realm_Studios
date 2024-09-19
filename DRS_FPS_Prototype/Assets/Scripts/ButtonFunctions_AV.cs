@@ -24,4 +24,11 @@ public class ButtonFunctions_AV : MonoBehaviour
              Application.Quit();
          #endif
     }
+
+    // allows the player to respawn when the menu button is pressed
+    public void Respawn() // added by Alexander Martone
+    {
+        gameManager.instance.playerScript.PlayerSpawn();
+        gameManager.instance.stateUnpause();
+    }
 }

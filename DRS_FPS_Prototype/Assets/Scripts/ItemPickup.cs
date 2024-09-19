@@ -32,6 +32,7 @@ public class ItemPickup : MonoBehaviour
     {
         // Logic for picking up the item
         Debug.Log("Picked up " + item.name);
+        gameManager.instance.playerScript.AddToInvetory(item);
         Destroy(item); // Example of picking up by removing the item from the scene
     }
 }

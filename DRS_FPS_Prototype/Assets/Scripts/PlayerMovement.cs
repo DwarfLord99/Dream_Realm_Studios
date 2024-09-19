@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
     [SerializeField] int jumpSpeed;
     [SerializeField] int jumpMax;
     [SerializeField] int gravity;
-
+    [SerializeField] List<GameObject> Inventory;
     //range 
     [SerializeField] int effectiveRange;
     // damage
@@ -39,21 +39,38 @@ public class PlayerMovement : MonoBehaviour, IDamage
     bool playerSprinting;
 
     // bool to see if the player is shooting a projectile
-    bool PlayerShooting; 
+    bool PlayerShooting;
 
     // Start is called before the first frame update
     void Start()
     {
         DefaultHP = HP;
         UpdatePlayerUI();
+        PlayerSpawn();
+    }
+
+    // spawns the player at a point in the map
+    public void PlayerSpawn()
+    {
+        // turns off the contoler so the player object can move 
+        Controller.enabled = false;
+        // moves the player object 
+        transform.position = gameManager.instance.playerSpawnPos.transform.position;
+        // turns the controler back on
+        Controller.enabled = true;
+        HP = DefaultHP;
     }
 
     // Update is called once per frame
     void Update()
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * effectiveRange, Color.red);
-        Movement();
+        if (!gameManager.instance.isPaused)
+        {
+            Movement();
+        }
         sprint();
+
     }
 
     void Movement()
@@ -71,14 +88,14 @@ public class PlayerMovement : MonoBehaviour, IDamage
         MovementDirection = Input.GetAxis("Horizontal") * transform.right +
                             Input.GetAxis("Vertical") * transform.forward;
         Controller.Move(MovementDirection * playerSpeed * Time.deltaTime);
-        
+
         // jump 
-        if(Input.GetButtonDown("Jump") && numberOfJumps < jumpMax)
+        if (Input.GetButtonDown("Jump") && numberOfJumps < jumpMax)
         {
             numberOfJumps++;
             PlayerVelocity.y = jumpSpeed;
         }
-        
+
         // has the player move up the screen based on the jump velocity and the time pre frame
         // this prevents the player form jumping in a riged way
         Controller.Move(PlayerVelocity * Time.deltaTime);
@@ -98,7 +115,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
     void sprint()
     {
         // if assined button is pressed down then speed will increase based on the sprint mod
-        if(Input.GetButtonDown("Sprint"))
+        if (Input.GetButtonDown("Sprint"))
         {
             // increase plkayer speed 
             playerSpeed *= sprintMod;
@@ -106,12 +123,12 @@ public class PlayerMovement : MonoBehaviour, IDamage
             playerSprinting = true;
         }
         // once the button is released thne the player will return to noraml speed
-        else if(Input.GetButtonUp("Sprint"))
+        else if (Input.GetButtonUp("Sprint"))
         {
             // decrease player speed 
             playerSpeed /= sprintMod;
             // update sprinting bool
-            playerSprinting = false; 
+            playerSprinting = false;
         }
     }
 
@@ -178,4 +195,11 @@ public class PlayerMovement : MonoBehaviour, IDamage
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / DefaultHP;
     }
+
+    public void AddToInvetory(GameObject Item)
+    {
+        Inventory.Add(Item);
+    }
+        
+
 }
