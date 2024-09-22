@@ -45,8 +45,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     private Coroutine coroutine;
 
-    private bool canAttack;
-
     private Vector3 playerDirection;
     // Starting position of enemy after spawning
     private Vector3 startingPos;
@@ -67,10 +65,12 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+        float agentSpeed = enemyAgent.velocity.normalized.magnitude;
+        float animSpeed = animator.GetFloat("Speed");
+        animator.SetFloat("Speed", Mathf.Lerp(animSpeed, agentSpeed, Time.deltaTime * animSpeedTransition));
+
         if(playerInRange && !CanSeePlayer())
         {
-            animator.SetBool("seePlayer", true);
-
             // activate roam mechanic
             if(!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
             {
@@ -79,8 +79,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         }
         else if(!playerInRange)
         {
-            animator.SetBool("seePlayer", false);
-
             if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
             {
                 coroutine = StartCoroutine(EnemyRoam());
@@ -131,7 +129,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     IEnumerator Shoot()
     {
         isShooting = true;
-        CreateBullet();
+        animator.SetTrigger("Attack");
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }

@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
     // number of jumps the player has preformed
     int numberOfJumps;
 
-    // player starting defualt HP at the start of the game
+    // player starting default HP at the start of the game
     int DefaultHP;
     // bool that turns sprinting on or off based on player input 
     bool playerSprinting;

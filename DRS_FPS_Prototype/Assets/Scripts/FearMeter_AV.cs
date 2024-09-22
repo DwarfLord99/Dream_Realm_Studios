@@ -53,22 +53,29 @@ public class FearMeter_AV : MonoBehaviour
     {
         foreach (EnemyAI_RL enemy in enemies)
         {
-            // calculate distance between player and enemy
-            float enemyDistance = Vector3.Distance(player.transform.position, enemy.transform.position); 
-
-            // If player is close to an enemy, fear will increase
-            if (enemyDistance <= enemy.detectionRange)
+            // Had to add this code in to check if the enemy object wasn't null.
+            // When all enemies die a null reference is hit because it is still
+            // looking for enemies in the scene. This prevents that from happening - RL
+            if(enemy != null)
             {
-                currentFear += fearIncreased * Time.deltaTime; 
-            }
+                // calculate distance between player and enemy
+                float enemyDistance = Vector3.Distance(player.transform.position, enemy.transform.position);
 
-            // If player is not near enemies, fear will decrease
-            if (currentFear > 0)
-            {
-                currentFear -= fearDecreased * Time.deltaTime;  
-            }
+                // If player is close to an enemy, fear will increase
+                if (enemyDistance <= enemy.detectionRange)
+                {
+                    currentFear += fearIncreased * Time.deltaTime;
+                }
 
-            currentFear = Mathf.Clamp(currentFear, 0f, maxFear);
+                // If player is not near enemies, fear will decrease
+                if (currentFear > 0)
+                {
+                    currentFear -= fearDecreased * Time.deltaTime;
+                }
+
+                currentFear = Mathf.Clamp(currentFear, 0f, maxFear);
+            }
+            
         }
     }
 
