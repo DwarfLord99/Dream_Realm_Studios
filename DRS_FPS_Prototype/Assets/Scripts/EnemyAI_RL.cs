@@ -12,6 +12,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] Transform shotPos;
     [SerializeField] Transform headPos;
     [SerializeField] Animator animator;
+    [SerializeField] AnimationClip deathAnim;
 
     [Header("Enemy Stats")]
     // Enemy HP
@@ -83,6 +84,11 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             {
                 coroutine = StartCoroutine(EnemyRoam());
             }
+        }
+
+        if(enemyHP <= 0)
+        {
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
 
@@ -156,7 +162,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         if (enemyHP <= 0)
         {
             gameManager.instance.updateGameGoal(-1);
-            Destroy(gameObject);
+            StartCoroutine(Death());
         }
     }
 
@@ -165,6 +171,13 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         enemyModel.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         enemyModel.material.color = colorOriginal;
+    }
+
+    IEnumerator Death()
+    {
+        animator.Play("die");
+        yield return new WaitForSeconds(deathAnim.length);
+        Destroy(gameObject);
     }
 
     bool CanSeePlayer()
@@ -184,11 +197,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
                 if(enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
                 {
                     FaceTarget();
-                }
-
-                if(!isShooting)
-                {
-                    StartCoroutine(Shoot());
+                    if (!isShooting)
+                    {
+                        StartCoroutine(Shoot());
+                    }
                 }
 
                 enemyAgent.stoppingDistance = stoppingDisOriginal;

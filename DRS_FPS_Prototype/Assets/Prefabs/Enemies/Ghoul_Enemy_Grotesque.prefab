@@ -2255,11 +2255,17 @@ MonoBehaviour:
   enemyAgent: {fileID: 8050460274473868893}
   shotPos: {fileID: 5458270369202176199}
   headPos: {fileID: 5598198200297618425}
+  animator: {fileID: 4352457895189676444}
+  deathAnim: {fileID: 7400000, guid: 9fed67a17352948afa01e326f7de9c3d, type: 2}
   enemyHP: 10
   faceTargetSpeed: 4
+  animSpeedTransition: 8
   bullet: {fileID: 1745000565607526113, guid: f3f84f314e0622845a671661702edb37, type: 3}
   shootRate: 0.5
-  animator: {fileID: 4352457895189676444}
+  detectionRange: 10
+  viewAngle: 45
+  roamDistance: 15
+  roamTimer: 3
 --- !u!95 &4352457895189676444
 Animator:
   serializedVersion: 5

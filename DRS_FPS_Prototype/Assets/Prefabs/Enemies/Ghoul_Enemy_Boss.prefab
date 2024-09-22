@@ -2040,6 +2040,7 @@ MonoBehaviour:
   shotPos: {fileID: 1969369072985561431}
   headPos: {fileID: 6113283846313884006}
   animator: {fileID: 960577286822467011}
+  deathAnim: {fileID: 7400000, guid: c234f24489aeb42e58a8cb2e66906839, type: 2}
   enemyHP: 12
   faceTargetSpeed: 8
   animSpeedTransition: 8
