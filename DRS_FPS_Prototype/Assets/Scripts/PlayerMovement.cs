@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour, IDamage
     [SerializeField] int jumpMax;
     [SerializeField] int gravity;
     [SerializeField] List<GameObject> Inventory;
+
+    [SerializeField] GameObject weaponModel;
+    [SerializeField] GameObject MuzzleFlash;
+    [SerializeField] List<WeaponStats> WeaponList = new List<WeaponStats>();
     //range 
     [SerializeField] int effectiveRange;
     // damage
@@ -35,6 +39,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     // player starting default HP at the start of the game
     int DefaultHP;
+
+    int CurrentWeaponPOS;
     // bool that turns sprinting on or off based on player input 
     bool playerSprinting;
 
@@ -68,6 +74,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         if (!gameManager.instance.isPaused)
         {
             Movement();
+            WeaponSelect();
         }
         sprint();
 
@@ -104,7 +111,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
         // if shoot button is pressed and the player is not already shooting 
         // then call the shooting function
-        if (Input.GetButton("Fire1") && !PlayerShooting)
+        if (Input.GetButton("Fire1") && WeaponList.Count > 0 && WeaponList[CurrentWeaponPOS].CurrentAmmo > 0 && !PlayerShooting)
         {
             StartCoroutine(Shooting());
         }
@@ -137,6 +144,9 @@ public class PlayerMovement : MonoBehaviour, IDamage
     {
         // sets bool to true 
         PlayerShooting = true;
+        WeaponList[CurrentWeaponPOS].CurrentAmmo--;
+        UpdatePlayerUI();
+        StartCoroutine(FlashMuzzle());
 
 
         RaycastHit hit;
@@ -144,8 +154,11 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             // see if the itsem is part of IDamage
             IDamage damage = hit.collider.GetComponent<IDamage>();
+
             // a debug line to give the name of what the raycast hits
-            Debug.Log(hit.collider.transform.name);
+            //Debug.Log(hit.collider.transform.name);
+
+            Instantiate(WeaponList[CurrentWeaponPOS].HitEffect, hit.point, Quaternion.identity);
 
             // casues a set amount of damage based on what is set in the field
             if (damage != null)
@@ -165,11 +178,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
     {
         // reduce HP based on damage taken
         HP -= damage;
-
-        // updates the player UI 
         UpdatePlayerUI();
-
-        // calls the coroutine to have the players screen to falsh when damage is taken
         StartCoroutine(PlayerTakesDamage());
 
         // when players HP hits zero
@@ -191,9 +200,36 @@ public class PlayerMovement : MonoBehaviour, IDamage
         gameManager.instance.damagePanel.SetActive(false);
     }
 
+    IEnumerator FlashMuzzle()
+    {
+        gameManager.instance.damagePanel.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        gameManager.instance.damagePanel.SetActive(false);
+    }
+
     public void UpdatePlayerUI()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / DefaultHP;
+        if(WeaponList.Count > 0)
+        {
+            gameManager.instance.ammoCur.text = WeaponList[CurrentWeaponPOS].CurrentAmmo.ToString("F0");
+            gameManager.instance.ammoCur.text = WeaponList[CurrentWeaponPOS].MaxAmmo.ToString("F0");
+
+        }
+    }
+
+    public void GetWeaponStats(WeaponStats weapon)
+    {
+        WeaponList.Add(weapon);
+        CurrentWeaponPOS = WeaponList.Count - 1;
+        UpdatePlayerUI();
+
+        ProjectileDamage = weapon.Damage;
+        effectiveRange = weapon.EffectiveRange;
+        RateOfFire = weapon.RateOfFire;
+
+        weaponModel.GetComponent<MeshFilter>().sharedMesh = weapon.Model.GetComponent<MeshFilter>().sharedMesh;
+        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weapon.Model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     public void AddToInvetory(GameObject Item)
@@ -201,5 +237,29 @@ public class PlayerMovement : MonoBehaviour, IDamage
         Inventory.Add(Item);
     }
         
+    void WeaponSelect()
+    {
+        if(Input.GetAxis("Mouse ScrollWheel") > 0 && CurrentWeaponPOS < WeaponList.Count -1) 
+        {
+            CurrentWeaponPOS++;
+            ChangeWeapon();
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && CurrentWeaponPOS > 0)
+        {
+            CurrentWeaponPOS--;
+            ChangeWeapon();
+        }
+    }
 
+    void ChangeWeapon()
+    {
+        UpdatePlayerUI();
+        ProjectileDamage = WeaponList[CurrentWeaponPOS].Damage;
+        effectiveRange = WeaponList[CurrentWeaponPOS].EffectiveRange;
+        RateOfFire = WeaponList[CurrentWeaponPOS].EffectiveRange;
+
+        weaponModel.GetComponent<MeshFilter>().sharedMesh = WeaponList[CurrentWeaponPOS].Model.GetComponent<MeshFilter>().sharedMesh;
+        weaponModel.GetComponent<MeshRenderer>().sharedMaterial = WeaponList[CurrentWeaponPOS].Model.GetComponent<MeshRenderer>().sharedMaterial;
+
+    }
 }
