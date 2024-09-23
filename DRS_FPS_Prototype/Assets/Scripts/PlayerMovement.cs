@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         // turns the controler back on
         Controller.enabled = true;
         HP = DefaultHP;
+        UpdatePlayerUI(); // to fix the HP bar bug - Adriana V
     }
 
     // Update is called once per frame
