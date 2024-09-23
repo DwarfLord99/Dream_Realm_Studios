@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+    [SerializeField] WeaponStats weapon; // Adriana V
+
     public float pickupRange = 3f; // Range within which player can pick up items
     public Camera playerCamera; // Reference to the player's camera
+
+    private void Start()
+    {
+        weapon.CurrentAmmo = weapon.MaxAmmo; // Adriana V
+    }
 
     void Update()
     {
@@ -26,6 +33,17 @@ public class ItemPickup : MonoBehaviour
                 }
             }
         }
+    }
+
+    // Adriana V
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            gameManager.instance.playerScript.GetWeaponStats(weapon);
+            Destroy(gameObject);
+        }
+
     }
 
     void PickUpItem(GameObject item)
