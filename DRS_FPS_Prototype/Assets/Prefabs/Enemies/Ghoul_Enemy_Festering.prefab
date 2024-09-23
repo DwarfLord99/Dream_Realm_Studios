@@ -150,12 +150,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286940787540977709}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35827175, y: 0.19297768, z: -0.9097211, w: 0.082513735}
-  m_LocalPosition: {x: -0.80203134, y: -0.3266245, z: -0.18261833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.351, y: 0.259, z: 2.361}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2178058460915192706}
+  m_Father: {fileID: 3587155580776514156}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1330323134850537993
 GameObject:
@@ -375,7 +375,7 @@ MonoBehaviour:
   enemyHP: 10
   faceTargetSpeed: 5
   animSpeedTransition: 8
-  bullet: {fileID: 1745000565607526113, guid: f3f84f314e0622845a671661702edb37, type: 3}
+  bullet: {fileID: 6233304334223615854, guid: 51b36a38acb4631488f04fe5c62c7dc0, type: 3}
   shootRate: 0.4
   detectionRange: 10
   viewAngle: 45
@@ -411,12 +411,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 2176493257825087774}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2
+  m_Radius: 0.8
   m_Speed: 5
   m_Acceleration: 24
   avoidancePriority: 50
   m_AngularSpeed: 600
-  m_StoppingDistance: 5
+  m_StoppingDistance: 8
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -662,7 +662,6 @@ Transform:
   - {fileID: 7118485380448358806}
   - {fileID: 3351500335842918594}
   - {fileID: 1922146287182344021}
-  - {fileID: 5522305267387858019}
   m_Father: {fileID: 8693077686907411640}
   m_LocalEulerAnglesHint: {x: -17.319752, y: 16.430202, z: -36.62917}
 --- !u!1 &3155207445816319776
@@ -1271,6 +1270,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5522305267387858019}
   - {fileID: 44245590062071484}
   m_Father: {fileID: 8790621965163613455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
