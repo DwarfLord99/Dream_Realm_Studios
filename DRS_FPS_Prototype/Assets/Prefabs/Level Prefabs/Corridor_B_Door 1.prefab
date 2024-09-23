@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1233639229627630878}
   m_Layer: 0
-  m_Name: Corridor_B_Door
+  m_Name: Corridor_B_Door 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
