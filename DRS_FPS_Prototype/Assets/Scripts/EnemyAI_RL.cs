@@ -163,6 +163,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         {
             gameManager.instance.updateGameGoal(-1);
             StartCoroutine(Death());
+            gameManager.instance.courageMeter.IncreaseCourage(); // to call the IncreaseCourage method when enemies are killed - Adriana V
         }
     }
 

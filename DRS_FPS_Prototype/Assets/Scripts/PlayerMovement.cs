@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
     // bool to see if the player is shooting a projectile
     bool PlayerShooting;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -173,6 +174,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         yield return new WaitForSeconds(RateOfFire);
         // sets bool to false once the function has completed or the player has stopped shooting
         PlayerShooting = false;
+
     }
 
     public void takeDamage(int damage)
@@ -188,6 +190,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
             //the player loeses
             gameManager.instance.youlose();
         }
+
     }
 
     //function to make the screen flash when damage is taken

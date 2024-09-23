@@ -27,6 +27,8 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public PlayerMovement playerScript;
 
+    public CourageMeter_AV courageMeter; // Adriana V - to reference the courage meter 
+
     int enemyCount;
 
     float timeScaleOrig;
