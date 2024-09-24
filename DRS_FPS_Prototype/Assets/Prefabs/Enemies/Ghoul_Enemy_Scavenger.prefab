@@ -987,7 +987,7 @@ Transform:
   m_GameObject: {fileID: 3737328913858028252}
   serializedVersion: 2
   m_LocalRotation: {x: 0.37078553, y: -0.2982717, z: 0.69046474, w: 0.54480314}
-  m_LocalPosition: {x: -0.5591551, y: 0.5299448, z: 0.0016789883}
+  m_LocalPosition: {x: -0.061426222, y: 0.5775475, z: 0.0016789287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1850,7 +1850,7 @@ MonoBehaviour:
   enemyHP: 3
   faceTargetSpeed: 12
   animSpeedTransition: 8
-  bullet: {fileID: 1745000565607526113, guid: f3f84f314e0622845a671661702edb37, type: 3}
+  bullet: {fileID: 3874460306112977847, guid: 38df7b77c1a7c6544a6eb34615693769, type: 3}
   shootRate: 1
   detectionRange: 10
   viewAngle: 45
@@ -1886,7 +1886,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6470754170956124012}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 10
+  m_Radius: 0.8
   m_Speed: 12
   m_Acceleration: 32
   avoidancePriority: 50

@@ -198,7 +198,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
                 if(enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
                 {
                     FaceTarget();
-                    if (!isShooting)
+                    if (!isShooting && enemyAgent.velocity.normalized.magnitude < 0.01)
                     {
                         StartCoroutine(Shoot());
                     }
