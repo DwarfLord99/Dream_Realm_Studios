@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
             WeaponSelect();
            
         }
+
         sprint();
 
     }
@@ -105,6 +106,13 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             numberOfJumps++;
             PlayerVelocity.y = jumpSpeed;
+        }
+
+        // relaods the plaeyrs gun
+        if(Input.GetButtonDown("Reload") && WeaponList[CurrentWeaponPOS].CurrentAmmo < WeaponList[CurrentWeaponPOS].MaxAmmo)
+        {
+            WeaponList[CurrentWeaponPOS].CurrentAmmo = WeaponList[CurrentWeaponPOS].MaxAmmo;
+            UpdatePlayerUI();
         }
 
         // has the player move up the screen based on the jump velocity and the time pre frame
@@ -160,13 +168,12 @@ public class PlayerMovement : MonoBehaviour, IDamage
             IDamage damage = hit.collider.GetComponent<IDamage>();
 
             // a debug line to give the name of what the raycast hits
-            Debug.Log(hit.collider.transform.name);
+            //Debug.Log(hit.collider.transform.name);
 
-            // causing error removed untill i can find out why 
-            //if (WeaponList[CurrentWeaponPOS] != null)
-            //{
-            //    Instantiate(WeaponList[CurrentWeaponPOS].HitEffect, hit.point, Quaternion.identity);
-            //}
+            if (WeaponList[CurrentWeaponPOS] != null)
+            {
+                Instantiate(WeaponList[CurrentWeaponPOS].HitEffect, hit.point, Quaternion.identity);
+            }
 
             // casues a set amount of damage based on what is set in the field
             if (damage != null)

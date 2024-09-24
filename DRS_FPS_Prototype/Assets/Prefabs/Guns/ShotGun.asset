@@ -18,4 +18,4 @@ MonoBehaviour:
   RateOfFire: 0.5
   CurrentAmmo: 0
   MaxAmmo: 10
-  HitEffect: {fileID: 0}
+  HitEffect: {fileID: 2955623459812423941, guid: f5507a8c6a22c404ab324980c4e8a11b, type: 3}

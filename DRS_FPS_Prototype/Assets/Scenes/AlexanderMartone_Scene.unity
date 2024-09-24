@@ -545,6 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  item: {fileID: 0}
   pickupRange: 3
   playerCamera: {fileID: 213695978}
 --- !u!4 &1130172664
