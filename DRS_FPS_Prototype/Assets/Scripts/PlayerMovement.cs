@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         // sets bool to true 
         PlayerShooting = true;
         WeaponList[CurrentWeaponPOS].CurrentAmmo--;
-        UpdatePlayerUI();
+        UpdatePlayerUI(); 
         StartCoroutine(FlashMuzzle());
 
 
