@@ -21,6 +21,8 @@ public class gameManager : MonoBehaviour
     public Image playerHPBar;
 
     public GameObject playerSpawnPos; // added by Fuad H
+    public GameObject winAreaEnterPos; // added by Destin B
+    public GameObject winAreaExitPos; // added by Destin B
 
     public GameObject checkpointPopup; // added by Fuad H
     public GameObject damagePanel;
