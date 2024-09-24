@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CourageMeter_AV : MonoBehaviour
 {
     // UI elements
-    public Image courageMeter;
     public Image lowCourageBar;
     public Image midCourageBar; 
     public Image highCourageBar;
@@ -26,37 +26,44 @@ public class CourageMeter_AV : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        lowCourageBar.color = Color.red;
+        midCourageBar.color = Color.blue;
+        highCourageBar.color = Color.green; 
     }
 
     public void UpdateCourageMeter()
     {
         // calculate fill amount based on current courage range
         float fillAmount = courageCur / courageMax;
-        courageMeter.fillAmount = fillAmount;
 
         // colors will fill as player kills enemies
         if (courageCur <= lowCourageThreshold)
         {
-            courageMeter.color = Color.red; // low courage
-            lowCourageBar.fillAmount = fillAmount; // fill low courage bar
+            lowCourageBar.color = Color.red; // low courage
+            lowCourageBar.fillAmount = fillAmount / lowCourageThreshold; // fill low courage bar
 
             // reset mid and high courage bars
-            midCourageBar.fillAmount = 0; 
+            midCourageBar.fillAmount = 0;
             highCourageBar.fillAmount = 0;
+            midCourageBar.color = Color.blue; // mid courage
+            highCourageBar.color = Color.green; // high courage
         }
         else if (courageCur <= midCourageThreshold)
         {
-            courageMeter.color = Color.blue; // mid courage
+            lowCourageBar.color = Color.red; // low courage
             lowCourageBar.fillAmount = 1; // fill low courage bar
-            midCourageBar.fillAmount = (courageCur -  lowCourageThreshold) / (midCourageThreshold - lowCourageThreshold); // fill mid courage bar
+            midCourageBar.color = Color.blue; // mid courage
+            midCourageBar.fillAmount = (courageCur - lowCourageThreshold) / (midCourageThreshold - lowCourageThreshold); // fill mid courage bar
             highCourageBar.fillAmount = 0; // reset high courage bar
+            highCourageBar.color = Color.green; // high courage
         }
         else
         {
-            courageMeter.color = Color.green; // high courage 
+            lowCourageBar.color = Color.red; // low courage 
             lowCourageBar.fillAmount = 1; // fill low courage bar
+            midCourageBar.color = Color.blue; // mid courage
             midCourageBar.fillAmount = 1; // fill mid courage bar
+            highCourageBar.color = Color.green; // high courage
             highCourageBar.fillAmount = (courageCur - midCourageThreshold) / (highCourageThreshold - midCourageThreshold); // fill high courage bar
         }
 

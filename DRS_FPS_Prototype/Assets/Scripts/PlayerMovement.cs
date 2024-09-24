@@ -78,6 +78,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             Movement();
             WeaponSelect();
+           
         }
         sprint();
 

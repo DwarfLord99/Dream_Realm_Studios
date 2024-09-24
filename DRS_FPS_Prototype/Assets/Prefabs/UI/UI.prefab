@@ -522,7 +522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 45}
+  m_AnchoredPosition: {x: 1.2, y: 8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2554407102466957122
@@ -589,7 +589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 326.5, y: -167.1}
+  m_AnchoredPosition: {x: 326.5, y: -167.10008}
   m_SizeDelta: {x: 202.1239, y: 192.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5737598528520859996
@@ -2223,13 +2223,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 71b7edecf4d3b1043b214d3334df254f, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 0
+  m_FillMethod: 1
   m_FillAmount: 0.06
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &3212392148345926076
@@ -3023,13 +3023,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 71b7edecf4d3b1043b214d3334df254f, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 0
+  m_FillMethod: 1
   m_FillAmount: 0.06
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4243254203637578841
@@ -3393,7 +3393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8795049057790314905
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3430,7 +3430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85595a760b82c0459f27f321c1575a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  courageMeter: {fileID: 2425884133462760979}
   lowCourageBar: {fileID: 1741104906309712504}
   midCourageBar: {fileID: 6685242649010081114}
   highCourageBar: {fileID: 3964033757456048079}
@@ -5315,8 +5314,8 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillMethod: 1
+  m_FillAmount: 0.116
   m_FillClockwise: 1
   m_FillOrigin: 1
   m_UseSpriteMesh: 0

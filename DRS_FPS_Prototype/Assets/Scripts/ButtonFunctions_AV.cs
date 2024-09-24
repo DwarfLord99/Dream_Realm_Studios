@@ -30,5 +30,6 @@ public class ButtonFunctions_AV : MonoBehaviour
     {
         gameManager.instance.playerScript.PlayerSpawn();
         gameManager.instance.stateUnpause();
+        
     }
 }
