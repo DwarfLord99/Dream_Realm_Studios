@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     [SerializeField] WeaponStats weapon; // Adriana V
+    [SerializeField] ItemPickup item; // Zachary D
 
     public float pickupRange = 3f; // Range within which player can pick up items
     public Camera playerCamera; // Reference to the player's camera
