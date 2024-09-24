@@ -73,7 +73,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
     void Update()
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * effectiveRange, Color.red);
-        if (!gameManager.instance.isPaused)
+        
+        if (gameManager.instance != null && !gameManager.instance.isPaused) // added a null check to prevent the null reference error - Adriana V
         {
             Movement();
             WeaponSelect();

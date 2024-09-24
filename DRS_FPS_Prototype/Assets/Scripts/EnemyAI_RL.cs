@@ -183,33 +183,37 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     bool CanSeePlayer()
     {
-        playerDirection = gameManager.instance.player.transform.position - headPos.position;
-        angleToPlayer = Vector3.Angle(playerDirection, transform.forward);
-
-        Debug.DrawRay(headPos.position, playerDirection);
-
-        RaycastHit hit;
-        if(Physics.Raycast(headPos.position, playerDirection, out hit))
+        if (gameManager.instance != null && gameManager.instance.player != null) // added a check to prevent a null reference - Adriana V
         {
-            if(hit.collider.CompareTag("Player") && angleToPlayer <= viewAngle)
+            playerDirection = gameManager.instance.player.transform.position - headPos.position;
+            angleToPlayer = Vector3.Angle(playerDirection, transform.forward);
+
+            Debug.DrawRay(headPos.position, playerDirection);
+
+            RaycastHit hit;
+            if (Physics.Raycast(headPos.position, playerDirection, out hit))
             {
-                enemyAgent.SetDestination(gameManager.instance.player.transform.position);
-
-                if(enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
+                if (hit.collider.CompareTag("Player") && angleToPlayer <= viewAngle)
                 {
-                    FaceTarget();
-                    if (!isShooting && enemyAgent.velocity.normalized.magnitude < 0.01)
-                    {
-                        StartCoroutine(Shoot());
-                    }
-                }
+                    enemyAgent.SetDestination(gameManager.instance.player.transform.position);
 
-                enemyAgent.stoppingDistance = stoppingDisOriginal;
-                return true;
+                    if (enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
+                    {
+                        FaceTarget();
+                        if (!isShooting && enemyAgent.velocity.normalized.magnitude < 0.01)
+                        {
+                            StartCoroutine(Shoot());
+                        }
+                    }
+
+                    enemyAgent.stoppingDistance = stoppingDisOriginal;
+                    return true;
+                }
             }
         }
 
-        enemyAgent.stoppingDistance = 0;
-        return false;
+            enemyAgent.stoppingDistance = 0;
+            return false;
     }
 }
+
