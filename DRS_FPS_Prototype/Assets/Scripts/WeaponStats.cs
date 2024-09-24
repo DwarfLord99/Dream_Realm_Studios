@@ -9,7 +9,7 @@ public class WeaponStats : ScriptableObject
     public GameObject Model;
     public int Damage;
     public int EffectiveRange;
-    public int RateOfFire;
+    public float RateOfFire;
     public int CurrentAmmo;
     public int MaxAmmo;
 

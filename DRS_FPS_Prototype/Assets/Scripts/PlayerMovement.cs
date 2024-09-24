@@ -158,9 +158,13 @@ public class PlayerMovement : MonoBehaviour, IDamage
             IDamage damage = hit.collider.GetComponent<IDamage>();
 
             // a debug line to give the name of what the raycast hits
-            //Debug.Log(hit.collider.transform.name);
+            Debug.Log(hit.collider.transform.name);
 
-            Instantiate(WeaponList[CurrentWeaponPOS].HitEffect, hit.point, Quaternion.identity);
+            // causing error removed untill i can find out why 
+            //if (WeaponList[CurrentWeaponPOS] != null)
+            //{
+            //    Instantiate(WeaponList[CurrentWeaponPOS].HitEffect, hit.point, Quaternion.identity);
+            //}
 
             // casues a set amount of damage based on what is set in the field
             if (damage != null)
@@ -206,18 +210,19 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     IEnumerator FlashMuzzle()
     {
-        gameManager.instance.damagePanel.SetActive(true);
+        MuzzleFlash.SetActive(true);
         yield return new WaitForSeconds(0.1f);
-        gameManager.instance.damagePanel.SetActive(false);
+        MuzzleFlash.SetActive(false);
     }
 
     public void UpdatePlayerUI()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / DefaultHP;
+
         if(WeaponList.Count > 0)
         {
             gameManager.instance.ammoCur.text = WeaponList[CurrentWeaponPOS].CurrentAmmo.ToString("F0");
-            gameManager.instance.ammoCur.text = WeaponList[CurrentWeaponPOS].MaxAmmo.ToString("F0");
+            gameManager.instance.ammoMax.text = WeaponList[CurrentWeaponPOS].MaxAmmo.ToString("F0");
 
         }
     }
@@ -248,7 +253,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
             CurrentWeaponPOS++;
             ChangeWeapon();
         }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && CurrentWeaponPOS > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && CurrentWeaponPOS > 0)
         {
             CurrentWeaponPOS--;
             ChangeWeapon();
@@ -260,7 +265,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         UpdatePlayerUI();
         ProjectileDamage = WeaponList[CurrentWeaponPOS].Damage;
         effectiveRange = WeaponList[CurrentWeaponPOS].EffectiveRange;
-        RateOfFire = WeaponList[CurrentWeaponPOS].EffectiveRange;
+        RateOfFire = WeaponList[CurrentWeaponPOS].RateOfFire;
 
         weaponModel.GetComponent<MeshFilter>().sharedMesh = WeaponList[CurrentWeaponPOS].Model.GetComponent<MeshFilter>().sharedMesh;
         weaponModel.GetComponent<MeshRenderer>().sharedMaterial = WeaponList[CurrentWeaponPOS].Model.GetComponent<MeshRenderer>().sharedMaterial;

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78c9b49d998efea4985f13a011352992, type: 3}
-  m_Name: Gun - Pistol
+  m_Name: ShotGun
   m_EditorClassIdentifier: 
-  Model: {fileID: 199669651405181594, guid: 41236ddb97b001d499cadd3503c086dc, type: 3}
-  Damage: 1
-  EffectiveRange: 100
-  RateOfFire: 0.25
-  CurrentAmmo: 1
-  MaxAmmo: 6
+  Model: {fileID: 4205521026231025682, guid: f7a69565ab2ff984789da792b0969f4b, type: 3}
+  Damage: 5
+  EffectiveRange: 5
+  RateOfFire: 0.5
+  CurrentAmmo: 0
+  MaxAmmo: 10
   HitEffect: {fileID: 0}
