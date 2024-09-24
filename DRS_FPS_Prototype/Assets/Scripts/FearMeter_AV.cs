@@ -52,6 +52,7 @@ public class FearMeter_AV : MonoBehaviour
     private void FearUpdate()
     {
         bool isEnemyInRange = false; // check to see if any enemy is within player's range
+        float closestDistanceToEnemy = Mathf.Infinity; // keeps track of the closest enemy distnace
 
         foreach (EnemyAI_RL enemy in enemies)
         {
@@ -66,22 +67,27 @@ public class FearMeter_AV : MonoBehaviour
                 // If player is close to an enemy, fear will increase
                 if (enemyDistance <= enemy.detectionRange)
                 {
-                    currentFear = maxFear;
                     isEnemyInRange = true;
-                    break; 
+                    closestDistanceToEnemy = Mathf.Min(closestDistanceToEnemy, enemyDistance);
                 }
-                
+
+                // if no enemies are in range, decrease fear 
+                if (!isEnemyInRange)
+                {
+                    currentFear = Mathf.Max(0f, currentFear - fearDecreased * Time.deltaTime);
+                }
+                else
+                {
+                // calculate fear range based on closest enemy distance
+                    float fearRange = 1 - (closestDistanceToEnemy / enemy.detectionRange);
+                    currentFear = Mathf.Lerp(currentFear, fearRange * maxFear, fearIncreased * Time.deltaTime);
+                }
+                    currentFear = Mathf.Clamp(currentFear, 0f, maxFear); 
             }
             
         }
 
-        // if no enemies are in range, decrease fear 
-        if (!isEnemyInRange)
-        {
-            currentFear = Mathf.Max(0f, currentFear - fearDecreased * Time.deltaTime);
-        }
-
-        currentFear = Mathf.Clamp(currentFear, 0f, maxFear);
+        
     }
 
     // update fear meter UI
