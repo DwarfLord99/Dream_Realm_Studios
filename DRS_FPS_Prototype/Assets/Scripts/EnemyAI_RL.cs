@@ -161,8 +161,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
         if (enemyHP <= 0)
         {
-            gameManager.instance.updateGameGoal(-1);
+            StopCoroutine(Shoot());
+            gameObject.GetComponent<Collider>().enabled = false;
             StartCoroutine(Death());
+            gameManager.instance.updateGameGoal(-1);
         }
     }
 
@@ -174,7 +176,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     }
 
     IEnumerator Death()
-    {
+    {        
         animator.Play("die");
         yield return new WaitForSeconds(deathAnim.length);
         Destroy(gameObject);
@@ -199,7 +201,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
                     if (enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
                     {
                         FaceTarget();
-                        if (!isShooting && enemyAgent.velocity.normalized.magnitude < 0.01)
+                        if (!isShooting && enemyAgent.velocity.normalized.magnitude < 0.01 && enemyHP > 0)
                         {
                             StartCoroutine(Shoot());
                         }

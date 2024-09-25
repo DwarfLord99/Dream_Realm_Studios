@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if ((enemyCount < maxEnemies) && Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < 20)
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
+            Vector3 spawnPosition = new Vector3(Random.Range(-11f, 11f), 0, Random.Range(-1f, 1f)) + transform.position;
             Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], spawnPosition, Quaternion.identity);
             enemyCount++;
         }
