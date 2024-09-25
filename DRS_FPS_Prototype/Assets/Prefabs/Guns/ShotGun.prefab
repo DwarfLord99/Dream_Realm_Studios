@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 10721ea7a53f547419070653fc833924, type: 2}
+  item: {fileID: 0}
   pickupRange: 3
   playerCamera: {fileID: 0}
 --- !u!33 &5860247805800739604
@@ -69,7 +70,7 @@ MeshRenderer:
   m_GameObject: {fileID: 3527214248102930642}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
