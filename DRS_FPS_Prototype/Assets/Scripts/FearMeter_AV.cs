@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class FearMeter_AV : MonoBehaviour
 {
+    public bool isEnemyInRange; 
 
     // use of seperate fear bars to represent the fear ranges seperatly
     // each fear bar will fill based on the current fear level. When fear is low, only the green will fill. As fear increses, the medium bar will fill up, and so on until the highest fear threshold is reached
@@ -28,7 +29,7 @@ public class FearMeter_AV : MonoBehaviour
     // fear threshold ranges
     public float lowFearThreshold = 25f;
     public float mediumFearThreshold = 50f;
-    public float highFearThreshold = 75f; 
+    public float highFearThreshold = 75f;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,7 @@ public class FearMeter_AV : MonoBehaviour
     // update fear based on enemy distance range
     private void FearUpdate()
     {
-        bool isEnemyInRange = false; // check to see if any enemy is within player's range
+        isEnemyInRange = false;
         float closestDistanceToEnemy = Mathf.Infinity; // keeps track of the closest enemy distnace
 
         foreach (EnemyAI_RL enemy in enemies)
@@ -92,7 +93,7 @@ public class FearMeter_AV : MonoBehaviour
 
     // update fear meter UI
     private void UpdateFearMeter()
-    {
+    { 
         // calculate fill amount based on current fear range
         float fillAmount = currentFear / maxFear;
         FearMeter.fillAmount = fillAmount;
@@ -112,6 +113,7 @@ public class FearMeter_AV : MonoBehaviour
             lowFearBar.fillAmount = 1; // fill low fear bar
             mediumFearBar.fillAmount = (currentFear - lowFearThreshold) / (mediumFearThreshold - lowFearThreshold); // fill medium fear bar
             highFearBar.fillAmount = 0; // reset high fear bar
+
         }
         else
         {
