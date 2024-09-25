@@ -678,8 +678,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: DRS_FPS_Prototype
-  metroPackageVersion: 
+  metroPackageName: DRSFPSPrototype
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -687,7 +687,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: DRS_FPS_Prototype
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: DRS_FPS_Prototype
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
