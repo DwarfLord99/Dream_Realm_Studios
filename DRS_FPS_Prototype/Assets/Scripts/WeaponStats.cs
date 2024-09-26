@@ -14,6 +14,7 @@ public class WeaponStats : ScriptableObject
     public int MaxAmmo;
 
     public ParticleSystem HitEffect;
-
+    public AudioClip[] GunSound;
+    public float GunVolume;
     
 }

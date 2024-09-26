@@ -3,32 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
+using System.Linq;
+
 
 public class PlayerMovement : MonoBehaviour, IDamage
 {
 
+    [Header("Copponets")]
+
     [SerializeField] CharacterController Controller;
+    [SerializeField] AudioSource Audio;
     [SerializeField] LayerMask ignoreMask;
 
-    //player stats
-    [SerializeField] int HP;
-    [SerializeField] int playerSpeed;
-    [SerializeField] int sprintMod;
-    [SerializeField] int jumpSpeed;
-    [SerializeField] int jumpMax;
-    [SerializeField] int gravity;
-    [SerializeField] List<GameObject> Inventory;
+    [Header("player stats")]
 
+    //player stats
+    [Range(1, 20)][SerializeField] int HP;
+    [Range(2, 9)][SerializeField] int playerSpeed;
+    [Range(2, 5)][SerializeField] int sprintMod;
+    [Range(1, 20)][SerializeField] int jumpSpeed;
+    [Range(1, 2)][SerializeField] int jumpMax;
+    [Range(10, 45)][SerializeField] int gravity;
+
+    [Header("invetory/guns ")]
+
+    [SerializeField] List<GameObject> Inventory;
     [SerializeField] GameObject weaponModel;
     [SerializeField] GameObject MuzzleFlash;
     [SerializeField] List<WeaponStats> WeaponList = new List<WeaponStats>();
     //range 
+    [Header("gun stats")]
+
     [SerializeField] int effectiveRange;
     // damage
     [SerializeField] int ProjectileDamage;
     // rate at which the player will fire a projectile
     [SerializeField] float RateOfFire;
 
+    [Header("Audio")]
+
+    [SerializeField] AudioClip[] WalkingAudio;
+   [Range(0,1)] [SerializeField] float WalkingVolume;
+
+    [SerializeField] AudioClip[] JumpingAudio;
+    [Range(0, 1)][SerializeField] float JumpingVolume;
+
+    [SerializeField] AudioClip[] DamageAudio;
+    [Range(0, 1)][SerializeField] float DamageVolume;
 
     // vectors for movement direction and player velocity 
     Vector3 MovementDirection;
@@ -46,6 +67,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     // bool to see if the player is shooting a projectile
     bool PlayerShooting;
+
+    bool PlayerWalking;
 
 
     // Start is called before the first frame update
@@ -106,6 +129,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             numberOfJumps++;
             PlayerVelocity.y = jumpSpeed;
+            Audio.PlayOneShot(JumpingAudio[Random.Range(0, JumpingAudio.Length)], JumpingVolume);
         }
 
         // relaods the plaeyrs gun
@@ -127,6 +151,29 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             StartCoroutine(Shooting());
         }
+
+        if (Controller.isGrounded && MovementDirection.magnitude > 0.3f && !PlayerWalking)
+        {
+            StartCoroutine(PlayerSteps());
+        }
+    }
+
+    IEnumerator PlayerSteps()
+    {
+        PlayerWalking = true;
+
+        Audio.PlayOneShot(WalkingAudio[Random.Range(0, WalkingAudio.Length)], WalkingVolume);
+
+        if (!playerSprinting)
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        PlayerWalking = false;
     }
 
     //sprint
@@ -160,6 +207,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
         UpdatePlayerUI();
         StartCoroutine(FlashMuzzle());
 
+        // since there is no gun audio at the moment this line is commented out to prvent issues
+       // Audio.PlayOneShot(WeaponList[CurrentWeaponPOS].GunSound[Random.Range(0, WeaponList[CurrentWeaponPOS].GunSound.Length)], WeaponList[CurrentWeaponPOS].GunVolume);
 
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, effectiveRange, ~ignoreMask))
@@ -194,6 +243,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
     {
         // reduce HP based on damage taken
         HP -= damage;
+        // no gun aduio so removed line to prvent errors
+        //Audio.PlayOneShot(DamageAudio[Random.Range(0, DamageAudio.Length)], DamageVolume);
         UpdatePlayerUI();
         StartCoroutine(PlayerTakesDamage());
 
