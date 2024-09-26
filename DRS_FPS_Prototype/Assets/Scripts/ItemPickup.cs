@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     [SerializeField] WeaponStats weapon; // Adriana V
+    [SerializeField] ItemPickup item;
 
     // Unsure of reason for the weapon stats added here. Line 14 causes issues with item pickups -Zachary D
     
@@ -20,20 +21,34 @@ public class ItemPickup : MonoBehaviour
     // Adriana V
     private void OnTriggerEnter(Collider other)
     {
+        IPickup key = item.GetComponent<IPickup>();
+
+        
         if(other.CompareTag("Player"))
-        { 
-            gameManager.instance.playerScript.GetWeaponStats(weapon);
-            Destroy(gameObject);
+        {
+            if (key != null)
+            {
+                PickUpItem();
+            }
+            else if (weapon != null) 
+            {
+                gameManager.instance.playerScript.GetWeaponStats(weapon);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("Something went wrong.");
+            }
         }
 
     }
 
-    void PickUpItem(GameObject item)
+    void PickUpItem()
     {
         // Logic for picking up the item
-        Debug.Log("Picked up " + item.name);
-        gameManager.instance.playerScript.AddToInvetory(item);
-        Destroy(item); // Example of picking up by removing the item from the scene
+        Debug.Log("Picked up " + gameObject.name);
+        gameManager.instance.playerScript.AddToInvetory(gameObject);
+        Destroy(gameObject); // Example of picking up by removing the item from the scene
     }
 
 
