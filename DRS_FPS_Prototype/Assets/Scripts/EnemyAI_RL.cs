@@ -161,9 +161,9 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
         if (enemyHP <= 0)
         {
-            StopCoroutine(Shoot());
-            gameObject.GetComponent<Collider>().enabled = false;
-            StartCoroutine(Death());
+            //gameObject.GetComponent<Collider>().enabled = false; - used to prevent the player from triggering the death animation repeatecly until eenmy disappears
+            //StartCoroutine(Death()); - Shoot Coroutine will still fire off once before the enemy dies, even when stopping the coroutine
+            Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
         }
     }

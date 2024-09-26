@@ -13,7 +13,8 @@ public class ItemPickup : MonoBehaviour
 
     private void Start()
     {
-        weapon.CurrentAmmo = weapon.MaxAmmo; // Adriana V
+        if(weapon != null) // check for null so game doesn't try to display what doesn't exist yet - RL
+            weapon.CurrentAmmo = weapon.MaxAmmo; // Adriana V
     }
 
     
