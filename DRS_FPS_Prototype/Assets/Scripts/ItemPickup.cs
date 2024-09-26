@@ -13,7 +13,7 @@ public class ItemPickup : MonoBehaviour
 
     private void Start()
     {
-        // weapon.CurrentAmmo = weapon.MaxAmmo; // Adriana V
+        weapon.CurrentAmmo = weapon.MaxAmmo; // Adriana V
     }
 
     
@@ -22,16 +22,12 @@ public class ItemPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-       IPickup key = item.GetComponent<IPickup>();
-
+       //IPickup key = item.GetComponent<IPickup>();
         
         if(other.CompareTag("Player"))
         {
-            if (item != null)
-            { 
-                PickUpItem();
-            }
-            else if (weapon != null) 
+            
+            if (weapon != null) 
             {
                 gameManager.instance.playerScript.GetWeaponStats(weapon);
                 Destroy(gameObject);

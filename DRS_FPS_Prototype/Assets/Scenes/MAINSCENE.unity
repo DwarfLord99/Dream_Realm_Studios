@@ -5162,9 +5162,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2355536822446214305, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5393910628526281502, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742964713915027245, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6378728907360052383, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5172,7 +5180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6378728907360052383, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.98315716
+      value: 1.232
       objectReference: {fileID: 0}
     - target: {fileID: 6378728907360052383, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10549,6 +10557,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1389691597269289394, guid: 1c5965ba315f81b46afc74176cfa7c99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3803608319021633536, guid: 1c5965ba315f81b46afc74176cfa7c99, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7302583598281723787, guid: 1c5965ba315f81b46afc74176cfa7c99, type: 3}
