@@ -6,14 +6,14 @@ public class ItemPickup : MonoBehaviour
 {
     [SerializeField] WeaponStats weapon; // Adriana V
     [SerializeField] ItemPickup item;
+    //[SerializeField] GameObject item;
 
     // Unsure of reason for the weapon stats added here. Line 14 causes issues with item pickups -Zachary D
     
 
     private void Start()
     {
-        //weapon.CurrentAmmo = weapon.MaxAmmo; // Adriana V
-
+        // weapon.CurrentAmmo = weapon.MaxAmmo; // Adriana V
     }
 
     
@@ -21,13 +21,14 @@ public class ItemPickup : MonoBehaviour
     // Adriana V
     private void OnTriggerEnter(Collider other)
     {
-        IPickup key = item.GetComponent<IPickup>();
+
+       IPickup key = item.GetComponent<IPickup>();
 
         
         if(other.CompareTag("Player"))
         {
-            if (key != null)
-            {
+            if (item != null)
+            { 
                 PickUpItem();
             }
             else if (weapon != null) 
@@ -43,7 +44,7 @@ public class ItemPickup : MonoBehaviour
 
     }
 
-    void PickUpItem()
+    public void PickUpItem()
     {
         // Logic for picking up the item
         Debug.Log("Picked up " + gameObject.name);
