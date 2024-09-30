@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 7993409359019400426}
   - component: {fileID: 5111264194590781373}
   m_Layer: 5
-  m_Name: Enemy Count Label
+  m_Name: Monster Kills Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,7 +475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 147, y: -52}
+  m_AnchoredPosition: {x: 134.8, y: -52}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7993409359019400426
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enemy Count
+  m_text: Monster Kills
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32839e53e966bb14083eedd43d693387, type: 2}
   m_sharedMaterial: {fileID: 4171669085686685506, guid: 32839e53e966bb14083eedd43d693387, type: 2}
@@ -3983,7 +3983,7 @@ GameObject:
   - component: {fileID: 3131303491852390513}
   - component: {fileID: 96269496383440874}
   m_Layer: 5
-  m_Name: Enemy Count Number
+  m_Name: Monster Kills Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4005,7 +4005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -155, y: -25}
+  m_AnchoredPosition: {x: -140.6, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3131303491852390513
@@ -4507,7 +4507,7 @@ GameObject:
   - component: {fileID: 3296354644093554716}
   - component: {fileID: 5354302303577223077}
   m_Layer: 5
-  m_Name: Dots for space
+  m_Name: slash for space
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4560,7 +4560,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ':'
+  m_text: /
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32839e53e966bb14083eedd43d693387, type: 2}
   m_sharedMaterial: {fileID: 4171669085686685506, guid: 32839e53e966bb14083eedd43d693387, type: 2}
