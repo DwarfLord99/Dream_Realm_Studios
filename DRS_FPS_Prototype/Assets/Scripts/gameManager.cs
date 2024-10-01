@@ -76,7 +76,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = timeScaleOrig;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        menuActive.SetActive(isPaused);
+        menuActive.SetActive(false); //bool might be getting toggled too many times, otherwise switch back to isPaused
         menuActive = null;
     }
 
