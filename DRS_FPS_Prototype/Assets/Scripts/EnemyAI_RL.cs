@@ -166,6 +166,9 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             Destroy(gameObject);
             gameManager.instance.updateGameGoal(-1);
         }
+
+        FearMeter_AV fearMeter = GameObject.FindGameObjectWithTag("FearMeter").GetComponent<FearMeter_AV>();
+        fearMeter.UpdateHealthBar(amountOfDamage);
     }
 
     IEnumerator DamageFlash()

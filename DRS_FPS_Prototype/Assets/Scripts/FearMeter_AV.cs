@@ -11,11 +11,7 @@ public class FearMeter_AV : MonoBehaviour
     // each fear bar will fill based on the current fear level. When fear is low, only the green will fill. As fear increses, the medium bar will fill up, and so on until the highest fear threshold is reached
     public Image FearMeter; // reference UI image for fear meter
 
-    public Image lowFearBar; // reference UI image for low fear bar
-
-    public Image mediumFearBar; // reference UI image for medium fear bar
-
-    public Image highFearBar; // reference UI image for low fear bar
+    public Image playerHealthBar; // UI image for health bar
 
     public GameObject player; // reference to Player object
     public EnemyAI_RL[] enemies; // hold all enemy objects in an array
@@ -30,6 +26,8 @@ public class FearMeter_AV : MonoBehaviour
     public float lowFearThreshold = 25f;
     public float mediumFearThreshold = 50f;
     public float highFearThreshold = 75f;
+
+    public float playerHealth = 100f; // player health
 
     // Start is called before the first frame update
     void Start()
@@ -102,25 +100,34 @@ public class FearMeter_AV : MonoBehaviour
         if (currentFear <= lowFearThreshold)
         {
             FearMeter.color = Color.green; // low fear
-            lowFearBar.fillAmount = fillAmount; // fill low fear bar
-            mediumFearBar.fillAmount = 0; // reset medium fear bar
-            highFearBar.fillAmount = 0; // reset high fear bar
-
         }
         else if (currentFear <= mediumFearThreshold)
         {
             FearMeter.color = Color.yellow; // medium fear
-            lowFearBar.fillAmount = 1; // fill low fear bar
-            mediumFearBar.fillAmount = (currentFear - lowFearThreshold) / (mediumFearThreshold - lowFearThreshold); // fill medium fear bar
-            highFearBar.fillAmount = 0; // reset high fear bar
-
         }
         else
         {
             FearMeter.color = Color.red; // high fear
-            lowFearBar.fillAmount = 1; // fill low fear bar
-            mediumFearBar.fillAmount = 1; // fill medium fear bar
-            highFearBar.fillAmount = (currentFear - mediumFearThreshold) / (highFearThreshold - mediumFearThreshold); // fill high fear bar
+        }
+    }
+
+    public void UpdateHealthBar(float damage)
+    {
+        playerHealth -= damage;
+        playerHealth = Mathf.Clamp(playerHealth, 0f, 100f);
+
+        // update health bar fill 
+        float fillAmount = playerHealth / 100f;
+        playerHealthBar.fillAmount = fillAmount;
+
+        // change health bar color to red
+        if (playerHealth <= 20f)
+        {
+            playerHealthBar.color = Color.red;
+        }
+        else
+        {
+            playerHealthBar.color = Color.white;
         }
     }
 }
