@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyAI_RL : MonoBehaviour, IDamage
 {
@@ -13,10 +14,12 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] Transform headPos;
     [SerializeField] Animator animator;
     [SerializeField] AnimationClip deathAnim;
+    [SerializeField] GameObject enemyHPBar;
 
     [Header("Enemy Stats")]
     // Enemy HP
-    [SerializeField] int enemyHP;
+    [SerializeField] EnemyHealthBar healthBar;
+    [SerializeField] int enemyHP, enemyMaxHP;
     // How fast the enemy faces the target
     [SerializeField] int faceTargetSpeed;
     // How fast animations transition between one another
@@ -65,7 +68,9 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         colorOriginal = enemyModel.material.color;
         gameManager.instance.updateGameGoal(1);
         stoppingDisOriginal = enemyAgent.stoppingDistance;
-        startingPos = transform.position;        
+        startingPos = transform.position;
+        enemyMaxHP = enemyHP;
+        healthBar.UpdateHealthBar(enemyHP, enemyMaxHP);
     }
 
     // Update is called once per frame
@@ -80,13 +85,16 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             // activate roam mechanic
             if(!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
             {
+                enemyHPBar.SetActive(false);
                 coroutine = StartCoroutine(EnemyRoam());
             }
         }
         else if(!playerInRange)
         {
+            enemyAgent.stoppingDistance = 0;
             if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
             {
+                enemyHPBar.SetActive(false);
                 coroutine = StartCoroutine(EnemyRoam());
             }
         }
@@ -127,8 +135,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         NavMesh.SamplePosition(randomPosition, out hit, roamDistance, 1);
         enemyAgent.SetDestination(hit.position);
 
-        isRoaming = false;
         coroutine = null;
+        isRoaming = false;
     }
 
     void FaceTarget()
@@ -155,6 +163,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     {
         // Enemy loses hp when taking damage
         enemyHP -= amountOfDamage;
+        enemyHPBar.SetActive(true);
+        healthBar.UpdateHealthBar(enemyHP, enemyMaxHP);
         StartCoroutine(DamageFlash());
 
         if(coroutine != null)
@@ -212,25 +222,26 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             {
                 if (hit.collider.CompareTag("Player") && angleToPlayer <= viewAngle)
                 {
+                    enemyHPBar.SetActive(true);
                     enemyAgent.SetDestination(gameManager.instance.player.transform.position);
 
                     if (enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
                     {
                         FaceTarget();
-                        if (!isShooting && enemyAgent.velocity.normalized.magnitude < 0.01)
-                        {
-                            StartCoroutine(Shoot());
-                        }                     
+                    }
+
+                    if (!isShooting && enemyAgent.velocity.normalized.magnitude < 0.01)
+                    {
+                        StartCoroutine(Shoot());
                     }
 
                     enemyAgent.stoppingDistance = stoppingDisOriginal;
                     return true;
                 }
-            }
+            }            
         }
 
-            enemyAgent.stoppingDistance = 0;
-            return false;
+        return false;
     }
 }
 
