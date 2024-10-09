@@ -53,6 +53,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     private Vector3 playerDirection;
     // Starting position of enemy after spawning
     private Vector3 startingPos;
+    private Vector3 deathPos;
 
     // Compare to view angle to see if target can be seen
     private float angleToPlayer;
@@ -64,7 +65,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         colorOriginal = enemyModel.material.color;
         gameManager.instance.updateGameGoal(1);
         stoppingDisOriginal = enemyAgent.stoppingDistance;
-        startingPos = transform.position;
+        startingPos = transform.position;        
     }
 
     // Update is called once per frame
@@ -92,7 +93,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
         if(enemyHP <= 0)
         {
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            transform.position = Vector3.MoveTowards(transform.position, deathPos, 0.1f);
         }
     }
 
@@ -165,9 +166,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
         if (enemyHP <= 0)
         {
-            //gameObject.GetComponent<Collider>().enabled = false; - used to prevent the player from triggering the death animation repeatecly until eenmy disappears
-            //StartCoroutine(Death()); - Shoot Coroutine will still fire off once before the enemy dies, even when stopping the coroutine
-            Destroy(gameObject);
+            animator.SetBool("isDead", true);
+            StartCoroutine(Death());
             gameManager.instance.updateGameGoal(-1);
         }
 
@@ -184,12 +184,11 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     IEnumerator Death()
     {
-        animator.Play("die");
-        yield return new WaitForSeconds(deathAnim.length);
-        Destroy(gameObject);
-
-        DropItem();
-        Destroy(gameObject); // destroy enemy object after death 
+        deathPos = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
+        gameObject.GetComponent<Collider>().enabled = false;        
+        yield return new WaitForSeconds(deathAnim.length + 1.5f);
+        //DropItem();
+        Destroy(gameObject); // destroy enemy object after death
     }
     
 
@@ -218,10 +217,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
                     if (enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
                     {
                         FaceTarget();
-                        if (!isShooting && enemyAgent.velocity.normalized.magnitude < 0.01 && enemyHP > 0)
+                        if (!isShooting && enemyAgent.velocity.normalized.magnitude < 0.01)
                         {
                             StartCoroutine(Shoot());
-                        }
+                        }                     
                     }
 
                     enemyAgent.stoppingDistance = stoppingDisOriginal;
