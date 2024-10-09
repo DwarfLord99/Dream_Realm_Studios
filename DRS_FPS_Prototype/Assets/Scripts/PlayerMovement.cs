@@ -79,6 +79,14 @@ public class PlayerMovement : MonoBehaviour, IDamage
         PlayerSpawn();
     }
 
+
+    // added by Fuad
+    public void RestoreHealth(int amount) 
+    {
+        HP = Mathf.Min(HP + amount, DefaultHP); // increases HP, but not beyond max health
+        UpdatePlayerUI(); // update the UI to reflect the new health value
+    }
+
     // spawns the player at a point in the map
     public void PlayerSpawn()
     {

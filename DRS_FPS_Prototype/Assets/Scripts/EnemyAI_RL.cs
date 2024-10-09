@@ -21,6 +21,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] int faceTargetSpeed;
     // How fast animations transition between one another
     [SerializeField] int animSpeedTransition;
+    // Item Drop
+    [SerializeField] private GameObject ItemDropPrefab; // created by Fuad
+    //Point where the item spawns 
+    [SerializeField] private Transform ItemDropSpawnPoint; // created by Fuad
 
     [Header("Combat")]
     [SerializeField] GameObject bullet;
@@ -179,11 +183,21 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     }
 
     IEnumerator Death()
-    {        
+    {
         animator.Play("die");
         yield return new WaitForSeconds(deathAnim.length);
         Destroy(gameObject);
+
+        DropItem();
+        Destroy(gameObject); // destroy enemy object after death 
     }
+    
+
+    private void DropItem()
+    {
+        Instantiate(ItemDropPrefab, ItemDropSpawnPoint.position, Quaternion.identity);
+    }
+
 
     bool CanSeePlayer()
     {
