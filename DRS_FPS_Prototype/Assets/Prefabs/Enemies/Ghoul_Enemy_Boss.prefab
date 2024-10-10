@@ -2040,9 +2040,14 @@ MonoBehaviour:
   headPos: {fileID: 6113283846313884006}
   animator: {fileID: 960577286822467011}
   deathAnim: {fileID: 7400000, guid: c234f24489aeb42e58a8cb2e66906839, type: 2}
+  enemyHPBar: {fileID: 0}
+  healthBar: {fileID: 0}
   enemyHP: 12
+  enemyMaxHP: 0
   faceTargetSpeed: 8
   animSpeedTransition: 8
+  ItemDropPrefab: {fileID: 0}
+  ItemDropSpawnPoint: {fileID: 0}
   bullet: {fileID: 4192286533018172404, guid: 0ae760dc907afa24c9500802d2efd4ce, type: 3}
   shootRate: 0.5
   detectionRange: 10

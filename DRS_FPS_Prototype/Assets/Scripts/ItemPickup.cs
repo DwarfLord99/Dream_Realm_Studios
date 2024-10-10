@@ -6,10 +6,11 @@ public class ItemPickup : MonoBehaviour
 {
     [SerializeField] WeaponStats weapon; // Adriana V
     [SerializeField] ItemPickup item;
+    [SerializeField] int healthAmount;  // Add healthAmount to determine how much health this pickup restores. * added by Fuad H.
     //[SerializeField] GameObject item;
 
     // Unsure of reason for the weapon stats added here. Line 14 causes issues with item pickups -Zachary D
-    
+
 
     private void Start()
     {
@@ -27,8 +28,12 @@ public class ItemPickup : MonoBehaviour
         
         if(other.CompareTag("Player"))
         {
-            
-            if (weapon != null) 
+            if (healthAmount > 10)
+            {
+                gameManager.instance.playerScript.RestoreHealth(healthAmount); 
+                Destroy(gameObject); // Destroy the pickup after it's used.
+            }
+            else if (weapon != null) // If this is a weapon pickup *Added by Fuad H.
             {
                 gameManager.instance.playerScript.GetWeaponStats(weapon);
                 Destroy(gameObject);

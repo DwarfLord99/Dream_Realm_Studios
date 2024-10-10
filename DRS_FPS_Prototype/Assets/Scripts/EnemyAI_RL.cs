@@ -197,12 +197,15 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         deathPos = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
         gameObject.GetComponent<Collider>().enabled = false;        
         yield return new WaitForSeconds(deathAnim.length + 1.5f);
-        //DropItem();
-        Destroy(gameObject); // destroy enemy object after death
+
+        //Drop the first aid item when enemy dies *added by Fuad
+        Debug.Log("Dropping item...");
+        DropItem();
+        Destroy(gameObject); // destroy enemy object after death * added by fuad
     }
     
 
-    private void DropItem()
+    private void DropItem()// added by Fuad
     {
         Instantiate(ItemDropPrefab, ItemDropSpawnPoint.position, Quaternion.identity);
     }
