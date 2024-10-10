@@ -2,6 +2,12 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+
+# Ignores - Destin Bernavil
+
+/[Aa]ssets/Unity Store Assets/Flooded_Grounds/
+
+# Default ignores
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
