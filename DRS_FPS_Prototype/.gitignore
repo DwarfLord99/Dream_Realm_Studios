@@ -5,7 +5,7 @@
 
 # Ignores - Destin Bernavil
 
-/[Aa]ssets/Unity Store Assets/Flooded_Grounds/
+#[Aa]ssets/Unity Store Assets/Flooded_Grounds/
 
 # Default ignores
 /[Ll]ibrary/
