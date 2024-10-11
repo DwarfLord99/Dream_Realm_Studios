@@ -34,6 +34,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     // How fast the enemy can shoot at the target
     [SerializeField] float shootRate;
+    [SerializeField] GameObject strikeZone;
 
     [Header("Player Detection")]
     // detection radius for fear meter to indicate how close the player
@@ -83,20 +84,25 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
         if(playerInRange && !CanSeePlayer())
         {
+            StopCoroutine(Shoot());
             // activate roam mechanic
             if(!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
             {
                 enemyHPBar.SetActive(false);
                 coroutine = StartCoroutine(EnemyRoam());
+                Debug.Log("I'm roaming");
             }
         }
         else if(!playerInRange)
         {
             enemyAgent.stoppingDistance = 0;
+
+            StopCoroutine(Shoot());
             if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
             {
                 enemyHPBar.SetActive(false);
                 coroutine = StartCoroutine(EnemyRoam());
+                Debug.Log("I'm back roaming");
             }
         }
 
@@ -160,6 +166,13 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
+    }
+
+    IEnumerator Strike()
+    {
+        strikeZone.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        strikeZone.SetActive(false);
     }
 
     public void CreateBullet()
@@ -248,11 +261,14 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
                     }
 
                     enemyAgent.stoppingDistance = stoppingDisOriginal;
+
+                    Debug.Log("Can see player");
                     return true;
                 }
             }            
         }
 
+        Debug.Log("Can't see player");
         return false;
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 //comments are there to help everyone remember what everything does
 public class Damage : MonoBehaviour
 {
-    [SerializeField] enum dmgType { bullet }; //the damage types can be expanded upon later 
+    [SerializeField] enum dmgType { bullet, melee }; //the damage types can be expanded upon later, added melee - RL 
     [SerializeField] dmgType type;
     [SerializeField] Rigidbody rb;
 
@@ -30,7 +30,7 @@ public class Damage : MonoBehaviour
             return;
         IDamage dmg = other.GetComponent<IDamage>();  //does the entity have the IDamage component?
 
-        if (dmg != null) //y - damage entity = to the amount
+        if (dmg != null && other.GetComponent<PlayerMovement>()) //y - damage entity = to the amount, added check to where enemies don't damage themselves - RL
         {
             dmg.takeDamage(dmgAmt);
         }
