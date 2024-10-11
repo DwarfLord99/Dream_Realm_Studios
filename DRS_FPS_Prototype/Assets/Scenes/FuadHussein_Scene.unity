@@ -179,6 +179,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
+--- !u!4 &256407902 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7027619871924492120, guid: 28fc1e4d3c3409c489c43048c3b7a582, type: 3}
+  m_PrefabInstance: {fileID: 557880162}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &405706881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,7 +296,7 @@ PrefabInstance:
     - target: {fileID: 4506286361584971712, guid: 0be3ccf4479ba31429f32df29479231f, type: 3}
       propertyPath: ItemDropSpawnPoint
       value: 
-      objectReference: {fileID: 511061985}
+      objectReference: {fileID: 256407902}
     - target: {fileID: 6470754170956124012, guid: 0be3ccf4479ba31429f32df29479231f, type: 3}
       propertyPath: m_Name
       value: Ghoul_Enemy_Scavenger
@@ -301,11 +306,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be3ccf4479ba31429f32df29479231f, type: 3}
---- !u!4 &511061985 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 297749579029641307, guid: 0be3ccf4479ba31429f32df29479231f, type: 3}
-  m_PrefabInstance: {fileID: 511061984}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &521501721 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7236757994778711018, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
@@ -592,6 +592,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6332308928837916668, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6736969050662267649, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -721,7 +725,7 @@ PrefabInstance:
     - target: {fileID: 7261661945459404937, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
       propertyPath: ItemDropSpawnPoint
       value: 
-      objectReference: {fileID: 1451987237}
+      objectReference: {fileID: 256407902}
     - target: {fileID: 9170250860317119234, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
       propertyPath: m_Name
       value: Ghoul_Enemy
@@ -731,11 +735,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
---- !u!4 &1451987237 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1395028647428010905, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
-  m_PrefabInstance: {fileID: 1451987236}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1674842373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -876,17 +875,12 @@ PrefabInstance:
     - target: {fileID: 6080321307142173921, guid: 122e907a33ad61543b0973928ba74475, type: 3}
       propertyPath: ItemDropSpawnPoint
       value: 
-      objectReference: {fileID: 1844365126}
+      objectReference: {fileID: 256407902}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 122e907a33ad61543b0973928ba74475, type: 3}
---- !u!4 &1844365126 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 625169934349319533, guid: 122e907a33ad61543b0973928ba74475, type: 3}
-  m_PrefabInstance: {fileID: 1844365125}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1872441363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -963,7 +957,7 @@ PrefabInstance:
     - target: {fileID: 8751510395350038759, guid: 55e21710e58ad484ea7be7d770f9eab7, type: 3}
       propertyPath: ItemDropSpawnPoint
       value: 
-      objectReference: {fileID: 2041428191}
+      objectReference: {fileID: 256407902}
     - target: {fileID: 8790621965163613455, guid: 55e21710e58ad484ea7be7d770f9eab7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.25
@@ -1009,11 +1003,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55e21710e58ad484ea7be7d770f9eab7, type: 3}
---- !u!4 &2041428191 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 44245590062071484, guid: 55e21710e58ad484ea7be7d770f9eab7, type: 3}
-  m_PrefabInstance: {fileID: 2041428190}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
