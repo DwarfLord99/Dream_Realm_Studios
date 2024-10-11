@@ -7,7 +7,7 @@ public class ItemDrop : MonoBehaviour
 {
     [SerializeField] private int healthRestoreAmount = 10; // amount of health the item restores
     [SerializeField] private float attractSpeed = 5f; // speed the item moves towards player
-    [SerializeField] private float attractRange = 5f; // range which the player attracts the item 
+    [SerializeField] private float attractRange = 10f; // range which the player attracts the item 
 
     private Transform playerTransform;
 
