@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour, IDamage
     [SerializeField] AudioSource Audio;
     [SerializeField] LayerMask ignoreMask;
 
+    public CharacterController Playerheight;
+    public float NormalHeight;
+    public float CrouchHeight;
+
     [Header("player stats")]
 
     //player stats
@@ -70,6 +74,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     bool PlayerWalking;
 
+    bool PlayerCrouched;
+
 
     // Start is called before the first frame update
     void Start()
@@ -112,7 +118,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
            
         }
 
-        sprint();
+       sprint();
+       PlayerCrouch();
 
     }
 
@@ -255,6 +262,9 @@ public class PlayerMovement : MonoBehaviour, IDamage
         //Audio.PlayOneShot(DamageAudio[Random.Range(0, DamageAudio.Length)], DamageVolume);
         UpdatePlayerUI();
         StartCoroutine(PlayerTakesDamage());
+        // currently commeted out till i find an iamge or shader as well otehr then that 
+        // this function works when health is low havent tested for healing as of yets
+       // DamageVignette();
 
         // when players HP hits zero
         if (HP <= 0)
@@ -338,5 +348,32 @@ public class PlayerMovement : MonoBehaviour, IDamage
         weaponModel.GetComponent<MeshFilter>().sharedMesh = WeaponList[CurrentWeaponPOS].Model.GetComponent<MeshFilter>().sharedMesh;
         weaponModel.GetComponent<MeshRenderer>().sharedMaterial = WeaponList[CurrentWeaponPOS].Model.GetComponent<MeshRenderer>().sharedMaterial;
 
+    }
+
+    void DamageVignette()
+    {
+        if(gameManager.instance.playerHPBar.fillAmount < 0.25)
+        {
+            gameManager.instance.DamageVignetteImage.SetActive(true);
+        }
+        else if(gameManager.instance.playerHPBar.fillAmount > 0.25)
+        {
+            gameManager.instance.DamageVignetteImage.SetActive(false);
+        }
+    }
+
+
+    void PlayerCrouch()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Playerheight.height = CrouchHeight;
+            PlayerCrouched = true;
+        }
+        if(Input.GetKeyUp(KeyCode.C))
+        {
+            Playerheight.height = NormalHeight;
+            PlayerCrouched = false;
+        }
     }
 }

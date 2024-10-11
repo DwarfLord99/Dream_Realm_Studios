@@ -19,12 +19,14 @@ public class gameManager : MonoBehaviour
 
     //added by Zachary D
     public Image playerHPBar;
+   
 
     public GameObject playerSpawnPos; // added by Fuad H
 
     public GameObject checkpointPopup; // added by Fuad H
     public GameObject damagePanel;
     public GameObject player;
+    public GameObject DamageVignetteImage;
     public PlayerMovement playerScript;
 
 
