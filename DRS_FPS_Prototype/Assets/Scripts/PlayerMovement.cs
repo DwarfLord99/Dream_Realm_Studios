@@ -143,7 +143,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         if (Input.GetButtonDown("Jump") && numberOfJumps < jumpMax)
         {
             numberOfJumps++;
-            PlayerVelocity.y = jumpSpeed;
+            PlayerVelocity.y = jumpSpeed  * Time.deltaTime;
             Audio.PlayOneShot(JumpingAudio[Random.Range(0, JumpingAudio.Length)], JumpingVolume);
         }
 

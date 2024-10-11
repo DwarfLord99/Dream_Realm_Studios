@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class BulkTextureCompressor : EditorWindow
 {
-    [MenuItem("Tools/Compress All Textures")]
+    [MenuItem("Tools/Compress All Textures")]  //creates the menu item like in Moye's lectures
     public static void CompressAllTextures()
     {
-        string[] texturePaths = AssetDatabase.FindAssets("t:Texture2D");
+        string[] texturePaths = AssetDatabase.FindAssets("t:Texture2D");  // populates the array with the paths to all the textures
         foreach (string texturePath in texturePaths)
         {
             string path = AssetDatabase.GUIDToAssetPath(texturePath);
-            TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+            TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter; // each asset is imported based on Unity's importers, you can set these manually in the UI
 
             if (importer != null)
             {
