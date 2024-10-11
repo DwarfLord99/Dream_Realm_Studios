@@ -15,6 +15,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] Animator animator;
     [SerializeField] AnimationClip deathAnim;
     [SerializeField] GameObject enemyHPBar;
+    [SerializeField] ParticleSystem spawnEffect;
 
     [Header("Enemy Stats")]
     // Enemy HP
@@ -102,6 +103,14 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         if(enemyHP <= 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, deathPos, 0.1f);
+        }
+    }
+
+    public void EnemySpawnEffect()
+    {
+        if(spawnEffect != null)
+        {
+            Instantiate(spawnEffect, headPos);
         }
     }
 

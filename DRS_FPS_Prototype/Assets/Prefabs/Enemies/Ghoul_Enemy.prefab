@@ -3145,6 +3145,7 @@ MonoBehaviour:
   animator: {fileID: 9194353214323893583}
   deathAnim: {fileID: 7400000, guid: 685f019adfd5f4476917d37bbb8a0643, type: 2}
   enemyHPBar: {fileID: 6327690038274172402}
+  spawnEffect: {fileID: 729149237832941773, guid: 3f472e6a3ede42941a0ca141bbbaf4a7, type: 3}
   healthBar: {fileID: 985152714452618154}
   enemyHP: 5
   enemyMaxHP: 0
@@ -3243,7 +3244,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 15
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9191398648141817793
 GameObject:

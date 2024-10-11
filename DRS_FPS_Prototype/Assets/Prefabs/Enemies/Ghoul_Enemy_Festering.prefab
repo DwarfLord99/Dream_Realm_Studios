@@ -551,6 +551,7 @@ MonoBehaviour:
   animator: {fileID: 5154668714345466025}
   deathAnim: {fileID: 7400000, guid: 375c42c829d234e018d76a5324f30c17, type: 2}
   enemyHPBar: {fileID: 5362867048498529355}
+  spawnEffect: {fileID: 729149237832941773, guid: 0bba92b9f4e78d3468daf76d2fda7e03, type: 3}
   healthBar: {fileID: 4253055660826270926}
   enemyHP: 10
   enemyMaxHP: 0
@@ -649,7 +650,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 15
+  m_Radius: 12
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2346379502211985986
 GameObject:
@@ -1006,6 +1007,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6905782193322449784}
   m_LocalEulerAnglesHint: {x: 1.1558052, y: -2.9440587, z: 59.66803}
+--- !u!1 &4285127638293279730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7321258429262446323}
+  m_Layer: 0
+  m_Name: spawnEffectPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7321258429262446323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285127638293279730}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3587155580776514156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4304373030307673901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1702,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5522305267387858019}
+  - {fileID: 7321258429262446323}
   - {fileID: 44245590062071484}
   m_Father: {fileID: 8790621965163613455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
