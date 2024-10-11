@@ -51,7 +51,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     private bool isShooting;
     private bool playerInRange;
-    private bool isRoaming;
+    private bool isRoaming = false;
 
     private Coroutine coroutine;
 
@@ -78,33 +78,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        float agentSpeed = enemyAgent.velocity.normalized.magnitude;
-        float animSpeed = animator.GetFloat("Speed");
-        animator.SetFloat("Speed", Mathf.Lerp(animSpeed, agentSpeed, Time.deltaTime * animSpeedTransition));
-
-        if(playerInRange && !CanSeePlayer())
-        {
-            StopCoroutine(Shoot());
-            // activate roam mechanic
-            if(!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
-            {
-                enemyHPBar.SetActive(false);
-                coroutine = StartCoroutine(EnemyRoam());
-                Debug.Log("I'm roaming");
-            }
-        }
-        else if(!playerInRange)
-        {
-            enemyAgent.stoppingDistance = 0;
-
-            StopCoroutine(Shoot());
-            if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
-            {
-                enemyHPBar.SetActive(false);
-                coroutine = StartCoroutine(EnemyRoam());
-                Debug.Log("I'm back roaming");
-            }
-        }
+        EnemyRoamMechanic();
 
         if(enemyHP <= 0)
         {
@@ -117,6 +91,34 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         if(spawnEffect != null)
         {
             Instantiate(spawnEffect, headPos);
+        }
+    }
+
+    private void EnemyRoamMechanic()
+    {
+        float agentSpeed = enemyAgent.velocity.normalized.magnitude;
+        float animSpeed = animator.GetFloat("Speed");
+        animator.SetFloat("Speed", Mathf.Lerp(animSpeed, agentSpeed, Time.deltaTime * animSpeedTransition));
+
+        if (playerInRange && !CanSeePlayer())
+        {
+            // activate roam mechanic
+            if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
+            {
+                Debug.Log("Can't see player still");
+                enemyHPBar.SetActive(false);
+                coroutine = StartCoroutine(EnemyRoam());
+            }
+        }
+        else if (!playerInRange)
+        {
+            enemyAgent.stoppingDistance = 0;
+            if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
+            {
+                Debug.Log("Can't see player");
+                enemyHPBar.SetActive(false);
+                coroutine = StartCoroutine(EnemyRoam());
+            }
         }
     }
 
@@ -139,6 +141,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     IEnumerator EnemyRoam()
     {
         isRoaming = true;
+        Debug.Log("I'm roaming");
         yield return new WaitForSeconds(roamTimer);
 
         enemyAgent.stoppingDistance = 0;
@@ -156,6 +159,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     void FaceTarget()
     {
+        Debug.Log("Can see player");
         Quaternion rot = Quaternion.LookRotation(playerDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
     }
@@ -232,7 +236,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         Instantiate(ItemDropPrefab, ItemDropSpawnPoint.position, Quaternion.identity);
     }
 
-
     bool CanSeePlayer()
     {
         if (gameManager.instance != null && gameManager.instance.player != null) // added a check to prevent a null reference - Adriana V
@@ -262,13 +265,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
                     enemyAgent.stoppingDistance = stoppingDisOriginal;
 
-                    Debug.Log("Can see player");
                     return true;
                 }
             }            
         }
-
-        Debug.Log("Can't see player");
         return false;
     }
 }
