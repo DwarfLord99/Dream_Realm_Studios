@@ -14,6 +14,17 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+
+    // Menu switching for all the menus in the main menu - Adriana V
+    public GameObject menuMain;
+    public GameObject menuPlay;
+    public GameObject menuAbout;
+    public GameObject menuOptions;
+    public GameObject menuCredits;
+    public GameObject menuHelp;
+    public GameObject menuTutorial;
+    public GameObject menuLoadGame;
+
     [SerializeField] TMP_Text enemyCountText; // added by Adriana V
     public TMP_Text ammoCur, ammoMax; // added by Fuad H
 
@@ -41,10 +52,34 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+       
         timeScaleOrig = Time.timeScale;
+       
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerMovement>();
         playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos"); // added by Fuad H
+        
+        // ShowMenu(menuMain); // show main menu when game first opens, commented out for now. some issues with the main menu. will work on fixing today. - Adriana V
+    }
+
+    // show the main menu and call the hide menus method to hide the other menus - Adriana V
+    public void ShowMenu(GameObject menu)
+    {
+        HideMenus();
+        menu.SetActive(true);
+    }
+
+    // method to hide all menus in the game - Adriana V
+    public void HideMenus()
+    {
+        menuMain.SetActive(false);
+        menuPlay.SetActive(false);
+        menuAbout.SetActive(false);
+        menuOptions.SetActive(false);
+        menuCredits.SetActive(false);
+        menuHelp.SetActive(false);
+        menuTutorial.SetActive(false);
+        menuLoadGame.SetActive(false);
     }
 
     // Update is called once per frame

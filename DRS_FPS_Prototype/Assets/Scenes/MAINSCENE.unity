@@ -5703,7 +5703,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
-  item: {fileID: 941574307}
   healthAmount: 0
 --- !u!1 &962447400
 GameObject:
@@ -6536,38 +6535,6 @@ PrefabInstance:
     - target: {fileID: 4115672511269675044, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4115672511269675044, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5581642251686122097, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6332308928837916668, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550313878523223184, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7494618733542261922, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824602852599332418, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8837191421704204873, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981177461236723912, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
