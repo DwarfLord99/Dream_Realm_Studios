@@ -15,7 +15,7 @@ public class BulkTextureCompressor : EditorWindow
             if (importer != null)
             {
                 importer.textureCompression = TextureImporterCompression.Compressed;
-                importer.maxTextureSize = 1024; // Change based on your needs
+                importer.maxTextureSize = 1024; // change based on our needs
                 importer.SaveAndReimport();
             }
         }

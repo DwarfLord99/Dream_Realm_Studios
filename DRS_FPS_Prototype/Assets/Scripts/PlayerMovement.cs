@@ -319,7 +319,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weapon.Model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
-    public void AddToInvetory(GameObject Item)
+    public void AddToInventory(GameObject Item)
     {
         Inventory.Add(Item);
     }

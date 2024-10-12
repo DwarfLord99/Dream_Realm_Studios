@@ -31,6 +31,7 @@ public class gameManager : MonoBehaviour
 
 
     int enemyCount;
+    int playerKeys;
 
     float timeScaleOrig;
 
@@ -85,12 +86,22 @@ public class gameManager : MonoBehaviour
     public void updateGameGoal(int amount)
     {
         enemyCount += amount;
+        playerKeys += amount;
         enemyCountText.text = enemyCount.ToString("F0"); // added by Adriana V
 
         if (enemyCount <= 0)
         {
             // player wins the game
             //Debug.Log("You Win!!!");
+            statePause();
+            menuActive = menuWin;
+            menuActive.SetActive(isPaused);
+        }
+
+        // testing key-based win con --Destin Bernavil
+
+        if (playerKeys == 4)
+        {
             statePause();
             menuActive = menuWin;
             menuActive.SetActive(isPaused);
