@@ -135,12 +135,13 @@ public class gameManager : MonoBehaviour
 
         // testing key-based win con --Destin Bernavil
 
-        if (playerKeys == 4)
-        {
-            statePause();
-            menuActive = menuWin;
-            menuActive.SetActive(isPaused);
-        }
+        //Commented out to prevent win condition from triggering when 4 enemies spawn in-game - RL
+        //if (playerKeys == 4)
+        //{
+        //    statePause();
+        //    menuActive = menuWin;
+        //    menuActive.SetActive(isPaused);
+        //}
     }
 
     public void youlose()
