@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         HP = Mathf.Min(HP + amount, DefaultHP); // increases HP, but not beyond max health
         UpdatePlayerUI(); // update the UI to reflect the new health value
         // added to turn to vignetter off
-        DamageVignette();
+        DamageVignette(); 
     }
 
     // spawns the player at a point in the map
@@ -268,9 +268,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
             //Audio.PlayOneShot(DamageAudio[Random.Range(0, DamageAudio.Length)], DamageVolume);
             UpdatePlayerUI();
             StartCoroutine(PlayerTakesDamage());
-            // currently commeted out till i find an iamge or shader as well otehr then that 
-            // this function works when health is low havent tested for healing as of yets
-            // DamageVignette();
+         
+            DamageVignette();
 
             // when players HP hits zero
             if (HP <= 0)
