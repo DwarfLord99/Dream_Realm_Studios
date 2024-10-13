@@ -16,6 +16,8 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        //startPos = transform.localPosition; 
     }
 
     // Update is called once per frame
@@ -24,9 +26,9 @@ public class PlayerCamera : MonoBehaviour
         // get user input 
         float yMovement = Input.GetAxis("Mouse Y") * sensetivity * Time.deltaTime;
         float xMovement = Input.GetAxis("Mouse X") * sensetivity * Time.deltaTime;
-        
+
         // invert the camrea controls
-        if(!InvertCameraControls)
+        if (!InvertCameraControls)
         {
             xRotation -= yMovement;
         }
@@ -44,4 +46,7 @@ public class PlayerCamera : MonoBehaviour
         //rotate the camera on y-axis 
         transform.parent.Rotate(Vector3.up * xMovement);
     }
+
+
+
 }

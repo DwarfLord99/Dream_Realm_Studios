@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  healthAmount: 0
 --- !u!114 &6434925904577588008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +70,9 @@ MonoBehaviour:
   ignoreMask:
     serializedVersion: 2
     m_Bits: 8
+  Playerheight: {fileID: 0}
+  NormalHeight: 0
+  CrouchHeight: 0
   HP: 5
   playerSpeed: 5
   sprintMod: 2
@@ -406,7 +410,7 @@ Transform:
   m_GameObject: {fileID: 2154145244488405809}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.03, z: 0}
+  m_LocalPosition: {x: 0, y: 1.0299988, z: -0.019958206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

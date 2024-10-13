@@ -135,12 +135,12 @@ public class gameManager : MonoBehaviour
 
         // testing key-based win con --Destin Bernavil
 
-        if (playerKeys == 4)
-        {
-            statePause();
-            menuActive = menuWin;
-            menuActive.SetActive(isPaused);
-        }
+        //if (playerKeys == 4)
+        //{
+        //    statePause();
+        //    menuActive = menuWin;
+        //    menuActive.SetActive(isPaused);
+        //}
     }
 
     public void youlose()

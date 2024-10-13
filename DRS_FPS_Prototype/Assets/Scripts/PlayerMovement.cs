@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] DamageAudio;
     [Range(0, 1)][SerializeField] float DamageVolume;
 
+
     // vectors for movement direction and player velocity 
     Vector3 MovementDirection;
     Vector3 PlayerVelocity;
@@ -76,6 +77,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     bool PlayerCrouched;
 
+    bool PlayerCanTakeDamage = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +94,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
     {
         HP = Mathf.Min(HP + amount, DefaultHP); // increases HP, but not beyond max health
         UpdatePlayerUI(); // update the UI to reflect the new health value
+        // added to turn to vignetter off
+        DamageVignette();
     }
 
     // spawns the player at a point in the map
@@ -115,7 +120,6 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             Movement();
             WeaponSelect();
-           
         }
 
        sprint();
@@ -141,9 +145,9 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
         // jump 
         if (Input.GetButtonDown("Jump") && numberOfJumps < jumpMax)
-        {
+        { 
             numberOfJumps++;
-            PlayerVelocity.y = jumpSpeed  * Time.deltaTime;
+            PlayerVelocity.y = jumpSpeed * Time.deltaTime;
             Audio.PlayOneShot(JumpingAudio[Random.Range(0, JumpingAudio.Length)], JumpingVolume);
         }
 
@@ -256,23 +260,38 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     public void takeDamage(int damage)
     {
-        // reduce HP based on damage taken
-        HP -= damage;
-        // no gun aduio so removed line to prvent errors
-        //Audio.PlayOneShot(DamageAudio[Random.Range(0, DamageAudio.Length)], DamageVolume);
-        UpdatePlayerUI();
-        StartCoroutine(PlayerTakesDamage());
-        // currently commeted out till i find an iamge or shader as well otehr then that 
-        // this function works when health is low havent tested for healing as of yets
-       // DamageVignette();
-
-        // when players HP hits zero
-        if (HP <= 0)
+        if (PlayerCanTakeDamage == true)
         {
-            //the player loeses
-            gameManager.instance.youlose();
-        }
+            // reduce HP based on damage taken
+            HP -= damage;
+            // no gun aduio so removed line to prvent errors
+            //Audio.PlayOneShot(DamageAudio[Random.Range(0, DamageAudio.Length)], DamageVolume);
+            UpdatePlayerUI();
+            StartCoroutine(PlayerTakesDamage());
+            // currently commeted out till i find an iamge or shader as well otehr then that 
+            // this function works when health is low havent tested for healing as of yets
+            // DamageVignette();
 
+            // when players HP hits zero
+            if (HP <= 0)
+            {
+                //the player loeses
+                gameManager.instance.youlose();
+            }
+
+           PlayerCanTakeDamage = false;
+       }
+
+        StartCoroutine(PlayercCanBeDamaged());
+    }
+
+    IEnumerator PlayercCanBeDamaged()
+    {
+        if(PlayerCanTakeDamage == false)
+        {
+            yield return new WaitForSeconds(0.5f);
+            PlayerCanTakeDamage = true; 
+        }
     }
 
     //function to make the screen flash when damage is taken
@@ -368,12 +387,12 @@ public class PlayerMovement : MonoBehaviour, IDamage
         if (Input.GetKeyDown(KeyCode.C))
         {
             Playerheight.height = CrouchHeight;
-            PlayerCrouched = true;
+            //PlayerCrouched = true;
         }
         if(Input.GetKeyUp(KeyCode.C))
         {
             Playerheight.height = NormalHeight;
-            PlayerCrouched = false;
+            //PlayerCrouched = false;
         }
     }
 }

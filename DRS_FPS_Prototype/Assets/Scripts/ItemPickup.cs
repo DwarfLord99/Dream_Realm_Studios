@@ -46,7 +46,7 @@ public class ItemPickup : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            /* Old code is for reference - Destin
+            //Old code is for reference - Destin
             if (healthAmount > 10)
             {
                 gameManager.instance.playerScript.RestoreHealth(healthAmount); 
@@ -60,7 +60,7 @@ public class ItemPickup : MonoBehaviour
             else
             {
                 Debug.Log("Something went wrong.");
-            }*/
+            }
 
             PickUpItem(); // Base logic for debugging, will be overriden later, see relevant method
         }
