@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class ItemPickup : MonoBehaviour
+public class ItemPickup : MonoBehaviour, IPickup
 {
     [SerializeField] WeaponStats weapon; // Adriana V
     //[SerializeField] ItemPickup item;
@@ -18,43 +19,48 @@ public class ItemPickup : MonoBehaviour
             weapon.CurrentAmmo = weapon.MaxAmmo; // Adriana V
     }
 
-    // Destin Bernavil
-    // Below code is only ONE way of doing this, 2nd way is via OnTriggerEnter, the same idea would track, but we'd remove
-    // the hardcoding.
-
+    // Destin Bernavil Notes:
     /*
-    private void Update()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactionDist, interactionLayers))
-        {
-            // see if the item has IPickup
-            IPickup item = gameObject.GetComponent<IPickup>();
-
-            // a debug line to give the name of what the raycast hits
-            //Debug.Log(hit.collider.transform.name);
-
-            if (item != null )
-            {
-                PickUpItem();
-            }
-        }
-    }*/
-
+     * I modified the OnTriggerEnter method so that it's completely modular.
+     * Each item should have its own pickup logic associated with it, and the PickupItem
+     * method now acts as a helper method for some objects. For example, the Key pickup
+     * uses the PickupItem method, but the Weapon item doesn't. This is due to the two 
+     * pickups possessing 2 different kinds of pickup logic. Whenever you want to make a 
+     * pickup, create a tag for it and define its logic here by adding the relevant
+     * CompareTag() logic. Then, handle the logic entirely inside of that if-statement.
+     * In the future, it will make more sense to migrate the code to each type of pickup.
+     * for example, the Weapon pickups should be handled inside their own Weapon pickup 
+     * script, and the health pickups should have their values and logic defined inside their
+     * own health pickup script, to avoid having it hardcoded like it is right now. 
+     */
+    
     // Adriana V
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
             //Old code is for reference - Destin
-            if (healthAmount > 10)
+            /*
+            if (healthAmount > 10) //old health pickup script by Fuad
             {
                 gameManager.instance.playerScript.RestoreHealth(healthAmount); 
                 Destroy(gameObject); // Destroy the pickup after it's used.
             }
-            else if (weapon != null) // If this is a weapon pickup *Added by Fuad H.
+           */
+
+            if(this.CompareTag("Key")) //added by Destin
+            {
+                PickUpItem();
+                gameManager.instance.updateGameGoal(1);
+            }
+            else if(this.CompareTag("Weapon"))
             {
                 gameManager.instance.playerScript.GetWeaponStats(weapon);
+                Destroy(gameObject);
+            }
+            else if(this.CompareTag("Healing"))
+            {
+                gameManager.instance.playerScript.RestoreHealth(healthAmount);
                 Destroy(gameObject);
             }
             else
@@ -62,12 +68,11 @@ public class ItemPickup : MonoBehaviour
                 Debug.Log("Something went wrong.");
             }
 
-            PickUpItem(); // Base logic for debugging, will be overriden later, see relevant method
         }
 
     }
 
-    public virtual void PickUpItem() // I marked this as virtual to implement the plan that I had involving separate pickup logic. Keeping this in for debugging purposes.
+    public void PickUpItem() // I marked this as virtual to implement the plan that I had involving separate pickup logic. Keeping this in for debugging purposes.
     {
         // Logic for picking up the item
         Debug.Log("Picked up " + gameObject.name);

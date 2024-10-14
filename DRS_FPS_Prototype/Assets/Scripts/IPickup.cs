@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IPickup
 {
-    void PickupItem();
+    void PickUpItem();
 }

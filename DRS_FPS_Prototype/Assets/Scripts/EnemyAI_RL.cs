@@ -68,7 +68,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     void Start()
     {
         colorOriginal = enemyModel.material.color;
-        gameManager.instance.updateGameGoal(1);
+        //gameManager.instance.updateGameGoal(1);
         stoppingDisOriginal = enemyAgent.stoppingDistance;
         startingPos = transform.position;
         enemyMaxHP = enemyHP;
@@ -204,7 +204,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         {
             animator.SetBool("isDead", true);
             StartCoroutine(Death());
-            gameManager.instance.updateGameGoal(-1);
+            //gameManager.instance.updateGameGoal(-1);
         }
 
         FearMeter_AV fearMeter = GameObject.FindGameObjectWithTag("FearMeter").GetComponent<FearMeter_AV>();
