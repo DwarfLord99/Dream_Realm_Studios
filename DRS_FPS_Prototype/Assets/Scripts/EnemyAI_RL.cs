@@ -53,7 +53,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     private bool playerInRange;
     private bool isRoaming = false;
 
-    private Coroutine coroutine;
+    private Coroutine roamCoroutine; // Added by Fuad.. Better coroutine handling to prevent overlapping issues.
 
     private Vector3 playerDirection;
     // Starting position of enemy after spawning
@@ -103,20 +103,20 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         if (playerInRange && !CanSeePlayer())
         {
             // activate roam mechanic
-            if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
+            if (!isRoaming && enemyAgent.remainingDistance < 0.05 && roamCoroutine == null) 
             {
                 Debug.Log("Go back to roaming");
                 enemyHPBar.SetActive(false);
-                coroutine = StartCoroutine(EnemyRoam());
+                roamCoroutine = StartCoroutine(EnemyRoam());
             }
         }
         else if (!playerInRange)
         {
             enemyAgent.stoppingDistance = 0;
-            if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
+            if (!isRoaming && enemyAgent.remainingDistance < 0.05 &&  roamCoroutine == null)
             {
                 enemyHPBar.SetActive(false);
-                coroutine = StartCoroutine(EnemyRoam());
+                roamCoroutine = StartCoroutine(EnemyRoam());
             }
         }
     }
@@ -153,7 +153,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         NavMesh.SamplePosition(randomPosition, out hit, roamDistance, 1);
         enemyAgent.SetDestination(hit.position);
 
-        coroutine = null;
+        roamCoroutine = null; // added by Fuad.. Ensures coroutine is cleared properly
         isRoaming = false;
     }
 
@@ -193,9 +193,11 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         healthBar.UpdateHealthBar(enemyHP, enemyMaxHP);
         StartCoroutine(DamageFlash());
 
-        if(coroutine != null)
+        if(roamCoroutine != null) //added by fuad - Stops roaming when the player is damaged 
         {
-            StopCoroutine(coroutine);
+            StopCoroutine(roamCoroutine);
+            roamCoroutine = null;   //added by fuad - Stops roaming when the player is damaged 
+            isRoaming = false;  //added by fuad - Stops roaming when the player is damaged 
         }
 
         enemyAgent.SetDestination(gameManager.instance.player.transform.position);
