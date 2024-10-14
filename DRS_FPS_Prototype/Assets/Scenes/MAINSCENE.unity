@@ -1907,18 +1907,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 1163978829830598808, guid: d350a04b654efc14e9bc7c9eaacd9336, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1802193363139914392, guid: d350a04b654efc14e9bc7c9eaacd9336, type: 3}
-      propertyPath: maxEnemies
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1802193363139914392, guid: d350a04b654efc14e9bc7c9eaacd9336, type: 3}
-      propertyPath: enemyPrefabs.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8594381651390967877, guid: d350a04b654efc14e9bc7c9eaacd9336, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.004013
@@ -1959,9 +1947,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3567490420770656478, guid: d350a04b654efc14e9bc7c9eaacd9336, type: 3}
-    - {fileID: 2301208397903521037, guid: d350a04b654efc14e9bc7c9eaacd9336, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

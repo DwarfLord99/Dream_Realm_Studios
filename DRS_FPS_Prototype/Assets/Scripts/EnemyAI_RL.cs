@@ -105,6 +105,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             // activate roam mechanic
             if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
             {
+                Debug.Log("Go back to roaming");
                 enemyHPBar.SetActive(false);
                 coroutine = StartCoroutine(EnemyRoam());
             }
@@ -138,6 +139,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     IEnumerator EnemyRoam()
     {
+        
         isRoaming = true;
         Debug.Log("I'm roaming");
         yield return new WaitForSeconds(roamTimer);
@@ -203,6 +205,11 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             animator.SetBool("isDead", true);
             StartCoroutine(Death());
             //gameManager.instance.updateGameGoal(-1);
+        }
+
+        if(!playerInRange && !CanSeePlayer())
+        {
+            StartCoroutine(EnemyRoam());
         }
     }
 
