@@ -625,8 +625,8 @@ MonoBehaviour:
   enemyMaxHP: 0
   faceTargetSpeed: 5
   animSpeedTransition: 8
-  ItemDropPrefab: {fileID: 0}
-  ItemDropSpawnPoint: {fileID: 0}
+  ItemDropPrefab: {fileID: 8574365540348746729, guid: 84ae3f79d1fde3749b34c28c5d8d7ebc, type: 3}
+  ItemDropSpawnPoint: {fileID: 8790621965163613455}
   bullet: {fileID: 6233304334223615854, guid: 51b36a38acb4631488f04fe5c62c7dc0, type: 3}
   shootRate: 0.4
   strikeZone: {fileID: 1286940787540977709}

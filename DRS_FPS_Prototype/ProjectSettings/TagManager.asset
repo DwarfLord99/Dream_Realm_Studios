@@ -9,6 +9,9 @@ TagManager:
   - Item
   - playerCamera
   - FearMeter
+  - Weapon
+  - Healing
+  - Key
   layers:
   - Default
   - TransparentFX

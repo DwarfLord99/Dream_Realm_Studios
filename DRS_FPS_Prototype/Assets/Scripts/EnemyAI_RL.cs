@@ -105,7 +105,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             // activate roam mechanic
             if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
             {
-                Debug.Log("Can't see player still");
                 enemyHPBar.SetActive(false);
                 coroutine = StartCoroutine(EnemyRoam());
             }
@@ -115,7 +114,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             enemyAgent.stoppingDistance = 0;
             if (!isRoaming && enemyAgent.remainingDistance < 0.05 && coroutine == null)
             {
-                Debug.Log("Can't see player");
                 enemyHPBar.SetActive(false);
                 coroutine = StartCoroutine(EnemyRoam());
             }
@@ -206,9 +204,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             StartCoroutine(Death());
             //gameManager.instance.updateGameGoal(-1);
         }
-
-        FearMeter_AV fearMeter = GameObject.FindGameObjectWithTag("FearMeter").GetComponent<FearMeter_AV>();
-        fearMeter.UpdateHealthBar(amountOfDamage);
     }
 
     IEnumerator DamageFlash()

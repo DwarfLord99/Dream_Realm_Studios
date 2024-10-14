@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2355536822446214305}
   m_Layer: 0
   m_Name: Pistol
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,9 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: a21f50a6469762148a4b24e8dd100913, type: 2}
-  item: {fileID: 0}
-  pickupRange: 3
-  playerCamera: {fileID: 0}
+  healthAmount: 0
 --- !u!33 &2546448688992252224
 MeshFilter:
   m_ObjectHideFlags: 0
