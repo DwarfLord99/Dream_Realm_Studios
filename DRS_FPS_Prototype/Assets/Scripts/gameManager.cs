@@ -57,9 +57,12 @@ public class gameManager : MonoBehaviour
        
        timeScaleOrig = Time.timeScale;
        
-       player = GameObject.FindWithTag("Player");
-       playerScript = player.GetComponent<PlayerMovement>();
-       playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos"); // added by Fuad H
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MAINSCENE")) //-RL, added check to get the main menu working
+        {
+            player = GameObject.FindWithTag("Player");
+            playerScript = player.GetComponent<PlayerMovement>();
+            playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos"); // added by Fuad H
+        }
        // ShowMenu(menuMain); // shows the main menu when the game starts
     }
 
