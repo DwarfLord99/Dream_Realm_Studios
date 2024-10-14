@@ -19,96 +19,68 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] public GameObject menuCredits;
     [SerializeField] public GameObject menuHelp;
     [SerializeField] public GameObject menuTutorial;
-
-    private void Awake()
-    {
-        instance = this;
-        ShowMenu(menuMain); // show main menu when the game starts
-    }
-
-    // Shows the main menu and hides all the other menus
-    public void ShowMenu(GameObject menu)
-    {
-        HideMenus();
-        menu.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None; // ensures cursor is visible
-    }
-
-    // method to hide all menus in the game
-    public void HideMenus()
-    {
-        // deactivates all menu GameObjects
-        menuMain.SetActive(false);
-        menuPlay.SetActive(false);
-        menuLoadGame.SetActive(false);
-        menuAbout.SetActive(false);
-        menuOptions.SetActive(false);
-        menuCredits.SetActive(false);
-        menuHelp.SetActive(false);
-        menuTutorial.SetActive(false);
-    }
+    [SerializeField] public GameObject menuSettings;
 
     // method to show the play menu
     public void Play()
     {
-        ShowMenu(menuPlay);
+        gameManager.instance.ShowMenu(menuPlay);
     }
 
     // method to start a new game by loading the main game scene
     public void NewGame()
     {
-        gameManager.instance.stateUnpause();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-       
+        Debug.Log("NewGame method called.");  
+        SceneManager.LoadScene(1);
     }
 
     // method to show the about menu
     public void LoadGame()
     {
-        ShowMenu(menuLoadGame);
+        gameManager.instance.ShowMenu(menuLoadGame);
     }
 
     // method to show the help menu
     public void About()
     {
-        ShowMenu(menuAbout);
+        gameManager.instance.ShowMenu(menuAbout);
     }
 
     // method to show the help menu
     public void Help()
     {
-        ShowMenu(menuHelp);
+        gameManager.instance.ShowMenu(menuHelp);
     }
 
     // method to show the tutorial menu
     public void Tutorial()
     {
-        ShowMenu(menuTutorial);
+        gameManager.instance.ShowMenu(menuTutorial);
     }
 
     // method to show the options menu which will open up all game settings
     public void Options()
     {
-        ShowMenu(menuOptions);
+        gameManager.instance.ShowMenu(gameManager.instance.menuOptions);
+        menuSettings.gameObject.SetActive(true);
     }
 
     // method to show the credits menu
     public void Credits()
     {
-        ShowMenu(menuCredits);
+        gameManager.instance.ShowMenu(menuCredits);
     }
 
     // method to take the player back to the main menu
     public void BackToMainMenu()
     {
-        ShowMenu(menuMain);
+        gameManager.instance.ShowMenu(menuMain);
     }
 
     // method to take the player back to the about menu when on the help or tutorial menus
     public void BackToAboutMenu()
     {
-        ShowMenu(menuAbout);
+        gameManager.instance.ShowMenu(menuAbout);
     }
 
     // method for the save button which will function for save settings

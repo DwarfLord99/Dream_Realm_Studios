@@ -11,7 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MAINSCENE.unity
     guid: 2fa3d793e4613d148a2aad51104c3437
-  - enabled: 0
-    path: Assets/Scenes/AdrianaVega_Scene.unity
-    guid: 7e7c968e446cc6a49971ec263f2dae3e
   m_configObjects: {}
