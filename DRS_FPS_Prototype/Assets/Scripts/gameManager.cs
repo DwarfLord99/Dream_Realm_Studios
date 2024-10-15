@@ -69,7 +69,7 @@ public class gameManager : MonoBehaviour
             playerScript = player.GetComponent<PlayerMovement>();
             playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos"); // added by Fuad H
         }
-        // ShowMenu(menuMain); // shows the main menu when the game starts
+        ShowMenu(menuMain); // shows the main menu when the game starts
     }
 
     // Update is called once per frame
