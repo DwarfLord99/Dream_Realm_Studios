@@ -20,9 +20,12 @@ public class SettingsMenu_RL : MonoBehaviour
     [SerializeField] Toggle fullscreenToggle; // toggle for adjusting to full screen - Adriana V
 
     private Resolution[] resolutions; //holds the different resolutions available for the player to choose from
+    private float timeScaleOrig;
 
     void Start()
     {
+        timeScaleOrig = Time.timeScale; //Holds the value of the current time scale
+
         // Initializes screen resolutions  - Adriana V
         resolutions = new Resolution[]
         {
@@ -110,4 +113,14 @@ public class SettingsMenu_RL : MonoBehaviour
         Screen.SetResolution(screenRes.width, screenRes.height, Screen.fullScreen);
     }
 
+    public void SetGameSpeed(float speed)
+    {
+        //This will be set up similar to how the drop down menu is created for the resolution. This time however the menu will not be
+        //populated automatically. I was thinking for now we could use o.5, 1, and 2 for the speeds. These will need to be set up in
+        //the drop down menu options and then from there the method will be passed in same as the others with choosing the method
+        //name inside the dynamic list at the top of the menu. With that set you should be able to use the drop down menu to
+        //manipulate the game speed because it will take whatever you choose and multiply the game speed by the number chosen.
+
+        Time.timeScale = timeScaleOrig * speed;
+    }
 }
