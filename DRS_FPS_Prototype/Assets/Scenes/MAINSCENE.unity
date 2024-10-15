@@ -8528,6 +8528,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6011913766045367368, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8532001797535691646, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
