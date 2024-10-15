@@ -72,7 +72,7 @@ public class ItemPickup : MonoBehaviour, IPickup
 
     }
 
-    public void PickUpItem() // I marked this as virtual to implement the plan that I had involving separate pickup logic. Keeping this in for debugging purposes.
+    public void PickUpItem() // Override this in relevant future scripts to handle pickup logic. Unless we want to make our items class based, we don't really need to define this here since we have an interface.
     {
         // Logic for picking up the item
         Debug.Log("Picked up " + gameObject.name);

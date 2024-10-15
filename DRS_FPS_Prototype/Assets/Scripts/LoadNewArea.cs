@@ -5,6 +5,7 @@ using UnityEngine;
 public class LoadNewArea : MonoBehaviour
 {
     public Transform Destination; // added by Destin 
+    public Transform AlternateDestination;
     private GameObject player;
     private CharacterController controller;
 
@@ -19,11 +20,25 @@ public class LoadNewArea : MonoBehaviour
         if (other.CompareTag("Player") && Destination != null)
         {
             Debug.Log("Destination Found");
-            Debug.Log(Destination.transform.position);
-            controller.enabled = false;
-            other.transform.position = Destination.transform.position;
-            controller.enabled = true;
-            Debug.Log(other.transform.position);
+
+            if (gameManager.instance.playerKeys >= 2)
+            {
+                Debug.Log("Keys 2 or more, teleporting to alternate area...");
+                Debug.Log(AlternateDestination.transform.position);
+                controller.enabled = false;
+                other.transform.position = AlternateDestination.transform.position;
+                controller.enabled = true;
+                Debug.Log(other.transform.position);
+            }
+            else
+            {
+                Debug.Log(Destination.transform.position);
+                controller.enabled = false;
+                other.transform.position = Destination.transform.position;
+                controller.enabled = true;
+                Debug.Log(other.transform.position);
+            }
+
         }
     }
 }

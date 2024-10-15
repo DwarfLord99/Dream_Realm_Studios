@@ -44,7 +44,7 @@ public class gameManager : MonoBehaviour
 
 
     int enemyCount;
-    int playerKeys;
+    public int playerKeys;
 
     float timeScaleOrig;
 
