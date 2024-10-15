@@ -9,7 +9,7 @@ using System.Linq;
 public class PlayerMovement : MonoBehaviour, IDamage
 {
 
-    [Header("Copponets")]
+    [Header("Componets")]
 
     [SerializeField] CharacterController Controller;
     [SerializeField] AudioSource Audio;
@@ -340,6 +340,10 @@ public class PlayerMovement : MonoBehaviour, IDamage
     public void AddToInventory(GameObject Item)
     {
         Inventory.Add(Item);
+        if(tutorialManager.instance.tutorialEnabled)  //added by Destin to be used in tutorialManager script
+        {
+            tutorialManager.instance.FireTutorial(Item.tag);
+        }
     }
         
     void WeaponSelect()

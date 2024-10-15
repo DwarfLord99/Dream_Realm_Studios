@@ -10,7 +10,8 @@ using UnityEngine.UI;
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
-
+    static tutorialManager tutorialManager;
+    
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
@@ -58,6 +59,7 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
        instance = this;
+      
        
        timeScaleOrig = Time.timeScale;
        
@@ -84,6 +86,8 @@ public class gameManager : MonoBehaviour
             else if (menuActive == menuPause)
             {
                 stateUnpause();
+                menuActive.SetActive(false); //bool might be getting toggled too many times, otherwise switch back to isPaused, moved up to Update to use stateUnpause in tutorialManager (Destin)
+                menuActive = null; 
             }
         }
     }
@@ -102,8 +106,6 @@ public class gameManager : MonoBehaviour
         Time.timeScale = timeScaleOrig;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        menuActive.SetActive(false); //bool might be getting toggled too many times, otherwise switch back to isPaused
-        menuActive = null;
     }
 
     public void updateGameGoal(int amount)
