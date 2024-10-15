@@ -340,10 +340,10 @@ public class PlayerMovement : MonoBehaviour, IDamage
     public void AddToInventory(GameObject Item)
     {
         Inventory.Add(Item);
-        if(tutorialManager.instance.tutorialEnabled)  //added by Destin to be used in tutorialManager script
-        {
-            tutorialManager.instance.FireTutorial(Item.tag);
-        }
+        //if(tutorialManager.instance.tutorialEnabled)  //added by Destin to be used in tutorialManager script
+        //{
+        //    tutorialManager.instance.FireTutorial(Item.tag);
+        //} //-RL Commented out until tutorial system is back working
     }
         
     void WeaponSelect()
