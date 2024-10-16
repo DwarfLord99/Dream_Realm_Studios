@@ -16,7 +16,6 @@ public class SettingsMenu_RL : MonoBehaviour
 
     [SerializeField] AudioMixer audioMixer; //component needed to change volume in-game
     [SerializeField] TMPro.TMP_Dropdown resolutionDropDown; //component needed to change resolution
-    [SerializeField] Slider brightnessSlider; // slider for adjusting screen brightness - Adriana V
     [SerializeField] Toggle fullscreenToggle; // toggle for adjusting to full screen - Adriana V
 
     private Resolution[] resolutions; //holds the different resolutions available for the player to choose from
