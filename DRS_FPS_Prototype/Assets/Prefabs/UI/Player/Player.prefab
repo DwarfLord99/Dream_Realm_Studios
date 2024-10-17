@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 9149106251315440089}
   - component: {fileID: 5389894850755752175}
   - component: {fileID: 7780619995190936750}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapon Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,10 +416,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 100
-  verrticalMin: -90
-  verrticalMax: 90
+  verticalMin: -90
+  verticalMax: 90
   InvertCameraControls: 0
   senSlider: {fileID: 0}
+  gameSpeedSlider: {fileID: 0}
 --- !u!20 &6131625299576338849
 Camera:
   m_ObjectHideFlags: 0
@@ -573,7 +574,7 @@ GameObject:
   - component: {fileID: 8289847462550310907}
   - component: {fileID: 8398924948279150061}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Weapon Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

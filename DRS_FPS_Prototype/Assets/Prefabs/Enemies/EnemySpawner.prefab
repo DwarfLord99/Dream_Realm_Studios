@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 5906897195700508067, guid: 122e907a33ad61543b0973928ba74475, type: 3}
   - {fileID: 6470754170956124012, guid: 0be3ccf4479ba31429f32df29479231f, type: 3}
   spawnInterval: 0.8
-  maxEnemies: 1
+  maxEnemies: 5
   enemyCount: 0
 --- !u!1 &7392874992900966701
 GameObject:

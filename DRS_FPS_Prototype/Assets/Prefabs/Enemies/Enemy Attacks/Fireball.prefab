@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6650453648301688960}
-  - component: {fileID: -422173462054671434}
+  - component: {fileID: 8241826964151816000}
   - component: {fileID: 8555153655759977680}
   - component: {fileID: -8699396663014515785}
   - component: {fileID: -4137744382549462192}
@@ -120,7 +120,7 @@ Transform:
   - {fileID: 4768365740491057821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-422173462054671434
+--- !u!114 &8241826964151816000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,10 +129,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3874460306112977847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 108a0c08e99da5b4392540407c2bd2c5, type: 3}
+  m_Script: {fileID: 11500000, guid: dbe429655418f5f4a8da2dfe0fca1b33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  target: {fileID: 4040255572772120138, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
+  rotationSpeed: 5
+  projectileSpeed: 5
+  rb: {fileID: -4137744382549462192}
 --- !u!96 &8555153655759977680
 TrailRenderer:
   serializedVersion: 3

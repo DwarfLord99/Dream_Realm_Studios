@@ -31,12 +31,12 @@ public class PlayerCamera : MonoBehaviour
 
         //        //Using PlayerPrefs, this will allow the game to remember the player's current mouse sensitivity settings when they
         //        //close and reopen the game without having to reset them every time the play
-            sensitivity = PlayerPrefs.GetFloat("currentSensitivity", 100); //-RL
-            senSlider.value = sensitivity; //-RL
+            //sensitivity = PlayerPrefs.GetFloat("currentSensitivity", 100); //-RL
+            //senSlider.value = sensitivity; //-RL
 
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            gameSpeedSlider.onValueChanged.AddListener(AdjustCameraSpeed);
+            //gameSpeedSlider.onValueChanged.AddListener(AdjustCameraSpeed);
             
             
          //startPos = transform.localPosition;
