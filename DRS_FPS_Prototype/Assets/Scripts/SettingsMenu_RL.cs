@@ -16,23 +16,16 @@ public class SettingsMenu_RL : MonoBehaviour
 
     [SerializeField] AudioMixer audioMixer; //component needed to change volume in-game
     [SerializeField] TMPro.TMP_Dropdown resolutionDropDown; //component needed to change resolution
-    [SerializeField] Slider brightnessSlider; // slider for adjusting screen brightness - Adriana V
     [SerializeField] Toggle fullscreenToggle; // toggle for adjusting to full screen - Adriana V
 
-    private Resolution[] resolutions; //holds the different resolutions available for the player to choose from
+    Resolution[] resolutions; //holds the different resolutions available for the player to choose from
     private float timeScaleOrig;
 
     void Start()
     {
         timeScaleOrig = Time.timeScale; //Holds the value of the current time scale
 
-        // Initializes screen resolutions  - Adriana V
-        resolutions = new Resolution[]
-        {
-            new Resolution { width = 1280, height = 720 },
-            new Resolution { width = 1920, height = 1080 },
-            new Resolution { width = 2560, height = 1440 }
-        };
+        resolutions = Screen.resolutions;
 
         //clear out the preset options made in the component to allow the array to be auto-populated
         resolutionDropDown.ClearOptions();
@@ -46,7 +39,7 @@ public class SettingsMenu_RL : MonoBehaviour
         for (int i = 0; i < resolutions.Length; i++)
         {
             //loops through the list of resolutions and adds them to the drop down list
-            string option = resolutions[i].width + " X " + resolutions[i].height;
+            string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
 
             //sets the currently displayed resolution in the drop down list as the current one being used to display game
