@@ -34,7 +34,7 @@ public class MainMenuManager : MonoBehaviour
     // method to start a new game by loading the main game scene
     public void NewGame()
     {
-        Debug.Log("NewGame method called.");  
+        //Debug.Log("NewGame method called.");  
         SceneManager.LoadScene(1);
     }
 

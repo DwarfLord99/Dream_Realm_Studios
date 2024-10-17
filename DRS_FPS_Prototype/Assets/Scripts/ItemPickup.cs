@@ -65,7 +65,7 @@ public class ItemPickup : MonoBehaviour, IPickup
             }
             else
             {
-                Debug.Log("Something went wrong.");
+                //Debug.Log("Something went wrong.");
             }
 
         }
@@ -75,7 +75,7 @@ public class ItemPickup : MonoBehaviour, IPickup
     public void PickUpItem() // Override this in relevant future scripts to handle pickup logic. Unless we want to make our items class based, we don't really need to define this here since we have an interface.
     {
         // Logic for picking up the item
-        Debug.Log("Picked up " + gameObject.name);
+        //Debug.Log("Picked up " + gameObject.name);
         gameManager.instance.playerScript.AddToInventory(gameObject);
         Destroy(gameObject); // Example of picking up by removing the item from the scene
     }

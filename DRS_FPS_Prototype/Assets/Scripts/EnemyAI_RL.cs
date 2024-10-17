@@ -105,7 +105,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             // activate roam mechanic
             if (!isRoaming && enemyAgent.remainingDistance < 0.05 && roamCoroutine == null) 
             {
-                Debug.Log("Go back to roaming");
+                //Debug.Log("Go back to roaming");
                 enemyHPBar.SetActive(false);
                 roamCoroutine = StartCoroutine(EnemyRoam());
             }
@@ -141,7 +141,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     {
         
         isRoaming = true;
-        Debug.Log("I'm roaming");
+        //Debug.Log("I'm roaming");
         yield return new WaitForSeconds(roamTimer);
 
         enemyAgent.stoppingDistance = 0;
@@ -159,7 +159,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     void FaceTarget()
     {
-        Debug.Log("Can see player");
+        //Debug.Log("Can see player");
         Quaternion rot = Quaternion.LookRotation(playerDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
     }
@@ -229,7 +229,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         yield return new WaitForSeconds(deathAnim.length + 1.5f);
 
         //Drop the first aid item when enemy dies *added by Fuad
-        Debug.Log("Dropping item...");
+        //Debug.Log("Dropping item...");
         DropItem();
         Destroy(gameObject); // destroy enemy object after death * added by fuad
     }

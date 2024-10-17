@@ -133,7 +133,7 @@ public class gameManager : MonoBehaviour
     // Shows the main menu and hides all the other menus - Adriana V
     public void ShowMenu(GameObject menu)
     {
-        Debug.Log("Showing menu: " + menu.name);
+        //Debug.Log("Showing menu: " + menu.name);
         HideMenus();
         menu.SetActive(true);
         Cursor.visible = true;

@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
     public void IncreaseHealth(int amount) //added by Fuad H.
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth); // Ensures health doesn't exceed the maxHealth.
-        Debug.Log("Health increased by: " + amount);
+        //Debug.Log("Health increased by: " + amount);
     }
     public int NumberOfDiamonds {  get; private set; }
 

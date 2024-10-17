@@ -68,7 +68,7 @@ public class tutorialManager : MonoBehaviour
     {
         gameManager.instance.statePause();
         tutorialRunning = true;
-        Debug.Log(tutorialPage[item]);
+        //Debug.Log(tutorialPage[item]);
         parentObject = GameObject.Find(tutorialPage[item]).transform;
 
         if(parentObject.childCount > 0) //if the object has no kids, just run the explainer script
