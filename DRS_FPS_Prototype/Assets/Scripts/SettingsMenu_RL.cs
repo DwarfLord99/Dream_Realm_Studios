@@ -14,7 +14,10 @@ public class SettingsMenu_RL : MonoBehaviour
     //them out so if you want to use them just uncomment and if not no big deal. The only method I will leave open is the one for the
     //game volume.
 
-    [SerializeField] AudioMixer audioMixer; //component needed to change volume in-game
+    [SerializeField] public AudioMixer audioMixer; //component needed to change volume in-game
+    [SerializeField] public Slider masterVolume; // component slider for master volume
+    [SerializeField] public Slider musicVolume; // componenet slider for music volume
+    [SerializeField] public Slider sfxVolume; // component slider for sfx volume
     [SerializeField] TMPro.TMP_Dropdown resolutionDropDown; //component needed to change resolution
     [SerializeField] Toggle fullscreenToggle; // toggle for adjusting to full screen - Adriana V
 
@@ -60,20 +63,38 @@ public class SettingsMenu_RL : MonoBehaviour
         fullscreenToggle.onValueChanged.AddListener(SetFullScreen);
     }
 
-    public void VolumeControl(float volumeLevel)
+    //public void VolumeControl(float volumeLevel)
+    //{
+    //    //This setting uses the volume mixer I have added to the game. There is a parameter that is going to be called Volume which
+    //    //the code is already looking for in order to set the volume. When you create the volume slider in the UI, you will want the
+    //    //slider to go from a min of -80 to a max of 0. This is because that's how the master mixer does its sound value scaling.
+    //    //When playing audio in-game it will always be at max level so just make sure the slider fill amount is already maxed out
+    //    //by default.
+
+    //    //There is already a section to add the code to change the game volume. It's called On Value Changed (Single) and it works
+    //    //like when adding the methods for the button EXCEPT you want to choose the method name as it appears at the top of the
+    //    //list in the Dynamic float section.
+
+       
+    //    audioMixer.SetFloat("MusicVolume", volumeLevel);
+    //    audioMixer.SetFloat("SFXVolume", volumeLevel);
+    //}
+
+    public void SetMasterVolume()
     {
-        //This setting uses the volume mixer I have added to the game. There is a parameter that is going to be called Volume which
-        //the code is already looking for in order to set the volume. When you create the volume slider in the UI, you will want the
-        //slider to go from a min of -80 to a max of 0. This is because that's how the master mixer does its sound value scaling.
-        //When playing audio in-game it will always be at max level so just make sure the slider fill amount is already maxed out
-        //by default.
+         float volumeLevel = masterVolume.value;
+         audioMixer.SetFloat("MasterVolume", volumeLevel);
+    }
 
-        //There is already a section to add the code to change the game volume. It's called On Value Changed (Single) and it works
-        //like when adding the methods for the button EXCEPT you want to choose the method name as it appears at the top of the
-        //list in the Dynamic float section.
-
-        audioMixer.SetFloat("MasterVolume", volumeLevel);
+    public void SetMusicVolume()
+    {
+        float volumeLevel = musicVolume.value;
         audioMixer.SetFloat("MusicVolume", volumeLevel);
+    }
+
+    public void SetSFXVolume()
+    {
+        float volumeLevel = sfxVolume.value;
         audioMixer.SetFloat("SFXVolume", volumeLevel);
     }
 
