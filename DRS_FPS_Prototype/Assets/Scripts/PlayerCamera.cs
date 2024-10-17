@@ -17,7 +17,8 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] int verticalMax;
     [SerializeField] bool InvertCameraControls;
 
-    [SerializeField] Slider senSlider; //-RL
+    [SerializeField] public Slider senSlider; //-RL
+    [SerializeField] public Slider gameSpeedSlider; // slider component to adjust game speed - AV
 
     float xRotation;
 
@@ -35,7 +36,9 @@ public class PlayerCamera : MonoBehaviour
 
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-
+            gameSpeedSlider.onValueChanged.AddListener(AdjustCameraSpeed);
+            
+            
          //startPos = transform.localPosition;
     }
 
