@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 public class MainMenuManager : MonoBehaviour
 {
     public static MainMenuManager instance;
+    public SettingsMenu_RL saveSettings;
 
     // Menu GameObjects
     [SerializeField] public GameObject menuMain;
@@ -67,6 +68,12 @@ public class MainMenuManager : MonoBehaviour
     {
         gameManager.instance.ShowMenu(gameManager.instance.menuOptions);
         menuSettings.gameObject.SetActive(true);
+
+        // initialize settingsMenu reference
+        if (saveSettings == null)
+        {
+            saveSettings = FindObjectOfType<SettingsMenu_RL>();
+        }
     }
 
     public void Graphics()
@@ -109,7 +116,11 @@ public class MainMenuManager : MonoBehaviour
     // method for the save button which will function for save settings
     public void SaveButton()
     {
-        // have not implemented this button's functionality yet
+        if (saveSettings != null)
+        {
+            saveSettings.SaveAllSettings(); // reference the settings menu to call the save settings method
+        }
+    
     }
 
     // method to fast forward the credits text in the credits menu

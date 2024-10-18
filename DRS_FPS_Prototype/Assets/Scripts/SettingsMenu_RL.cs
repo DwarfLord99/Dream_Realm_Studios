@@ -135,4 +135,63 @@ public class SettingsMenu_RL : MonoBehaviour
 
         Time.timeScale = timeScaleOrig * speed;
     }
+
+    public void SaveAllSettings()
+    {
+        // save screen resolution
+        PlayerPrefs.SetInt("Resolution", resolutionDropDown.value);
+
+        // save fullscreen toggle
+        PlayerPrefs.SetInt("FullScreen", fullscreenToggle.isOn ? 1 : 0);
+
+        // save audio settings
+        PlayerPrefs.SetFloat("MasterVolume", masterVolume.value);
+        PlayerPrefs.SetFloat("MusicVolume", musicVolume.value);
+        PlayerPrefs.SetFloat("sfxVolume", sfxVolume.value);
+
+        // save user changes
+        PlayerPrefs.Save();
+    }
+
+    public void LoadAllSettings()
+    {
+        // load screen resolution settings
+        if (PlayerPrefs.HasKey("Resolution"))
+        {
+            int resolutionIndex = PlayerPrefs.GetInt("Resolution");
+            resolutionDropDown.value = resolutionIndex;
+            resolutionDropDown.RefreshShownValue();
+            SetResolution(resolutionIndex);
+        }
+
+        // load fullscreen toggle settings
+        if (PlayerPrefs.HasKey("FullScreen"))
+        {
+            bool isFullScreen = PlayerPrefs.GetInt("FullScreen") == 1;
+            fullscreenToggle.isOn = isFullScreen;
+            SetFullScreen(isFullScreen);    
+        }
+
+        // load audio settings
+        if (PlayerPrefs.HasKey("MasterVolume"))
+        {
+            float masterVol = PlayerPrefs.GetFloat("MasterVolume");
+            masterVolume.value = masterVol;
+            SetMasterVolume(); 
+        }
+
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            float musicVol = PlayerPrefs.GetFloat("MusicVolume");
+            musicVolume.value = musicVol;
+            SetMusicVolume();
+        }
+
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            float sfxVol = PlayerPrefs.GetFloat("SFXVolume");
+            sfxVolume.value = sfxVol;
+            SetSFXVolume();
+        }
+    }
 }

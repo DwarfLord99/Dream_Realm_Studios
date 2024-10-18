@@ -6,7 +6,6 @@ using UnityEngine;
 //added by Zachary D
 using UnityEngine.UI;
 
-
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
