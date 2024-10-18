@@ -74,7 +74,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetKeyDown(KeyCode.P)) // replaced the GetButtonDown("Cancel") to bind the pause button to the P key instead of the esc key. It was causing issues with the pause menu and resume button. - Adriana V
         {
             if (menuActive == null)
             {

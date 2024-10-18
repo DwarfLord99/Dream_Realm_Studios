@@ -75,9 +75,7 @@ public class SettingsMenu_RL : MonoBehaviour
     //    //like when adding the methods for the button EXCEPT you want to choose the method name as it appears at the top of the
     //    //list in the Dynamic float section.
 
-       
-    //    audioMixer.SetFloat("MusicVolume", volumeLevel);
-    //    audioMixer.SetFloat("SFXVolume", volumeLevel);
+  
     //}
 
     public void SetMasterVolume()
