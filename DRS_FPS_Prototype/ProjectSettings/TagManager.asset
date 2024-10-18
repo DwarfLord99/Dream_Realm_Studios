@@ -12,6 +12,7 @@ TagManager:
   - Weapon
   - Healing
   - Key
+  - CritZone
   layers:
   - Default
   - TransparentFX
