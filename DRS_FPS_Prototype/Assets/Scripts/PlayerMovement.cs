@@ -288,10 +288,10 @@ public class PlayerMovement : MonoBehaviour, IDamage
            PlayerCanTakeDamage = false;
        }
 
-        StartCoroutine(PlayercCanBeDamaged());
+        StartCoroutine(PlayerCanBeDamaged());
     }
 
-    IEnumerator PlayercCanBeDamaged()
+    IEnumerator PlayerCanBeDamaged()
     {
         if(PlayerCanTakeDamage == false)
         {
