@@ -109,7 +109,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             {
                 //Debug.Log("Go back to roaming");
                 enemyHPBar.SetActive(false);
-                roamCoroutine = StartCoroutine(EnemyRoam());
+                if(gameObject.CompareTag("Enemy"))
+                    roamCoroutine = StartCoroutine(EnemyRoam());
             }
         }
         else if (!playerInRange)
@@ -118,7 +119,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             if (!isRoaming && enemyAgent.remainingDistance < 0.05 &&  roamCoroutine == null)
             {
                 enemyHPBar.SetActive(false);
-                roamCoroutine = StartCoroutine(EnemyRoam());
+                if (gameObject.CompareTag("Enemy"))
+                    roamCoroutine = StartCoroutine(EnemyRoam());
             }
         }
     }

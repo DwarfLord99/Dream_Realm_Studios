@@ -781,34 +781,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3471391988212840114, guid: de559687a9ef91645b5278dfdf979a70, type: 3}
-      propertyPath: enemyHP
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3471391988212840114, guid: de559687a9ef91645b5278dfdf979a70, type: 3}
-      propertyPath: roamTimer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3471391988212840114, guid: de559687a9ef91645b5278dfdf979a70, type: 3}
-      propertyPath: viewAngle
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 3471391988212840114, guid: de559687a9ef91645b5278dfdf979a70, type: 3}
-      propertyPath: enemyMaxHP
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3471391988212840114, guid: de559687a9ef91645b5278dfdf979a70, type: 3}
-      propertyPath: roamDistance
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3471391988212840114, guid: de559687a9ef91645b5278dfdf979a70, type: 3}
-      propertyPath: faceTargetSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3471391988212840114, guid: de559687a9ef91645b5278dfdf979a70, type: 3}
-      propertyPath: animSpeedTransition
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6682651682959377360, guid: de559687a9ef91645b5278dfdf979a70, type: 3}
       propertyPath: m_Name
       value: ShadowBoss
