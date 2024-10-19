@@ -59,6 +59,7 @@ public class SettingsMenu_RL : MonoBehaviour
         resolutionDropDown.onValueChanged.AddListener(SetResolution);
 
         // Initialize full screen toggle - Adriana V
+        // What happens when full screen is toggled off? Try making this explicit to unity?
         fullscreenToggle.isOn = Screen.fullScreen;
         fullscreenToggle.onValueChanged.AddListener(SetFullScreen);
     }
