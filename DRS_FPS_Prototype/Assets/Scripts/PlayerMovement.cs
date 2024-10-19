@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         if (Input.GetButtonDown("Jump") && numberOfJumps < jumpMax)
         { 
             numberOfJumps++;
-            PlayerVelocity.y = jumpSpeed * Time.deltaTime;
+            PlayerVelocity.y = jumpSpeed; //* Time.deltaTime; REMOVED TO TEST TO SEE IF THE PLAYER WILL JUMP, BY FUAD H. 
             Audio.PlayOneShot(JumpingAudio[Random.Range(0, JumpingAudio.Length)], JumpingVolume);
         }
 
