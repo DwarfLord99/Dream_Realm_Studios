@@ -16,6 +16,12 @@ MonoBehaviour:
   Damage: 1
   EffectiveRange: 100
   RateOfFire: 0.25
-  CurrentAmmo: 3
+  CurrentAmmo: 0
   MaxAmmo: 6
   HitEffect: {fileID: 2955623459812423941, guid: f5507a8c6a22c404ab324980c4e8a11b, type: 3}
+  GunSound:
+  - {fileID: 8300000, guid: 65201ddabb4144f6a8fb9480120b7656, type: 3}
+  GunVolume: 5
+  EmptySound:
+  - {fileID: 8300000, guid: e7632c6401c09437e83de45d33c5858e, type: 3}
+  EmptyVolume: 5

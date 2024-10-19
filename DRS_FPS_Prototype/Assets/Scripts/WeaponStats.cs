@@ -16,5 +16,8 @@ public class WeaponStats : ScriptableObject
     public ParticleSystem HitEffect;
     public AudioClip[] GunSound;
     public float GunVolume;
+
+    public AudioClip[] EmptySound;
+    public float EmptyVolume;
     
 }

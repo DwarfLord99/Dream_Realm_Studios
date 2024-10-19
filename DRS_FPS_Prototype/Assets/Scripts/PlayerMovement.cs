@@ -166,7 +166,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
         // if shoot button is pressed and the player is not already shooting 
         // then call the shooting function
-        if (Input.GetButton("Fire1") && WeaponList.Count > 0 && WeaponList[CurrentWeaponPOS].CurrentAmmo > 0 && !PlayerShooting)
+        if (Input.GetButton("Fire1") && WeaponList.Count > 0 && !PlayerShooting)
         {
             StartCoroutine(Shooting());
         }
@@ -222,37 +222,45 @@ public class PlayerMovement : MonoBehaviour, IDamage
     {
         // sets bool to true 
         PlayerShooting = true;
-        WeaponList[CurrentWeaponPOS].CurrentAmmo--;
-        UpdatePlayerUI();
-        StartCoroutine(FlashMuzzle());
 
-        // since there is no gun audio at the moment this line is commented out to prvent issues
-       // Audio.PlayOneShot(WeaponList[CurrentWeaponPOS].GunSound[Random.Range(0, WeaponList[CurrentWeaponPOS].GunSound.Length)], WeaponList[CurrentWeaponPOS].GunVolume);
-
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, effectiveRange, ~ignoreMask))
+        if (WeaponList[CurrentWeaponPOS].CurrentAmmo > 0)
         {
-            // see if the itsem is part of IDamage
-            IDamage damage = hit.collider.GetComponent<IDamage>();
+            WeaponList[CurrentWeaponPOS].CurrentAmmo--;
+            UpdatePlayerUI();
+            StartCoroutine(FlashMuzzle());
+            Audio.PlayOneShot(WeaponList[CurrentWeaponPOS].GunSound[Random.Range(0, WeaponList[CurrentWeaponPOS].GunSound.Length)], WeaponList[CurrentWeaponPOS].GunVolume);
 
-            // a debug line to give the name of what the raycast hits
-            //Debug.Log(hit.collider.transform.name);
-
-            if (WeaponList[CurrentWeaponPOS] != null)
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, effectiveRange, ~ignoreMask))
             {
-                Instantiate(WeaponList[CurrentWeaponPOS].HitEffect, hit.point, Quaternion.identity);
+                // see if the itsem is part of IDamage
+                IDamage damage = hit.collider.GetComponent<IDamage>();
+
+                // a debug line to give the name of what the raycast hits
+                //Debug.Log(hit.collider.transform.name);
+
+                if (WeaponList[CurrentWeaponPOS] != null)
+                {
+                    Instantiate(WeaponList[CurrentWeaponPOS].HitEffect, hit.point, Quaternion.identity);
+                }
+
+                // casues a set amount of damage based on what is set in the field
+                if (damage != null)
+                {
+                    // atempt to update later if player is givin a model
+                    damage.takeDamage(ProjectileDamage);
+                }
             }
 
-            // casues a set amount of damage based on what is set in the field
-            if (damage != null)
-            {
-                // atempt to update later if player is givin a model
-                damage.takeDamage(ProjectileDamage);
-            }
+            // tells the function to wait for a set amout of time in this case the rate of fire field 
+            yield return new WaitForSeconds(RateOfFire);
         }
 
-        // tells the function to wait for a set amout of time in this case the rate of fire field 
-        yield return new WaitForSeconds(RateOfFire);
+        if(WeaponList[CurrentWeaponPOS].CurrentAmmo == 0)
+        {
+            Audio.PlayOneShot(WeaponList[CurrentWeaponPOS].EmptySound[Random.Range(0, WeaponList[CurrentWeaponPOS].EmptySound.Length)], WeaponList[CurrentWeaponPOS].EmptyVolume);
+            yield return new WaitForSeconds(RateOfFire);
+        }
         // sets bool to false once the function has completed or the player has stopped shooting
         PlayerShooting = false;
 
@@ -264,8 +272,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             // reduce HP based on damage taken
             HP -= damage;
-            // no gun aduio so removed line to prvent errors
-            //Audio.PlayOneShot(DamageAudio[Random.Range(0, DamageAudio.Length)], DamageVolume);
+            Audio.PlayOneShot(DamageAudio[Random.Range(0, DamageAudio.Length)], DamageVolume);
             UpdatePlayerUI();
             StartCoroutine(PlayerTakesDamage());
          
