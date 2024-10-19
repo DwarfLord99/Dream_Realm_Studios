@@ -29,8 +29,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject menuGraphics;
     [SerializeField] public GameObject menuAudio;
     [SerializeField] public GameObject menuControls;
-    [SerializeField] public GameObject menuGameplay;
-
+    
     [SerializeField] TMP_Text enemyCountText; // added by Adriana V
     public TMP_Text ammoCur, ammoMax; // added by Fuad H
 
@@ -155,7 +154,6 @@ public class gameManager : MonoBehaviour
         menuGraphics.SetActive(false);
         menuAudio.SetActive(false);
         menuControls.SetActive(false);
-        menuGameplay.SetActive(false);
 
     }
 

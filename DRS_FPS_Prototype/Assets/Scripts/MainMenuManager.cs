@@ -24,7 +24,6 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] public GameObject menuGraphics;
     [SerializeField] public GameObject menuAudio;
     [SerializeField] public GameObject menuControls;
-    [SerializeField] public GameObject menuGameplay;
 
     // method to show the play menu
     public void Play()
@@ -84,10 +83,6 @@ public class MainMenuManager : MonoBehaviour
     public void Audio()
     {
         gameManager.instance.ShowMenu(menuAudio);
-    }
-    public void Gameplay() 
-    {
-        gameManager.instance.ShowMenu(menuGameplay);
     }
 
     public void Controls()
