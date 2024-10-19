@@ -35,6 +35,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     // How fast the enemy can shoot at the target
     [SerializeField] float shootRate;
     [SerializeField] GameObject strikeZone;
+    //Crit strike zones
+    //[SerializeField] GameObject critHead;
 
     [Header("Player Detection")]
     // detection radius for fear meter to indicate how close the player
