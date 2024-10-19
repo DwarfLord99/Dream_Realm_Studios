@@ -11,6 +11,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] Renderer enemyModel;
     [SerializeField] NavMeshAgent enemyAgent;
     [SerializeField] Transform shotPos;
+    [SerializeField] Transform strongShotPos;
     [SerializeField] Transform headPos;
     [SerializeField] Animator animator;
     [SerializeField] AnimationClip deathAnim;
@@ -31,7 +32,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] private Transform ItemDropSpawnPoint; // created by Fuad
 
     [Header("Combat")]
+    //normal range attack bullet
     [SerializeField] GameObject bullet;
+    //strong range attack bullet
+    [SerializeField] GameObject strongBullet;
     // How fast the enemy can shoot at the target
     [SerializeField] float shootRate;
     [SerializeField] GameObject strikeZone;
@@ -86,6 +90,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         {
             transform.position = Vector3.MoveTowards(transform.position, deathPos, 0.1f);
         }
+
+        animator.SetInteger("enemyHP", enemyHP);
     }
 
     public void EnemySpawnEffect()
@@ -187,6 +193,11 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     {
         if(bullet != null)
             Instantiate(bullet, shotPos.position, transform.rotation);
+    }
+    public void CreateStrongBullet()
+    {
+        if (strongBullet != null)
+            Instantiate(strongBullet, strongShotPos.position, transform.rotation);
     }
 
     public void takeDamage(int amountOfDamage)
