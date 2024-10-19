@@ -78,7 +78,7 @@ public class gameManager : MonoBehaviour
             {
                 statePause();
                 menuActive = menuPause;
-                menuPause.SetActive(isPaused);
+                menuPause.SetActive(true); // set pause menu to true and removed it set to isPaused - Adriana V
             }
             else if (menuActive == menuPause)
             {
@@ -99,10 +99,17 @@ public class gameManager : MonoBehaviour
 
     public void stateUnpause()
     {
-        isPaused = !isPaused;
+        isPaused = false; // removed !isPaused to set the paused state to false - Adriana V
         Time.timeScale = timeScaleOrig;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        // apply a check to make sure the game can resume properly by hiding the pause menu - Adriana V
+        if (menuPause != null)
+        {
+            menuPause.SetActive(false);
+        }
+
     }
 
     public void updateGameGoal(int amount)
