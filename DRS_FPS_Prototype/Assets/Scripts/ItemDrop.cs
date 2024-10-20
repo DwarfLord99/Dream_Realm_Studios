@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemDrop : MonoBehaviour
 {
-    [SerializeField] private int healthRestoreAmount = 10; // amount of health the item restores
+    [SerializeField] public int healthRestoreAmount = 10; // amount of health the item restores
     [SerializeField] private float attractSpeed = 5f; // speed the item moves towards player
     [SerializeField] private float attractRange = 10f; // range which the player attracts the item 
 
@@ -38,13 +38,13 @@ public class ItemDrop : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, attractSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+/*   private void OnTriggerEnter(Collider other)
     {
         // If the essence collides with the player, restore health and destroy the essence
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.playerScript.RestoreHealth(healthRestoreAmount);
+            PlayerMovement.instance.RestoreHealth(healthRestoreAmount);
             Destroy(gameObject); // Destroy the essence after collection
         }
-    }
+    }*/
 }

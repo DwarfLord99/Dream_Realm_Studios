@@ -8,6 +8,7 @@ using System.Linq;
 
 public class PlayerMovement : MonoBehaviour, IDamage
 {
+    public static PlayerMovement instance;
 
     [Header("Componets")]
 
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
     [Header("Audio")]
 
     [SerializeField] AudioClip[] WalkingAudio;
-   [Range(0,1)] [SerializeField] float WalkingVolume;
+    [Range(0, 1)][SerializeField] float WalkingVolume;
 
     [SerializeField] AudioClip[] JumpingAudio;
     [Range(0, 1)][SerializeField] float JumpingVolume;
@@ -86,16 +87,17 @@ public class PlayerMovement : MonoBehaviour, IDamage
         DefaultHP = HP;
         UpdatePlayerUI();
         PlayerSpawn();
+        instance = this;
     }
 
 
     // added by Fuad
-    public void RestoreHealth(int amount) 
+    public void RestoreHealth(int amount)
     {
         HP = Mathf.Min(HP + amount, DefaultHP); // increases HP, but not beyond max health
         UpdatePlayerUI(); // update the UI to reflect the new health value
         // added to turn to vignetter off
-        DamageVignette(); 
+        DamageVignette();
     }
 
     // spawns the player at a point in the map
@@ -115,15 +117,15 @@ public class PlayerMovement : MonoBehaviour, IDamage
     void Update()
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * effectiveRange, Color.red);
-        
+
         if (gameManager.instance != null && !gameManager.instance.isPaused) // added a null check to prevent the null reference error - Adriana V
         {
             Movement();
             WeaponSelect();
         }
 
-       sprint();
-       PlayerCrouch();
+        sprint();
+        PlayerCrouch();
 
     }
 
@@ -145,14 +147,14 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
         // jump 
         if (Input.GetButtonDown("Jump") && numberOfJumps < jumpMax)
-        { 
+        {
             numberOfJumps++;
             PlayerVelocity.y = jumpSpeed; //* Time.deltaTime; REMOVED TO TEST TO SEE IF THE PLAYER WILL JUMP, BY FUAD H. 
             Audio.PlayOneShot(JumpingAudio[Random.Range(0, JumpingAudio.Length)], JumpingVolume);
         }
 
         // relaods the plaeyrs gun
-        if(Input.GetButtonDown("Reload") && WeaponList[CurrentWeaponPOS].CurrentAmmo < WeaponList[CurrentWeaponPOS].MaxAmmo)
+        if (Input.GetButtonDown("Reload") && WeaponList[CurrentWeaponPOS].CurrentAmmo < WeaponList[CurrentWeaponPOS].MaxAmmo)
         {
             WeaponList[CurrentWeaponPOS].CurrentAmmo = WeaponList[CurrentWeaponPOS].MaxAmmo;
             UpdatePlayerUI();
@@ -256,7 +258,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
             yield return new WaitForSeconds(RateOfFire);
         }
 
-        if(WeaponList[CurrentWeaponPOS].CurrentAmmo == 0)
+        if (WeaponList[CurrentWeaponPOS].CurrentAmmo == 0)
         {
             Audio.PlayOneShot(WeaponList[CurrentWeaponPOS].EmptySound[Random.Range(0, WeaponList[CurrentWeaponPOS].EmptySound.Length)], WeaponList[CurrentWeaponPOS].EmptyVolume);
             yield return new WaitForSeconds(RateOfFire);
@@ -275,7 +277,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
             Audio.PlayOneShot(DamageAudio[Random.Range(0, DamageAudio.Length)], DamageVolume);
             UpdatePlayerUI();
             StartCoroutine(PlayerTakesDamage());
-         
+
             DamageVignette();
 
             // when players HP hits zero
@@ -285,18 +287,18 @@ public class PlayerMovement : MonoBehaviour, IDamage
                 gameManager.instance.youlose();
             }
 
-           PlayerCanTakeDamage = false;
-       }
+            PlayerCanTakeDamage = false;
+        }
 
         StartCoroutine(PlayerCanBeDamaged());
     }
 
     IEnumerator PlayerCanBeDamaged()
     {
-        if(PlayerCanTakeDamage == false)
+        if (PlayerCanTakeDamage == false)
         {
             yield return new WaitForSeconds(0.5f);
-            PlayerCanTakeDamage = true; 
+            PlayerCanTakeDamage = true;
         }
     }
 
@@ -322,7 +324,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / DefaultHP;
 
-        if(WeaponList.Count > 0)
+        if (WeaponList.Count > 0)
         {
             gameManager.instance.ammoCur.text = WeaponList[CurrentWeaponPOS].CurrentAmmo.ToString("F0");
             gameManager.instance.ammoMax.text = WeaponList[CurrentWeaponPOS].MaxAmmo.ToString("F0");
@@ -352,10 +354,10 @@ public class PlayerMovement : MonoBehaviour, IDamage
         //    tutorialManager.instance.FireTutorial(Item.tag);
         //} //-RL Commented out until tutorial system is back working
     }
-        
+
     void WeaponSelect()
     {
-        if(Input.GetAxis("Mouse ScrollWheel") > 0 && CurrentWeaponPOS < WeaponList.Count -1) 
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && CurrentWeaponPOS < WeaponList.Count - 1)
         {
             CurrentWeaponPOS++;
             ChangeWeapon();
@@ -381,11 +383,11 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     void DamageVignette()
     {
-        if(gameManager.instance.playerHPBar.fillAmount < 0.25)
+        if (gameManager.instance.playerHPBar.fillAmount < 0.25)
         {
             gameManager.instance.DamageVignetteImage.SetActive(true);
         }
-        else if(gameManager.instance.playerHPBar.fillAmount > 0.25)
+        else if (gameManager.instance.playerHPBar.fillAmount > 0.25)
         {
             gameManager.instance.DamageVignetteImage.SetActive(false);
         }
@@ -399,10 +401,13 @@ public class PlayerMovement : MonoBehaviour, IDamage
             Playerheight.height = CrouchHeight;
             //PlayerCrouched = true;
         }
-        if(Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.C))
         {
             Playerheight.height = NormalHeight;
             //PlayerCrouched = false;
         }
     }
+
+    //getter for debugging
+    public int GetHP() { return HP; }
 }

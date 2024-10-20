@@ -7,8 +7,9 @@ public class ItemPickup : MonoBehaviour, IPickup
 {
     [SerializeField] WeaponStats weapon; // Adriana V
     //[SerializeField] ItemPickup item;
-    [SerializeField] int healthAmount;  // Add healthAmount to determine how much health this pickup restores. * added by Fuad H.
-    //[SerializeField] GameObject item;
+    int healthAmount;  // Add healthAmount to determine how much health this pickup restores. * added by Fuad H.
+    ItemPickup instance;
+    ItemDrop item;
 
     // Unsure of reason for the weapon stats added here. Line 14 causes issues with item pickups -Zachary D
 
@@ -17,6 +18,8 @@ public class ItemPickup : MonoBehaviour, IPickup
     {
         if(weapon != null) // check for null so game doesn't try to display what doesn't exist yet - RL
             weapon.CurrentAmmo = weapon.MaxAmmo; // Adriana V
+
+        //item = this;
     }
 
     // Destin Bernavil Notes:
@@ -60,12 +63,15 @@ public class ItemPickup : MonoBehaviour, IPickup
             }
             else if(this.CompareTag("Healing"))
             {
-                gameManager.instance.playerScript.RestoreHealth(healthAmount);
+                item = GetComponent<ItemDrop>();
+                PlayerMovement.instance.RestoreHealth(item.healthRestoreAmount);
+                Debug.Log($"{PlayerMovement.instance.GetHP()}");
                 Destroy(gameObject);
+                Debug.Log("Destroy");
             }
             else
             {
-                //Debug.Log("Something went wrong.");
+                Debug.Log("Something went wrong.");
             }
 
         }
