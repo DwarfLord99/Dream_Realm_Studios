@@ -17,6 +17,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] AnimationClip deathAnim;
     [SerializeField] GameObject enemyHPBar;
     [SerializeField] ParticleSystem spawnEffect;
+    [SerializeField] AudioSource audioSource;
 
     [Header("Enemy Stats")]
     // Enemy HP
@@ -30,6 +31,16 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] private GameObject ItemDropPrefab; // created by Fuad
     //Point where the item spawns 
     [SerializeField] private Transform ItemDropSpawnPoint; // created by Fuad
+
+    [Header("Audio")]
+    [SerializeField] AudioClip[] audRoam;
+    [Range(0, 1)][SerializeField] float audRoamVol;
+    [SerializeField] AudioClip[] audAttack;
+    [Range(0, 1)][SerializeField] float audAttackVol;
+    [SerializeField] AudioClip[] audHurt;
+    [Range(0, 1)][SerializeField] float audHurtVol;
+    [SerializeField] AudioClip[] audDeath;
+    [Range(0, 1)][SerializeField] float audDeathVol;
 
     [Header("Combat")]
     //normal range attack bullet
@@ -70,6 +81,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     private float angleToPlayer;
     private float stoppingDisOriginal;
 
+    private string enemyName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +92,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         startingPos = transform.position;
         enemyMaxHP = enemyHP;
         healthBar.UpdateHealthBar(enemyHP, enemyMaxHP);
+        enemyName = gameObject.name;
     }
 
     // Update is called once per frame
@@ -113,7 +127,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             // activate roam mechanic
             if (!isRoaming && enemyAgent.remainingDistance < 0.05 && roamCoroutine == null) 
             {
-                //Debug.Log("Go back to roaming");
                 enemyHPBar.SetActive(false);
                 if(gameObject.CompareTag("Enemy"))
                     roamCoroutine = StartCoroutine(EnemyRoam());
@@ -136,6 +149,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
+            if (gameObject.CompareTag("Boss"))
+                audioSource.PlayOneShot(audRoam[0], audRoamVol);
         }
     }
 
@@ -149,11 +164,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     IEnumerator EnemyRoam()
     {
-        
         isRoaming = true;
-        //Debug.Log("I'm roaming");
         yield return new WaitForSeconds(roamTimer);
-
+        audioSource.PlayOneShot(audRoam[1], audRoamVol);
+        
         enemyAgent.stoppingDistance = 0;
 
         Vector3 randomPosition = Random.insideUnitSphere * roamDistance;
@@ -185,6 +199,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     IEnumerator Strike()
     {
         strikeZone.SetActive(true);
+        audioSource.PlayOneShot(audAttack[0], audAttackVol);
         yield return new WaitForSeconds(0.1f);
         strikeZone.SetActive(false);
     }
@@ -193,11 +208,17 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     {
         if(bullet != null)
             Instantiate(bullet, shotPos.position, transform.rotation);
+            audioSource.PlayOneShot(audAttack[0], audAttackVol);
     }
     public void CreateStrongBullet()
     {
         if (strongBullet != null)
             Instantiate(strongBullet, strongShotPos.position, transform.rotation);
+    }
+
+    public void BossStrongAttack()
+    {
+        audioSource.PlayOneShot(audAttack[1], audAttackVol);
     }
 
     public void takeDamage(int amountOfDamage)
@@ -206,6 +227,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         enemyHP -= amountOfDamage;
         enemyHPBar.SetActive(true);
         healthBar.UpdateHealthBar(enemyHP, enemyMaxHP);
+        if(enemyHP == 2)
+        {
+            audioSource.PlayOneShot(audHurt[0], audHurtVol);
+        }
         StartCoroutine(DamageFlash());
 
         if(roamCoroutine != null) //added by fuad - Stops roaming when the player is damaged 
@@ -240,7 +265,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     IEnumerator Death()
     {
         deathPos = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
-        gameObject.GetComponent<Collider>().enabled = false;        
+        gameObject.GetComponent<Collider>().enabled = false;
+        audioSource.PlayOneShot(audDeath[0], audDeathVol);
         yield return new WaitForSeconds(deathAnim.length + 1.5f);
 
         //Drop the first aid item when enemy dies *added by Fuad
