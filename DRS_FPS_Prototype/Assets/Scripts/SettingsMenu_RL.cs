@@ -21,15 +21,6 @@ public class SettingsMenu_RL : MonoBehaviour
     [SerializeField] TMPro.TMP_Dropdown resolutionDropDown; //component needed to change resolution
     [SerializeField] Toggle fullscreenToggle; // toggle for adjusting to full screen - Adriana V
 
-
-    //[SerializeField] public GameObject[] OptionsEnableDisableTabs; // tab objects to enable and disable- AV
-    //[SerializeField] public Image[] SettingsTabButtons; // tab back image buttons to show which one is active or unactive - AV
-    //[SerializeField] public Sprite inactiveTabButtons; // tab buttons for which buttons are inactive when not clicked - AV
-    //[SerializeField] public Sprite activeTabsButton; // tab button for the button that is active when clicked on - AV
-    //[SerializeField] public Vector2 inactiveTabSize; // size for tabs when inactive(smaller than active tab - AV
-    //[SerializeField] public Vector2 activeTabSize; // size for tab when active (will be bigger than inactive tabs) - AV
-
-
     Resolution[] resolutions; //holds the different resolutions available for the player to choose from
     private float timeScaleOrig;
 
@@ -203,24 +194,4 @@ public class SettingsMenu_RL : MonoBehaviour
             SetSFXVolume();
         }
     }
-
-    // method to switch between active and inactive tabs in the settings submenus
-    // iterates over the options menu tabs and settings tab menus arrays in order to set the active state and the sprite based on the tab's index number
-    // not finished yet
-    //public void TabsSwitch(int TabIndex)
-    //{
-    //    if (OptionsEnableDisableTabs.Length == 0 || SettingsTabButtons.Length == 0)
-    //    {
-    //        Debug.LogError("OptionsEnableDisableTabs or SettingsTabButtons arrays are not assigned or empty");
-    //        return;
-    //    }
-
-    //    for (int i = 0; i < OptionsEnableDisableTabs.Length; i++)
-    //    {
-    //        OptionsEnableDisableTabs[i].SetActive(i == TabIndex);
-    //        SettingsTabButtons[i].sprite = (i == TabIndex) ? activeTabsButton : inactiveTabButtons;
-    //        SettingsTabButtons[i].rectTransform.sizeDelta = (i == TabIndex) ? activeTabSize : inactiveTabSize;
-    //    }
-    //}
-
 }
