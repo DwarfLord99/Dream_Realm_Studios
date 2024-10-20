@@ -21,9 +21,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] public GameObject menuHelp;
     [SerializeField] public GameObject menuTutorial;
     [SerializeField] public GameObject menuSettings;
-    [SerializeField] public GameObject menuGraphics;
-    [SerializeField] public GameObject menuAudio;
-    [SerializeField] public GameObject menuControls;
+   
 
     // method to show the play menu
     public void Play()
@@ -73,21 +71,6 @@ public class MainMenuManager : MonoBehaviour
         {
             saveSettings = FindObjectOfType<SettingsMenu_RL>();
         }
-    }
-
-    public void Graphics()
-    {
-        gameManager.instance.ShowMenu(menuGraphics);
-    }
-
-    public void Audio()
-    {
-        gameManager.instance.ShowMenu(menuAudio);
-    }
-
-    public void Controls()
-    {
-        gameManager.instance.ShowMenu(menuControls);
     }
 
     // method to show the credits menu

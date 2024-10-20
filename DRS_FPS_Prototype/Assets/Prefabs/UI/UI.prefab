@@ -2227,7 +2227,7 @@ RectTransform:
   m_Father: {fileID: 466163121760954530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2702,7 +2702,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 95.6, y: 26}
-  m_SizeDelta: {x: 400, y: 125}
+  m_SizeDelta: {x: 375, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7112478631986771470
 CanvasRenderer:
@@ -3229,7 +3229,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2600353145159511232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3664,8 +3664,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4280558740
+  m_fontColor: {r: 0.57861626, g: 0.14010514, b: 0.14010514, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7308,7 +7308,7 @@ RectTransform:
   m_Father: {fileID: 8541304575024371694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11230,7 +11230,7 @@ RectTransform:
   m_Father: {fileID: 1431676143228226556}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11820,8 +11820,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3913806116975150837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14265,9 +14265,6 @@ MonoBehaviour:
   menuHelp: {fileID: 4967338972584853670}
   menuTutorial: {fileID: 5995073907602356096}
   menuSettings: {fileID: 7447117992857779708}
-  menuGraphics: {fileID: 0}
-  menuAudio: {fileID: 0}
-  menuControls: {fileID: 0}
   enemyCountText: {fileID: 96269496383440874}
   ammoCur: {fileID: 7386892971855747395}
   ammoMax: {fileID: 8704278702442550838}
@@ -15502,9 +15499,6 @@ MonoBehaviour:
   menuHelp: {fileID: 4967338972584853670}
   menuTutorial: {fileID: 5995073907602356096}
   menuSettings: {fileID: 7447117992857779708}
-  menuGraphics: {fileID: 0}
-  menuAudio: {fileID: 0}
-  menuControls: {fileID: 0}
 --- !u!1 &6050267644178079036
 GameObject:
   m_ObjectHideFlags: 0
@@ -15947,8 +15941,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4628490432743235058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16066,8 +16060,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4280558740
+  m_fontColor: {r: 0.5803922, g: 0.14117648, b: 0.14117648, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19231,6 +19225,18 @@ MonoBehaviour:
   sfxVolume: {fileID: 7383717167583390746}
   resolutionDropDown: {fileID: 8238083901100407871}
   fullscreenToggle: {fileID: 6102904777047699117}
+  OptionsEnableDisableTabs:
+  - {fileID: 4637022331643726563}
+  - {fileID: 4055030572197352052}
+  - {fileID: 3079681013121669339}
+  SettingsTabButtons:
+  - {fileID: 6140384559798685381}
+  - {fileID: 7432558967917439751}
+  - {fileID: 6339190733946106942}
+  inactiveTabButtons: {fileID: 21300000, guid: 1c1f9cc868400e04fb01f282e4b63911, type: 3}
+  activeTabsButton: {fileID: 21300000, guid: e7e3e9257480a3b45891a4a1bd9b69cd, type: 3}
+  inactiveTabSize: {x: 525, y: 250}
+  activeTabSize: {x: 375, y: 125}
 --- !u!1 &7453605392776539938
 GameObject:
   m_ObjectHideFlags: 0
@@ -22919,8 +22925,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7389876640111500472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
