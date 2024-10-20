@@ -72,21 +72,6 @@ public class SettingsMenu_RL : MonoBehaviour
         fullscreenToggle.onValueChanged.AddListener(SetFullScreen);
     }
 
-    //public void VolumeControl(float volumeLevel)
-    //{
-    //    //This setting uses the volume mixer I have added to the game. There is a parameter that is going to be called Volume which
-    //    //the code is already looking for in order to set the volume. When you create the volume slider in the UI, you will want the
-    //    //slider to go from a min of -80 to a max of 0. This is because that's how the master mixer does its sound value scaling.
-    //    //When playing audio in-game it will always be at max level so just make sure the slider fill amount is already maxed out
-    //    //by default.
-
-    //    //There is already a section to add the code to change the game volume. It's called On Value Changed (Single) and it works
-    //    //like when adding the methods for the button EXCEPT you want to choose the method name as it appears at the top of the
-    //    //list in the Dynamic float section.
-
-  
-    //}
-
     public void SetMasterVolume()
     {
          float volumeLevel = masterVolume.value;
