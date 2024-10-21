@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
     public float NormalHeight;
     public float CrouchHeight;
 
+    [SerializeField] Animator animate;
+
     [Header("player stats")]
 
     //player stats
@@ -29,6 +31,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
     [Range(1, 20)][SerializeField] int jumpSpeed;
     [Range(1, 2)][SerializeField] int jumpMax;
     [Range(10, 45)][SerializeField] int gravity;
+
+    [SerializeField] Animator Animate;
 
     [Header("invetory/guns ")]
 
