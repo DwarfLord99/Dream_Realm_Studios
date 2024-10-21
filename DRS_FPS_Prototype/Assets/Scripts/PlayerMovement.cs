@@ -241,7 +241,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
             {
                 // see if the itsem is part of IDamage
                 IDamage damage = hit.collider.GetComponent<IDamage>();
-
+                EnemyAI_RL enemy = hit.collider.GetComponentInParent<EnemyAI_RL>(); // Added to give reference to enemy to trigger crit strike effect -RL
                 // a debug line to give the name of what the raycast hits
                 //Debug.Log(hit.collider.transform.name);
 
@@ -254,7 +254,17 @@ public class PlayerMovement : MonoBehaviour, IDamage
                 if (damage != null)
                 {
                     // atempt to update later if player is givin a model
-                    damage.takeDamage(ProjectileDamage);
+                    damage.takeDamage(ProjectileDamage);                    
+                }
+
+                // This section is used to trigger a critical strike against enemies -RL
+                if (hit.collider.CompareTag("CritZone"))
+                {
+                    hit.collider.gameObject.SetActive(false);
+                    if(hit.collider.gameObject.activeSelf == false)
+                    {
+                        enemy.CritStrike();
+                    }
                 }
             }
 

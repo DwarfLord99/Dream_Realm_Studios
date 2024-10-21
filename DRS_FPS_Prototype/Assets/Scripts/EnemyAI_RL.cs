@@ -51,7 +51,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] GameObject strikeZone;
     //Crit strike zones
-    //[SerializeField] GameObject critHead;
+    [SerializeField] GameObject critZone;
 
     [Header("Player Detection")]
     // detection radius for fear meter to indicate how close the player
@@ -75,7 +75,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     private Vector3 playerDirection;
     // Starting position of enemy after spawning
     private Vector3 startingPos;
-    private Vector3 deathPos;
 
     // Compare to view angle to see if target can be seen
     private float angleToPlayer;
@@ -99,12 +98,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     void Update()
     {
         EnemyRoamMechanic();
-
-        if(enemyHP <= 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, deathPos, 0.1f);
-        }
-
         animator.SetInteger("enemyHP", enemyHP);
     }
 
@@ -264,7 +257,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     IEnumerator Death()
     {
-        deathPos = new Vector3(transform.position.x, transform.position.y - 3.0f, transform.position.z);
         gameObject.GetComponent<Collider>().enabled = false;
         audioSource.PlayOneShot(audDeath[0], audDeathVol);
         yield return new WaitForSeconds(deathAnim.length + 1.5f);
@@ -279,6 +271,13 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     private void DropItem()// added by Fuad
     {
         Instantiate(ItemDropPrefab, ItemDropSpawnPoint.position, Quaternion.identity);
+    }
+
+    public void CritStrike()
+    {
+        //When CritStrike is triggered, instantly kills basic enemies
+        animator.SetBool("isDead", true);
+        StartCoroutine(Death());
     }
 
     bool CanSeePlayer()
