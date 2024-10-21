@@ -38,13 +38,5 @@ public class ItemDrop : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, attractSpeed * Time.deltaTime);
     }
 
-/*   private void OnTriggerEnter(Collider other)
-    {
-        // If the essence collides with the player, restore health and destroy the essence
-        if (other.CompareTag("Player"))
-        {
-            PlayerMovement.instance.RestoreHealth(healthRestoreAmount);
-            Destroy(gameObject); // Destroy the essence after collection
-        }
-    }*/
+
 }

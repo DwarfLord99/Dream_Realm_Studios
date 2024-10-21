@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
-  healthAmount: 0
 --- !u!135 &6172371480385303585
 SphereCollider:
   m_ObjectHideFlags: 0

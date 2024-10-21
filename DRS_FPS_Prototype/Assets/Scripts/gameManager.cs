@@ -9,8 +9,12 @@ using UnityEngine.UI;
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
-    static tutorialManager tutorialManager;
-    
+    //static tutorialManager tutorialManager;
+
+    // enables/disables tutorial for all items
+    public bool tutorialEnabled = true;
+    public bool tutorialRunning = false;
+
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
@@ -42,6 +46,7 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public GameObject DamageVignetteImage;
     public PlayerMovement playerScript;
+    private GameObject[] enemies;
 
 
     int enemyCount;
@@ -64,6 +69,9 @@ public class gameManager : MonoBehaviour
             player = GameObject.FindWithTag("Player");
             playerScript = player.GetComponent<PlayerMovement>();
             playerSpawnPos = GameObject.FindWithTag("Player Spawn Pos"); // added by Fuad H
+
+            //extra code to pause enemies for tutorial
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
         }
         
     }
@@ -86,6 +94,8 @@ public class gameManager : MonoBehaviour
                 menuActive = null; 
             }
         }
+
+        
     }
 
     public void statePause()

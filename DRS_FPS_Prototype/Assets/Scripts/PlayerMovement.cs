@@ -84,6 +84,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     bool PlayerCanTakeDamage = true;
 
+    //public bool PlayerCanMove = true;
+
 
     // Start is called before the first frame update
     void Start()
