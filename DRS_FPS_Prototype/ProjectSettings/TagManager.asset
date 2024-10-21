@@ -16,6 +16,7 @@ TagManager:
   - Enemy
   - Boss
   - ClownBoss
+  - LoadScene
   layers:
   - Default
   - TransparentFX
