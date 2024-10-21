@@ -9002,7 +9002,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
     - target: {fileID: 2149767149490016426, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -9015,13 +9014,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a3a6c09320d6c9746b4b280ea6e1cbb9, type: 3}
-=======
->>>>>>> Stashed changes
     - target: {fileID: 2431759640803846242, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
     - target: {fileID: 2495766647764095102, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2
@@ -9114,12 +9110,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a3a6c09320d6c9746b4b280ea6e1cbb9, type: 3}
-=======
-    - target: {fileID: 4055151376186400469, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
-      propertyPath: gunPopup
-      value: 
-      objectReference: {fileID: 0}
->>>>>>> Stashed changes
     - target: {fileID: 4115672511269675044, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
       propertyPath: m_Name
       value: UI
@@ -17497,7 +17487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2140537370}
   m_Layer: 0
-  m_Name: Fear Meter
+  m_Name: FM Explainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
