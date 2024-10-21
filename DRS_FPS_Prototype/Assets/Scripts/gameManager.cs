@@ -59,7 +59,16 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-       instance = this;
+        // to ensure music doesn't restart when changing menus - AV
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
       
        
        timeScaleOrig = Time.timeScale;

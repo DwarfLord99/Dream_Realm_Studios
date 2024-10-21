@@ -20,7 +20,7 @@ public class SettingsMenu_RL : MonoBehaviour
     [SerializeField] public Slider sfxVolume; // component slider for sfx volume
     [SerializeField] TMPro.TMP_Dropdown resolutionDropDown; //component needed to change resolution
     [SerializeField] Toggle fullscreenToggle; // toggle for adjusting to full screen - Adriana V
-
+    [SerializeField] public AudioSource backgroundGameMusic; 
 
     [SerializeField] public GameObject[] OptionsEnableDisableTabs; // tab objects to enable and disable- AV
     [SerializeField] public Image[] SettingsTabButtons; // tab back image buttons to show which one is active or unactive - AV
@@ -70,23 +70,27 @@ public class SettingsMenu_RL : MonoBehaviour
         // Initialize full screen toggle - Adriana V
         fullscreenToggle.isOn = Screen.fullScreen;
         fullscreenToggle.onValueChanged.AddListener(SetFullScreen);
+
+
     }
 
+    // add Mathf.Max to ensure volume value is never zero or negative
+    // added the minimum value of 0.0001f to prevent log issues when the slider is near 0
     public void SetMasterVolume()
     {
-         float volumeLevel = masterVolume.value;
+         float volumeLevel = Mathf.Log10(Mathf.Max(masterVolume.value, 0.0001f)) * 20;
          audioMixer.SetFloat("MasterVolume", volumeLevel);
     }
 
     public void SetMusicVolume()
     {
-        float volumeLevel = musicVolume.value;
+        float volumeLevel = Mathf.Log10(Mathf.Max(musicVolume.value, 0.0001f)) * 20;
         audioMixer.SetFloat("MusicVolume", volumeLevel);
     }
 
     public void SetSFXVolume()
     {
-        float volumeLevel = sfxVolume.value;
+        float volumeLevel = Mathf.Log10(Mathf.Max(sfxVolume.value, 0.0001f)) * 20;
         audioMixer.SetFloat("SFXVolume", volumeLevel);
     }
 

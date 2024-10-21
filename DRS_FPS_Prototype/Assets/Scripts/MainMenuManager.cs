@@ -23,106 +23,128 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] public GameObject menuSettings;
 
     //// Pop-up GameObjects
-    //[SerializeField] public GameObject newGamePopUp;
-    //[SerializeField] public GameObject backPopUp;
-    //[SerializeField] public GameObject savePopUp;
-    //[SerializeField] public GameObject exitPopUp;
-    //[SerializeField] public GameObject fastForwardPopup;
+    [SerializeField] public GameObject newGamePopUp;
+    [SerializeField] public GameObject backPopUp;
+    [SerializeField] public GameObject savePopUp;
+    [SerializeField] public GameObject exitPopUp;
+    [SerializeField] public GameObject fastForwardPopup;
 
+    public void Start()
+    {
+        // hide all pop-ups at start
+        HideAllPopUps();
+    }
+
+    public void HideAllPopUps()
+    {
+        // hide all pop-ups
+        newGamePopUp.SetActive(false); 
+        exitPopUp.SetActive(false); 
+        savePopUp.SetActive(false); 
+        backPopUp.SetActive(false); 
+        fastForwardPopup.SetActive(false);
+    }
 
     //// method to show new game pop-up window
-    //public void ShowNewGamePopup()
-    //{
-    //    newGamePopUp.SetActive(true);
-    //}
-    
+    public void ShowNewGamePopup()
+    {
+        Debug.Log("ShowNewGamePopup called");
+        HideAllPopUps();
+        newGamePopUp.SetActive(true);
+    }
+
     //// method to ok new game when ok button is clicked
-    //public void OkNewGame()
-    //{
-    //    newGamePopUp.SetActive(false);
-    //    SceneManager.LoadScene("MAINSCENE");
-    //}
+    public void OkNewGame()
+    {
+        newGamePopUp.SetActive(false);
+        SceneManager.LoadScene("MAINSCENE");
+    }
 
     //// method to cancel new game pop up when cancel button is clicked
-    //public void CancelNewGame()
-    //{
-    //    newGamePopUp.SetActive(false);
-    //}
+    public void CancelNewGame()
+    {
+        newGamePopUp.SetActive(false);
+    }
 
     //// method to show the back button pop-up window
-    //public void ShowBackPopup()
-    //{
-    //    backPopUp.SetActive(true);
-    //}
+    public void ShowBackPopup()
+    {
+        HideAllPopUps();
+        backPopUp.SetActive(true);
+    }
 
     //// method to ok to go back to main menu when ok button is clicked
-    //public void OkBack()
-    //{
-    //    backPopUp.SetActive(false);
-    //    BackToMainMenu();
-    //}
+    public void OkBack()
+    {
+        backPopUp.SetActive(false);
+        BackToMainMenu();
+    }
 
     //// method to cancel to go back to main menu when cancel button is clicked
-    //public void CancelBack()
-    //{
-    //    backPopUp.SetActive(false);
-    //}
+    public void CancelBack()
+    {
+        backPopUp.SetActive(false);
+    }
 
     //// method to show save button pop up window
-    //public void ShowSavePopup()
-    //{
-    //    savePopUp.SetActive(true);
-    //}
+    public void ShowSavePopup()
+    {
+        HideAllPopUps();
+        savePopUp.SetActive(true);
+    }
 
     //// method to ok to save the setting changes
-    //public void OkSave()
-    //{
-    //    savePopUp.SetActive(false);
-    //    SaveButton(); 
-    //}
+    public void OkSave()
+    {
+        savePopUp.SetActive(false);
+        SaveButton();
+    }
 
     //// method to cancel save changes
-    //public void CancelSave()
-    //{
-    //    savePopUp.SetActive(false);
-    //}
+    public void CancelSave()
+    {
+        savePopUp.SetActive(false);
+    }
 
     //// method to show exit pop-up window
-    //public void ShowExitPopup()
-    //{
-    //    exitPopUp.SetActive(true);
-    //}
-    
+    public void ShowExitPopup()
+    {
+        Debug.Log("ShowExitPopup called");
+        HideAllPopUps();
+        exitPopUp.SetActive(true);
+    }
+
     //// method to ok to exit the game
-    //public void OKExit()
-    //{
-    //    exitPopUp.SetActive(false);
-    //    Exit();
-    //}
+    public void OKExit()
+    {
+        exitPopUp.SetActive(false);
+        Exit();
+    }
 
     //// method to cancel exiting the game
-    //public void CancelExit()
-    //{
-    //    exitPopUp.SetActive(false);
-    //}
+    public void CancelExit()
+    {
+        exitPopUp.SetActive(false);
+    }
 
     //// method to show the fast forward pop up window
-    //public void ShowFastForwardPopup()
-    //{
-    //    fastForwardPopup.SetActive(true);
-    //}
+    public void ShowFastForwardPopup()
+    {
+        HideAllPopUps();
+        fastForwardPopup.SetActive(true);
+    }
 
     //// method to ok to fast forward credits
-    //public void OKFastForward()
-    //{
-    //    fastForwardPopup.SetActive(false);
-    //}
+    public void OKFastForward()
+    {
+        fastForwardPopup.SetActive(false);
+    }
 
     //// method to cancel fast forward credits
-    //public void CancelFastForward()
-    //{
-    //    fastForwardPopup.SetActive(false);
-    //}
+    public void CancelFastForward()
+    {
+        fastForwardPopup.SetActive(false);
+    }
 
     // method to show the play menu
     public void Play()
