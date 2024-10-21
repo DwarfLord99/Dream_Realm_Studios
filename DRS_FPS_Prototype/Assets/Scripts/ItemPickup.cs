@@ -16,7 +16,7 @@ public class ItemPickup : MonoBehaviour, IPickup
 
     private void Start()
     {
-        if(weapon != null) // check for null so game doesn't try to display what doesn't exist yet - RL
+        if (weapon != null) // check for null so game doesn't try to display what doesn't exist yet - RL
             weapon.CurrentAmmo = weapon.MaxAmmo; // Adriana V
 
         //item = this;
@@ -36,11 +36,11 @@ public class ItemPickup : MonoBehaviour, IPickup
      * script, and the health pickups should have their values and logic defined inside their
      * own health pickup script, to avoid having it hardcoded like it is right now. 
      */
-    
+
     // Adriana V
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             //Old code is for reference - Destin
             /*
@@ -51,17 +51,17 @@ public class ItemPickup : MonoBehaviour, IPickup
             }
            */
 
-            if(this.CompareTag("Key")) //added by Destin
+            if (this.CompareTag("Key")) //added by Destin
             {
                 PickUpItem();
                 gameManager.instance.updateGameGoal(1);
             }
-            else if(this.CompareTag("Weapon"))
+            else if (this.CompareTag("Weapon"))
             {
                 gameManager.instance.playerScript.GetWeaponStats(weapon);
                 Destroy(gameObject);
             }
-            else if(this.CompareTag("Healing"))
+            else if (this.CompareTag("Healing"))
             {
                 item = GetComponent<ItemDrop>();
                 PlayerMovement.instance.RestoreHealth(item.healthRestoreAmount);

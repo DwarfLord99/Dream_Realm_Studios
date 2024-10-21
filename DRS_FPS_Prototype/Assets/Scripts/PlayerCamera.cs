@@ -11,6 +11,10 @@ public class PlayerCamera : MonoBehaviour
     //    //IMPORTANT - In order to ensure that the camera speed works properly since we will be moving over to default settings in Unity and
     //    //not our own values, go into the Project Settings and under both the Mouse X and Mouse Y in the Input Manager, set their sensitivity
     //    //values both to 1 if they are not. This will allow the slider to properly update the sensitivity
+    
+    // [SerializeField] float normalFOV = 60f;
+    // [SerializeField] float adsFOV = 40f;
+    // [SerializeField] float fovTransitionSpeed = 5f;
 
     [SerializeField] float sensitivity; //-RL Changed to float so that the sensitivity can be update through PlayerPrefs
     [SerializeField] int verticalMin;
@@ -36,10 +40,10 @@ public class PlayerCamera : MonoBehaviour
 
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            //gameSpeedSlider.onValueChanged.AddListener(AdjustCameraSpeed);
-            
-            
-         //startPos = transform.localPosition;
+        //gameSpeedSlider.onValueChanged.AddListener(AdjustCameraSpeed);
+
+
+        //startPos = transform.localPosition;
     }
 
     // Update is called once per frame
@@ -69,6 +73,10 @@ public class PlayerCamera : MonoBehaviour
 
         //rotate the camera on y-axis 
         transform.parent.Rotate(Vector3.up * xMovement);
+
+        // Adjust camera FOV for ADS added by Fuad H.
+       // float targetFOV = PlayerMovement.instance.isAiming ? adsFOV : normalFOV;
+       // Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFOV, fovTransitionSpeed * Time.deltaTime);
     }
 
     public void AdjustCameraSpeed(float mouseSpeed)

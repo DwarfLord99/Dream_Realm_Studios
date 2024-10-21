@@ -59,6 +59,8 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        //DontDestroyOnLoad(this.transform.root.gameObject); // test By fuad H. 
+
         // to ensure music doesn't restart when changing menus - AV
         if (instance == null)
         {

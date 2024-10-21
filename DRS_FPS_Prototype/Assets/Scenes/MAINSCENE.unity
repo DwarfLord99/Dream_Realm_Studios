@@ -11754,9 +11754,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1937628574}
     m_Modifications:
+    - target: {fileID: 210665710023405393, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 6b87b95460eac2d40b200a355f6444a5, type: 3}
     - target: {fileID: 1115721805508629478, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382626130087537410, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673363916361116891, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4040255572772120138, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11798,9 +11810,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4547734413092374586, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589488653376439599, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7616858270347262278, guid: 6b87b95460eac2d40b200a355f6444a5, type: 3}
+    - target: {fileID: 5389894850755752175, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6434925904577588008, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
       propertyPath: jumpSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434925904577588008, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
+      propertyPath: adsPosition
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434925904577588008, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
+      propertyPath: defaultPosition
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8350735778562490845, guid: 4f63354804f73a342b40675a920a8f3c, type: 3}
       propertyPath: verticalMax
