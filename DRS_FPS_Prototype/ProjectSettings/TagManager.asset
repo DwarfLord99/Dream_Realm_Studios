@@ -15,6 +15,7 @@ TagManager:
   - CritZone
   - Enemy
   - Boss
+  - ClownBoss
   layers:
   - Default
   - TransparentFX

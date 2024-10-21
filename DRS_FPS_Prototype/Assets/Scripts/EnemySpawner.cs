@@ -23,4 +23,10 @@ public class EnemySpawner : MonoBehaviour
             enemyCount++;
         }
     }
+    void BossSpawnEnemy()
+    {
+        Vector3 spawnPosition = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-1f, 1f)) + transform.position;
+        Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], spawnPosition, Quaternion.identity);
+        enemyCount++;
+    }
 }

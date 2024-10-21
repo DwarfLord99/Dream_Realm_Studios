@@ -41,6 +41,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     [Range(0, 1)][SerializeField] float audHurtVol;
     [SerializeField] AudioClip[] audDeath;
     [Range(0, 1)][SerializeField] float audDeathVol;
+    [SerializeField] AudioClip[] audSpawnLaugh;
+    [Range(0, 1)][SerializeField] float audSpawnLaughVol;
 
     [Header("Combat")]
     //normal range attack bullet
@@ -160,7 +162,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         isRoaming = true;
         yield return new WaitForSeconds(roamTimer);
 
-        if(audioSource != null)
+        if(audioSource != null && gameObject.CompareTag("Enemy"))
             audioSource.PlayOneShot(audRoam[1], audRoamVol);
         
         enemyAgent.stoppingDistance = 0;
@@ -238,6 +240,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         }
 
         enemyAgent.SetDestination(gameManager.instance.player.transform.position);
+
+        ClownTeleport();
 
         if (enemyHP <= 0)
         {
@@ -321,6 +325,31 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             }            
         }
         return false;
+    }
+
+    private void ClownTeleport()
+    {
+        if(enemyHP % 7 == 0 && gameObject.CompareTag("ClownBoss") && enemyHP != 0)
+        {
+            gameObject.transform.position = startingPos;
+            enemyAgent.SetDestination(startingPos);
+            StartCoroutine(EnemySpawn());
+        }
+    }
+
+    IEnumerator EnemySpawn()
+    {
+        animator.SetTrigger("Spawn");
+        if(enemyHP == 14)
+        {
+            audioSource.PlayOneShot(audSpawnLaugh[0], audSpawnLaughVol);
+        }
+        else if (enemyHP == 7)
+        {
+            audioSource.PlayOneShot(audSpawnLaugh[1], audSpawnLaughVol);
+        }
+        yield return new WaitForSeconds(3.5f);
+        enemyAgent.SetDestination(gameManager.instance.player.transform.position);
     }
 }
 
