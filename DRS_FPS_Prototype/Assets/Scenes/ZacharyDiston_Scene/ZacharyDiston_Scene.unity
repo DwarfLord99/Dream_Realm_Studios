@@ -1960,7 +1960,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
-  healthAmount: 0
 --- !u!33 &1788863251
 MeshFilter:
   m_ObjectHideFlags: 0
