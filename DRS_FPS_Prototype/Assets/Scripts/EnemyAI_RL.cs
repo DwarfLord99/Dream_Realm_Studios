@@ -98,7 +98,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     void Update()
     {
         EnemyRoamMechanic();
-        animator.SetInteger("enemyHP", enemyHP);
+        animator.SetInteger("enemyHP", enemyHP);        
     }
 
     public void EnemySpawnEffect()
@@ -142,7 +142,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
-            if (gameObject.CompareTag("Boss"))
+            if (gameObject.CompareTag("Boss") && audioSource != null)
                 audioSource.PlayOneShot(audRoam[0], audRoamVol);
         }
     }
@@ -159,7 +159,9 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     {
         isRoaming = true;
         yield return new WaitForSeconds(roamTimer);
-        audioSource.PlayOneShot(audRoam[1], audRoamVol);
+
+        if(audioSource != null)
+            audioSource.PlayOneShot(audRoam[1], audRoamVol);
         
         enemyAgent.stoppingDistance = 0;
 
@@ -176,7 +178,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
     void FaceTarget()
     {
-        //Debug.Log("Can see player");
         Quaternion rot = Quaternion.LookRotation(playerDirection);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
     }
@@ -192,7 +193,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     IEnumerator Strike()
     {
         strikeZone.SetActive(true);
-        audioSource.PlayOneShot(audAttack[0], audAttackVol);
+
+        if(audioSource != null)
+            audioSource.PlayOneShot(audAttack[0], audAttackVol);
+
         yield return new WaitForSeconds(0.1f);
         strikeZone.SetActive(false);
     }
@@ -220,7 +224,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         enemyHP -= amountOfDamage;
         enemyHPBar.SetActive(true);
         healthBar.UpdateHealthBar(enemyHP, enemyMaxHP);
-        if(enemyHP == 2)
+        if(enemyHP == 2 && audioSource != null)
         {
             audioSource.PlayOneShot(audHurt[0], audHurtVol);
         }
@@ -258,7 +262,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     IEnumerator Death()
     {
         gameObject.GetComponent<Collider>().enabled = false;
-        audioSource.PlayOneShot(audDeath[0], audDeathVol);
+
+        if(audioSource != null)
+            audioSource.PlayOneShot(audDeath[0], audDeathVol);
+
         yield return new WaitForSeconds(deathAnim.length + 1.5f);
 
         //Drop the first aid item when enemy dies *added by Fuad
