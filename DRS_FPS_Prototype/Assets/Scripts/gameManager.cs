@@ -56,20 +56,8 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        //DontDestroyOnLoad(this.transform.root.gameObject); // test By fuad H. 
-
-        // to ensure music doesn't restart when changing menus - AV
-        if (instance == null)
-        {
-            instance = this;
-            //DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+       instance = this;
       
-       
        timeScaleOrig = Time.timeScale;
        
         if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MAINSCENE")) //-RL, added check to get the main menu working

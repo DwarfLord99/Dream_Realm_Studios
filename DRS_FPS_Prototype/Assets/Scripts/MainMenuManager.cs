@@ -10,6 +10,7 @@ public class MainMenuManager : MonoBehaviour
 {
     public static MainMenuManager instance;
     public SettingsMenu_RL saveSettings;
+    
 
     // Menu GameObjects
     [SerializeField] public GameObject menuMain;
@@ -18,6 +19,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] public GameObject menuOptions;
     [SerializeField] public GameObject menuCredits;
     [SerializeField] public GameObject menuSettings;
+
 
     public void Play()
     {
@@ -70,12 +72,6 @@ public class MainMenuManager : MonoBehaviour
             saveSettings.SaveAllSettings(); // reference the settings menu to call the save settings method
         }
     
-    }
-
-    // method to fast forward the credits text in the credits menu
-    public void FastForwardButton()
-    {
-        // have not implemented this button's functionality yet
     }
 
     // method to completely exit the game
