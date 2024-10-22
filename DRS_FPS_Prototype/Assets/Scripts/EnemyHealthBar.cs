@@ -15,8 +15,9 @@ public class EnemyHealthBar : MonoBehaviour
     }
 
     void Update()
-    {
-        transform.rotation = Camera.main.transform.rotation;
-        transform.position = target.position + offset;
+    {   
+            transform.rotation = Camera.main.transform.rotation;
+            transform.position = target.position + offset;
+        
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
 using System.Linq;
+using UnityEditor;
 
 
 public class PlayerMovement : MonoBehaviour, IDamage
@@ -21,6 +22,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
     public float CrouchHeight;
 
     [SerializeField] Animator animate;
+
+    [SerializeField] Camera deathCamera;
 
     [Header("player stats")]
 
@@ -87,6 +90,8 @@ public class PlayerMovement : MonoBehaviour, IDamage
     bool PlayerCrouched;
 
     bool PlayerCanTakeDamage = true;
+
+    bool playerIsDead = false;
 
     //public bool PlayerCanMove = true;
 
@@ -324,8 +329,13 @@ public class PlayerMovement : MonoBehaviour, IDamage
             // when players HP hits zero
             if (HP <= 0)
             {
+                StartCoroutine(playerDeath());
                 //the player loeses
-                gameManager.instance.youlose();
+                if (playerIsDead == true)
+                {
+                    deathCamera.depth = 0;
+                    gameManager.instance.youlose();
+                }
             }
 
             PlayerCanTakeDamage = false;
@@ -475,5 +485,25 @@ public class PlayerMovement : MonoBehaviour, IDamage
             animate.SetFloat("CrouchedHorizontal", Input.GetAxis("Horizontal"));
         }
 
+    }
+
+    // used to trigger the death animation as well as cahnge the view point for said animation'
+    IEnumerator playerDeath()
+    {
+        //Camera.main.enabled = false;
+        //changes the viewpoint 
+        deathCamera.enabled = true;
+        deathCamera.depth = 3;
+        //turns off the contoller
+        Controller.enabled = false;
+
+        //animate.SetLayerWeight(1, 0);
+        //animate.SetLayerWeight(2, 1);
+        // trigers the animation 
+        animate.SetBool("death", true);
+        
+        yield return new WaitForSeconds(2.5f);
+
+        playerIsDead = true; 
     }
 }
