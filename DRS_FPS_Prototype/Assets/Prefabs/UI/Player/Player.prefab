@@ -60,7 +60,7 @@ MonoBehaviour:
   NormalHeight: 1
   CrouchHeight: 0.5
   animate: {fileID: 0}
-  HP: 5
+  HP: 20
   playerSpeed: 5
   sprintMod: 2
   jumpSpeed: 5
@@ -350,7 +350,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382626130087537410}
-  m_Mesh: {fileID: -7616858270347262278, guid: 6b87b95460eac2d40b200a355f6444a5, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!23 &7780619995190936750
 MeshRenderer:
   m_ObjectHideFlags: 0
