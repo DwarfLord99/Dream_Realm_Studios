@@ -456,6 +456,12 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     private void motion()
     {
+        if(WeaponList.Count == 1)
+        {
+            animate.SetLayerWeight(1, 1);
+            //animate.SetLayerWeight(1, 0);
+            
+        }
         if (PlayerCrouched == false)
         { 
            animate.SetFloat("VerticalMotion", Input.GetAxis("Vertical"));
