@@ -18,8 +18,6 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] public GameObject menuAbout;
     [SerializeField] public GameObject menuOptions;
     [SerializeField] public GameObject menuCredits;
-    [SerializeField] public GameObject menuHelp;
-    [SerializeField] public GameObject menuTutorial;
     [SerializeField] public GameObject menuSettings;
 
     //// Pop-up GameObjects
@@ -171,18 +169,6 @@ public class MainMenuManager : MonoBehaviour
         gameManager.instance.ShowMenu(menuAbout);
     }
 
-    // method to show the help menu
-    public void Help()
-    {
-        gameManager.instance.ShowMenu(menuHelp);
-    }
-
-    // method to show the tutorial menu
-    public void Tutorial()
-    {
-        gameManager.instance.ShowMenu(menuTutorial);
-    }
-
     // method to show the options menu which will open up all game settings
     public void Options()
     {
@@ -206,12 +192,6 @@ public class MainMenuManager : MonoBehaviour
     public void BackToMainMenu()
     {
         gameManager.instance.ShowMenu(menuMain);
-    }
-
-    // method to take the player back to the about menu when on the help or tutorial menus
-    public void BackToAboutMenu()
-    {
-        gameManager.instance.ShowMenu(menuAbout);
     }
 
     // method for the save button which will function for save settings

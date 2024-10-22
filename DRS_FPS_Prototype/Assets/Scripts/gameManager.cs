@@ -27,8 +27,6 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject menuAbout;
     [SerializeField] public GameObject menuOptions;
     [SerializeField] public GameObject menuCredits;
-    [SerializeField] public GameObject menuHelp;
-    [SerializeField] public GameObject menuTutorial;
     [SerializeField] public GameObject menuSettings;
   
     
@@ -175,8 +173,6 @@ public class gameManager : MonoBehaviour
         menuAbout.SetActive(false);
         menuOptions.SetActive(false);
         menuCredits.SetActive(false);
-        menuHelp.SetActive(false);
-        menuTutorial.SetActive(false);
         menuSettings.SetActive(false);
 
     }
