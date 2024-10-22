@@ -34,12 +34,18 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     [SerializeField] Animator Animate;
 
-    [Header("invetory/guns ")]
+    [Header("inventory/guns ")]
 
     [SerializeField] List<GameObject> Inventory;
     [SerializeField] GameObject weaponModel;
     [SerializeField] GameObject MuzzleFlash;
     [SerializeField] List<WeaponStats> WeaponList = new List<WeaponStats>();
+    //[SerializeField] Transform defaultPosition; //Hip-fire transform position added by Fuad H. 
+    //[SerializeField] Transform adsPosition; //ADS transform position added by Fuad H.
+
+    //[SerializeField] float aimSpeed = 5f; // Speed for the transitioning between hip-fire and ADS by Fuad H. 
+   // public bool isAiming; // added by Fuad H. 
+
     //range 
     [Header("gun stats")]
 
@@ -128,12 +134,32 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             Movement();
             WeaponSelect();
+           // AimDownSights(); // call to handle aiming added by Fuad H. 
         }
 
         sprint();
         PlayerCrouch();
 
     }
+
+    //void AimDownSights() // function to handle aiming down sights added by Fuad H. 
+   // {
+        //if (Input.GetMouseButton(1)) // right mouse button added by Fuad H.
+        //{
+            //isAiming = true;
+       // }
+        //else
+        //{
+            //isAiming = false;
+       // }
+        // Lerp between the hip-fire and ADS positions added by Fuad H. 
+       // weaponModel.transform.localPosition = Vector3.Lerp(
+            //defaultPosition.localPosition,
+            //adsPosition.localPosition,
+            //aimSpeed * Time.deltaTime);
+          
+   // }
+    
 
     void Movement()
     {

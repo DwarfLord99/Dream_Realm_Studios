@@ -36,6 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4761299143984697117}
+  - {fileID: 9149106251315440089}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 75.132, z: 0}
 --- !u!114 &6434925904577588008
@@ -58,12 +59,14 @@ MonoBehaviour:
   Playerheight: {fileID: 869497093705390209}
   NormalHeight: 1
   CrouchHeight: 0.5
-  HP: 5
+  animate: {fileID: 0}
+  HP: 20
   playerSpeed: 5
   sprintMod: 2
   jumpSpeed: 5
   jumpMax: 2
   gravity: 10
+  Animate: {fileID: 0}
   Inventory: []
   weaponModel: {fileID: 1382626130087537410}
   MuzzleFlash: {fileID: 2519585748317232584}
@@ -331,13 +334,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382626130087537410}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.0028058293, z: -0, w: 0.99999607}
-  m_LocalPosition: {x: -0.07, y: -0.59206986, z: 0.614}
+  m_LocalRotation: {x: -0, y: 0.002805829, z: -0, w: 0.99999607}
+  m_LocalPosition: {x: -0.06999977, y: 0.43792892, z: 0.59404266}
   m_LocalScale: {x: 1.0766, y: 1.0766, z: 1.0766}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2407355962826770536}
-  m_Father: {fileID: 4761299143984697117}
+  - {fileID: 8289847462550310907}
+  m_Father: {fileID: 4040255572772120138}
   m_LocalEulerAnglesHint: {x: 0, y: 0.322, z: 0}
 --- !u!33 &5389894850755752175
 MeshFilter:
@@ -420,9 +424,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.0299988, z: -0.019958206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9149106251315440089}
-  - {fileID: 8289847462550310907}
+  m_Children: []
   m_Father: {fileID: 4040255572772120138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &6131625299576338849
@@ -610,12 +612,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5564417420270540276}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.002805829, z: -0, w: 0.99999607}
+  m_LocalPosition: {x: 0.06821846, y: 0.54994416, z: -0.56994176}
+  m_LocalScale: {x: 0.9288502, y: 0.9288501, z: 0.9288502}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4761299143984697117}
+  m_Father: {fileID: 9149106251315440089}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8398924948279150061
 Camera:
