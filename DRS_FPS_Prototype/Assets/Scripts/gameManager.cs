@@ -23,7 +23,6 @@ public class gameManager : MonoBehaviour
     // Menu GameObjects - Adriana V
     [SerializeField] public GameObject menuMain;
     [SerializeField] public GameObject menuPlay;
-    [SerializeField] public GameObject menuLoadGame;
     [SerializeField] public GameObject menuAbout;
     [SerializeField] public GameObject menuOptions;
     [SerializeField] public GameObject menuCredits;
@@ -132,9 +131,9 @@ public class gameManager : MonoBehaviour
 
     public void updateGameGoal(int amount)
     {
-        //enemyCount += amount;
+        enemyCount += amount;
         playerKeys += amount;
-        //enemyCountText.text = enemyCount.ToString("F0"); // added by Adriana V
+        enemyCountText.text = enemyCount.ToString("F0"); // added by Adriana V
 
         //key-based win con --Destin Bernavil
 
@@ -169,7 +168,6 @@ public class gameManager : MonoBehaviour
         // deactivates all menu GameObjects
         menuMain.SetActive(false);
         menuPlay.SetActive(false);
-        menuLoadGame.SetActive(false);
         menuAbout.SetActive(false);
         menuOptions.SetActive(false);
         menuCredits.SetActive(false);
