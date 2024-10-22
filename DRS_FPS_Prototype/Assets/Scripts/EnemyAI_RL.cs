@@ -100,7 +100,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     void Update()
     {
         EnemyRoamMechanic();
-        animator.SetInteger("enemyHP", enemyHP);        
+        animator.SetInteger("enemyHP", enemyHP);
     }
 
     public void EnemySpawnEffect()
@@ -230,6 +230,14 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         {
             audioSource.PlayOneShot(audHurt[0], audHurtVol);
         }
+
+        if (enemyHP == 10 && gameObject.CompareTag("Boss"))
+        {
+            audioSource.PlayOneShot(audRoam[1], audRoamVol);
+            gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            spawnEffect.Play();
+        }
+
         StartCoroutine(DamageFlash());
 
         if(roamCoroutine != null) //added by fuad - Stops roaming when the player is damaged 
