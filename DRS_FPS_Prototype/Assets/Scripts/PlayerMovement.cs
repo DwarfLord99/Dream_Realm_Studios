@@ -32,8 +32,6 @@ public class PlayerMovement : MonoBehaviour, IDamage
     [Range(1, 2)][SerializeField] int jumpMax;
     [Range(10, 45)][SerializeField] int gravity;
 
-    [SerializeField] Animator Animate;
-
     [Header("inventory/guns ")]
 
     [SerializeField] List<GameObject> Inventory;
@@ -134,6 +132,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             Movement();
             WeaponSelect();
+            motion();
            // AimDownSights(); // call to handle aiming added by Fuad H. 
         }
 
@@ -441,15 +440,34 @@ public class PlayerMovement : MonoBehaviour, IDamage
         if (Input.GetKeyDown(KeyCode.C))
         {
             Playerheight.height = CrouchHeight;
-            //PlayerCrouched = true;
+            PlayerCrouched = true;
+            animate.SetBool("IsCroched", true);
         }
         if (Input.GetKeyUp(KeyCode.C))
         {
             Playerheight.height = NormalHeight;
-            //PlayerCrouched = false;
+            PlayerCrouched = false;
+            animate.SetBool("IsCroched", false);
         }
     }
 
     //getter for debugging
     public int GetHP() { return HP; }
+
+    private void motion()
+    {
+        if (PlayerCrouched == false)
+        { 
+           animate.SetFloat("VerticalMotion", Input.GetAxis("Vertical"));
+           animate.SetFloat("HorizontalMotion", Input.GetAxis("Horizontal"));
+        }
+
+        if(PlayerCrouched == true)
+        {
+
+            animate.SetFloat("CrouchedVertical", Input.GetAxis("Vertical"));
+            animate.SetFloat("CrouchedHorizontal", Input.GetAxis("Horizontal"));
+        }
+
+    }
 }
