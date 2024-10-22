@@ -2193,7 +2193,8 @@ MonoBehaviour:
   Inventory: []
   weaponModel: {fileID: 28801008618255355}
   MuzzleFlash: {fileID: 5330475609489022971}
-  WeaponList: []
+  WeaponList:
+  - {fileID: 11400000, guid: a21f50a6469762148a4b24e8dd100913, type: 2}
   effectiveRange: 100
   ProjectileDamage: 1
   RateOfFire: 0.25
