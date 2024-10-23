@@ -69,7 +69,10 @@ public class gameManager : MonoBehaviour
             //extra code to pause enemies for tutorial
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
         }
-        
+
+        //Sets frames of game to aim at running at target rate -RL
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 30;
     }
 
     // Update is called once per frame
