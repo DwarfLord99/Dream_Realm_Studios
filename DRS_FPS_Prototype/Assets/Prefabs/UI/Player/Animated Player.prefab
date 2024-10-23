@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28801008618255355}
-  m_Mesh: {fileID: -7616858270347262278, guid: 6b87b95460eac2d40b200a355f6444a5, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!23 &5287140570805840988
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 732953fa90bf56942a84625b42cdbf1d, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2193,12 +2193,10 @@ MonoBehaviour:
   Inventory: []
   weaponModel: {fileID: 28801008618255355}
   MuzzleFlash: {fileID: 5330475609489022971}
-  WeaponList:
-  - {fileID: 11400000, guid: a21f50a6469762148a4b24e8dd100913, type: 2}
-  - {fileID: 11400000, guid: a21f50a6469762148a4b24e8dd100913, type: 2}
-  effectiveRange: 100
-  ProjectileDamage: 1
-  RateOfFire: 0.25
+  WeaponList: []
+  effectiveRange: 0
+  ProjectileDamage: 0
+  RateOfFire: 0
   WalkingAudio:
   - {fileID: 8300000, guid: d15f7338d693f0343843a6b9096d27f6, type: 3}
   - {fileID: 8300000, guid: 14ae706fef2303e4cb71112dbd5d250b, type: 3}
