@@ -2180,8 +2180,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Playerheight: {fileID: 3614046925343183495}
-  NormalHeight: 1
-  CrouchHeight: 1
+  NormalHeight: 0
+  CrouchHeight: 0
   animate: {fileID: 3660484447904947495}
   deathCamera: {fileID: 736150920023506046}
   HP: 5
@@ -2194,6 +2194,7 @@ MonoBehaviour:
   weaponModel: {fileID: 28801008618255355}
   MuzzleFlash: {fileID: 5330475609489022971}
   WeaponList:
+  - {fileID: 11400000, guid: a21f50a6469762148a4b24e8dd100913, type: 2}
   - {fileID: 11400000, guid: a21f50a6469762148a4b24e8dd100913, type: 2}
   effectiveRange: 100
   ProjectileDamage: 1
