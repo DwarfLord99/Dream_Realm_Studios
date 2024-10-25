@@ -1332,8 +1332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 20
-  verticalMin: -90
-  verticalMax: 90
+  verticalMin: -75
+  verticalMax: 37
   InvertCameraControls: 0
   senSlider: {fileID: 0}
   gameSpeedSlider: {fileID: 0}
@@ -2180,8 +2180,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Playerheight: {fileID: 3614046925343183495}
-  NormalHeight: 0
-  CrouchHeight: 0
+  NormalHeight: 2
+  CrouchHeight: 0.5
   animate: {fileID: 3660484447904947495}
   deathCamera: {fileID: 736150920023506046}
   HP: 5
