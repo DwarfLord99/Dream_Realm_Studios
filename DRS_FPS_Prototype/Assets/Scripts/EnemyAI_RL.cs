@@ -319,6 +319,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
                 {
                     enemyHPBar.SetActive(true);
                     enemyAgent.SetDestination(gameManager.instance.player.transform.position);
+                    viewAngle = 180;
 
                     if (enemyAgent.remainingDistance <= enemyAgent.stoppingDistance)
                     {
