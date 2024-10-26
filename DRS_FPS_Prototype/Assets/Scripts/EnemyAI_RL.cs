@@ -110,7 +110,6 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         {
             enemyAgent.destination = currentPos;
             enemyAgent.velocity = Vector3.zero;
-            StartCoroutine(Death());
         }
     }
 
@@ -237,6 +236,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     {
         // Enemy loses hp when taking damage
         enemyHP -= amountOfDamage;
+        
         enemyHPBar.SetActive(true);
         healthBar.UpdateHealthBar(enemyHP, enemyMaxHP);
         if(enemyHP == 2 && audioSource != null)
@@ -266,8 +266,9 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
 
         if (enemyHP <= 0)
         {
+            
             animator.SetBool("isDead", true);
-            //StartCoroutine(Death());
+            StartCoroutine(Death());
             //gameManager.instance.updateGameGoal(-1);
         }
 
@@ -287,11 +288,12 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     IEnumerator Death()
     {
         gameObject.GetComponent<Collider>().enabled = false;
+        enemyHPBar.SetActive(false);
 
-        if(audioSource != null)
+        if (audioSource != null)
             audioSource.PlayOneShot(audDeath[0], audDeathVol);
 
-        yield return new WaitForSeconds(deathAnim.length);
+        yield return new WaitForSeconds(deathAnim.length + 0.5f);
 
         //Drop the first aid item when enemy dies *added by Fuad
         //Debug.Log("Dropping item...");
@@ -314,6 +316,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         //When CritStrike is triggered, instantly kills basic enemies
         Debug.Log("Crit!");
         enemyHP = 0;
+        healthBar.UpdateHealthBar(enemyHP, enemyMaxHP);
         animator.SetBool("isDead", true);
         StartCoroutine(Death());
     }
@@ -330,9 +333,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
             RaycastHit hit;
             if (Physics.Raycast(headPos.position, playerDirection, out hit))
             {
-                if (hit.collider.CompareTag("Player") && angleToPlayer <= viewAngle)
+                if (hit.collider.CompareTag("Player") && angleToPlayer <= viewAngle && enemyHP > 0)
                 {
                     enemyHPBar.SetActive(true);
+
                     enemyAgent.SetDestination(gameManager.instance.player.transform.position);
                     viewAngle = 180;
 

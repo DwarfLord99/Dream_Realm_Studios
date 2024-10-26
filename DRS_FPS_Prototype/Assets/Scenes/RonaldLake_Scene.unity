@@ -127,6 +127,71 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8768597700931385410, guid: 8ad3682302f29d04fa6543ce63dc109d, type: 3}
   m_PrefabInstance: {fileID: 1317991485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &581020755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3099275328121743982, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099275328121743982, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099275328121743982, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099275328121743982, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099275328121743982, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099275328121743982, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099275328121743982, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099275328121743982, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099275328121743982, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099275328121743982, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327690038274172402, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866591835902296859, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170250860317119234, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
+      propertyPath: m_Name
+      value: Ghoul_Enemy_Basic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c9038da9771a2004d87c72a2f0e3be2e, type: 3}
 --- !u!114 &672213246 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7236757994778711018, guid: b8e8b38e56cea084ea0b44f8c4c1563b, type: 3}
@@ -805,3 +870,4 @@ SceneRoots:
   - {fileID: 1613633799}
   - {fileID: 1705198046}
   - {fileID: 2016462182}
+  - {fileID: 581020755}
