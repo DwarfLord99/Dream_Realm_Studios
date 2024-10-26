@@ -143,6 +143,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
         sprint();
         PlayerCrouch();
+        DamageVignette();
 
     }
 
@@ -335,6 +336,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
                 {
                     deathCamera.depth = 0;
                     gameManager.instance.youlose();
+                    animate.SetBool("death", false);
                 }
             }
 
