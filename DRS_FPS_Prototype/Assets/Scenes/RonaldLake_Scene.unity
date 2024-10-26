@@ -617,7 +617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6378728907360052383, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.31559
+      value: -13.49
       objectReference: {fileID: 0}
     - target: {fileID: 6378728907360052383, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -625,7 +625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6378728907360052383, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.9809976
+      value: 16.91
       objectReference: {fileID: 0}
     - target: {fileID: 6378728907360052383, guid: c26e6b6833377614384378405ac1e1c3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -733,7 +733,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c5c7731e6ac1b748bcf77e9603d3ec6, type: 3}
---- !u!1001 &1833754209
+--- !u!1001 &1910107077
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -743,7 +743,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4831789128487566007, guid: 122e907a33ad61543b0973928ba74475, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: -2.27
       objectReference: {fileID: 0}
     - target: {fileID: 4831789128487566007, guid: 122e907a33ad61543b0973928ba74475, type: 3}
       propertyPath: m_LocalPosition.y
@@ -751,7 +751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4831789128487566007, guid: 122e907a33ad61543b0973928ba74475, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 4831789128487566007, guid: 122e907a33ad61543b0973928ba74475, type: 3}
       propertyPath: m_LocalRotation.w
@@ -784,6 +784,10 @@ PrefabInstance:
     - target: {fileID: 5906897195700508067, guid: 122e907a33ad61543b0973928ba74475, type: 3}
       propertyPath: m_Name
       value: Ghoul_Enemy_Grotesque
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078886328494262887, guid: 122e907a33ad61543b0973928ba74475, type: 3}
+      propertyPath: m_Radius
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -862,4 +866,4 @@ SceneRoots:
   - {fileID: 1613633799}
   - {fileID: 1705198046}
   - {fileID: 2016462182}
-  - {fileID: 1833754209}
+  - {fileID: 1910107077}

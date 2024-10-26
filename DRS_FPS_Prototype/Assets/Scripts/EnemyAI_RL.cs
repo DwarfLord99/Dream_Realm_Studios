@@ -77,6 +77,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     private Vector3 playerDirection;
     // Starting position of enemy after spawning
     private Vector3 startingPos;
+    private Vector3 currentPos;
 
     // Compare to view angle to see if target can be seen
     private float angleToPlayer;
@@ -101,6 +102,14 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     {
         EnemyRoamMechanic();
         animator.SetInteger("enemyHP", enemyHP);
+        currentPos = transform.position;
+
+        if (enemyHP <= 0)
+        {
+            enemyAgent.destination = currentPos;
+            enemyAgent.velocity = Vector3.zero;
+            StartCoroutine(Death());
+        }
     }
 
     public void EnemySpawnEffect()
@@ -254,7 +263,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         if (enemyHP <= 0)
         {
             animator.SetBool("isDead", true);
-            StartCoroutine(Death());
+            //StartCoroutine(Death());
             //gameManager.instance.updateGameGoal(-1);
         }
 
@@ -278,7 +287,7 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         if(audioSource != null)
             audioSource.PlayOneShot(audDeath[0], audDeathVol);
 
-        yield return new WaitForSeconds(deathAnim.length + 1.5f);
+        yield return new WaitForSeconds(deathAnim.length);
 
         //Drop the first aid item when enemy dies *added by Fuad
         //Debug.Log("Dropping item...");
@@ -299,6 +308,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     public void CritStrike()
     {
         //When CritStrike is triggered, instantly kills basic enemies
+        Debug.Log("Crit!");
+        enemyHP = 0;
         animator.SetBool("isDead", true);
         StartCoroutine(Death());
     }

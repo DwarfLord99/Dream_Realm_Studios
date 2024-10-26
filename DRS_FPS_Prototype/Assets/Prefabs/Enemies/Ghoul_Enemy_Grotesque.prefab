@@ -7485,6 +7485,8 @@ MonoBehaviour:
   audDeath:
   - {fileID: 8300000, guid: 98ca1ee28e76af844bddce326ef109ec, type: 3}
   audDeathVol: 0.45
+  audSpawnLaugh: []
+  audSpawnLaughVol: 0
   bullet: {fileID: 3775311717618153833, guid: daa455709ecb24f42a6331549029cf23, type: 3}
   strongBullet: {fileID: 0}
   shootRate: 0.5
