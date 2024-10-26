@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     bool PlayerWalking;
 
-    bool PlayerCrouched;
+    bool PlayerCrouched = false;
 
     bool PlayerCanTakeDamage = true;
 
@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         }
 
         // relaods the plaeyrs gun
-        if (Input.GetButtonDown("Reload") && WeaponList[CurrentWeaponPOS].CurrentAmmo < WeaponList[CurrentWeaponPOS].MaxAmmo)
+        if (Input.GetButtonDown("Reload") && WeaponList[CurrentWeaponPOS].CurrentAmmo == 0)
         {
             WeaponList[CurrentWeaponPOS].CurrentAmmo = WeaponList[CurrentWeaponPOS].MaxAmmo;
             UpdatePlayerUI();
@@ -447,17 +447,20 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
     void PlayerCrouch()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        
+        if (Input.GetKeyDown(KeyCode.C) && PlayerCrouched == false)
         {
+            
             Playerheight.height = CrouchHeight;
             PlayerCrouched = true;
-            animate.SetBool("IsCroched", true);
+           //animate.SetBool("IsCroched", true);
         }
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.C) && PlayerCrouched == true)
         {
+
             Playerheight.height = NormalHeight;
             PlayerCrouched = false;
-            animate.SetBool("IsCroched", false);
+            //animate.SetBool("IsCroched", false);
         }
     }
 
