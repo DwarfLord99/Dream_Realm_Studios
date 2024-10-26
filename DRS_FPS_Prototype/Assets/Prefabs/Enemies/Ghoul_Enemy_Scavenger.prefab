@@ -6907,6 +6907,8 @@ MonoBehaviour:
   audDeath:
   - {fileID: 8300000, guid: 38676cec460efd94db2fb2a5e8213ed7, type: 3}
   audDeathVol: 0.45
+  audSpawnLaugh: []
+  audSpawnLaughVol: 0
   bullet: {fileID: 4192286533018172404, guid: 0ae760dc907afa24c9500802d2efd4ce, type: 3}
   strongBullet: {fileID: 0}
   shootRate: 1
@@ -7014,7 +7016,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

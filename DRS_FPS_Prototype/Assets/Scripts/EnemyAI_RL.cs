@@ -72,6 +72,8 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
     private bool playerInRange;
     private bool isRoaming = false;
 
+    private int roamCount;
+
     private Coroutine roamCoroutine; // Added by Fuad.. Better coroutine handling to prevent overlapping issues.
 
     private Vector3 playerDirection;
@@ -171,10 +173,12 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         isRoaming = true;
         yield return new WaitForSeconds(roamTimer);
 
-        if(audioSource != null && gameObject.CompareTag("Enemy"))
-            audioSource.PlayOneShot(audRoam[1], audRoamVol);
+        if (audioSource != null && gameObject.CompareTag("Enemy"))
+            if(roamCount == 0 || roamCount % 6 == 0)
+                audioSource.PlayOneShot(audRoam[1], audRoamVol);
         
         enemyAgent.stoppingDistance = 0;
+        roamCount++;
 
         Vector3 randomPosition = Random.insideUnitSphere * roamDistance;
         randomPosition += startingPos;
