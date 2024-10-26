@@ -42,6 +42,9 @@ public class SettingsMenu_RL : MonoBehaviour
         //clear out the preset options made in the component to allow the array to be auto-populated
         resolutionDropDown.ClearOptions();
 
+        // Used a HashSet to store same resolutions - AV
+        HashSet<string> sameResolutions = new HashSet<string>();
+
         //creates a list of strings of the different resolutions so that they can be listed in the array
         List<string> options = new List<string>();
 
@@ -52,12 +55,16 @@ public class SettingsMenu_RL : MonoBehaviour
         {
             //loops through the list of resolutions and adds them to the drop down list
             string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
 
+            if (sameResolutions.Add(option))
+            { // to add only the same resolutions, no duplicates
+                options.Add(option);
+            }
+            
             //sets the currently displayed resolution in the drop down list as the current one being used to display game
             if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
             {
-                currentResolutionIndex = i;
+                currentResolutionIndex = options.Count - 1; // update index to match the resolutions as 1 per resolution option
             }
         }
 
