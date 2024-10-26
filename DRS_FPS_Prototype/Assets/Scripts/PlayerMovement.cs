@@ -509,4 +509,10 @@ public class PlayerMovement : MonoBehaviour, IDamage
 
         playerIsDead = true; 
     }
+
+    // method to reset player state after pressing back to main menu button and then relaunching a new game - AV
+    public void ResetPlayerState()
+    {
+        transform.position = gameManager.instance.playerSpawnPos.transform.position;
+    }
 }

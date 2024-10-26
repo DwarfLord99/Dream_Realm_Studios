@@ -80,26 +80,31 @@ public class gameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P)) // replaced the GetButtonDown("Cancel") to bind the pause button to the P key instead of the esc key. It was causing issues with the pause menu and resume button. - Adriana V
         {
-            if (menuActive == null)
-            {
-                statePause();
-                menuActive = menuPause;
-                menuPause.SetActive(true); // set pause menu to true and removed it set to isPaused - Adriana V
-            }
-            else if (menuActive == menuPause)
-            {
-                stateUnpause();
-                menuActive.SetActive(false); //bool might be getting toggled too many times, otherwise switch back to isPaused, moved up to Update to use stateUnpause in tutorialManager (Destin)
-                menuActive = null; 
-            }
+          togglePauseMenu();
         }
 
         
     }
 
+    public void togglePauseMenu()
+    {
+        if (!isPaused)
+        {
+            statePause();
+            menuActive = menuPause;
+            menuPause.SetActive(true); // set pause menu to true and removed it set to isPaused - Adriana V
+        }
+        else
+        {
+            stateUnpause();
+            menuActive = null;
+            menuPause.SetActive(false); 
+        }
+    }
+
     public void statePause()
     {
-        isPaused = !isPaused;
+        isPaused = true;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -186,4 +191,24 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    // method to reset everything after hitting back to main menu button & relaunch a new game
+    public void ResetGameState()
+    {
+        // reset player state
+        if (playerScript != null)
+        {
+            playerScript.ResetPlayerState();
+        }
+
+        // reset game state variables
+        enemyCount = 0;
+        playerKeys = 0;
+
+        // reset UI text
+        enemyCountText.text = enemyCount.ToString("F0");
+
+        // ensure game is not paused
+        isPaused = false;
+        Time.timeScale = timeScaleOrig;
+    }
 }

@@ -30,6 +30,7 @@ public class MainMenuManager : MonoBehaviour
     public void NewGame()
     {
         //Debug.Log("NewGame method called.");  
+        gameManager.instance.ResetGameState(); // calls the ResetGameState method before reloading the scene to ensure everything resets and nothing freezes like the player or the screen - AV
         SceneManager.LoadScene("MAINSCENE");
     }
 
