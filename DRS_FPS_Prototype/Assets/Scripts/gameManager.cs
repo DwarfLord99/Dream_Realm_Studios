@@ -166,4 +166,24 @@ public class gameManager : MonoBehaviour
 
     }
 
+    // To fix the issue with the keys updating in the monster kills text, I created 2 methods to separate count updates for enemies killed and keys collected
+    // method to update enemy count - AV
+    public void updateEnemiesKilled(int amount)
+    {
+        enemyCount += amount;
+        enemyCountText.text = enemyCount.ToString("F0");
+    }
+
+    // method to update keys collected - AV
+    public void updateKeysCollected(int amount)
+    {
+        playerKeys += amount;
+        if (playerKeys == 4)
+        {
+            statePause();
+            menuActive = menuWin;
+            menuActive.SetActive(isPaused);
+        }
+    }
+
 }

@@ -54,7 +54,7 @@ public class ItemPickup : MonoBehaviour, IPickup
             if (this.CompareTag("Key")) //added by Destin
             {
                 PickUpItem();
-                gameManager.instance.updateGameGoal(1);
+                gameManager.instance.updateKeysCollected(1); // to update keys collected only, seperate the logic from counting monster kills. updateKeysCollected method is inside the gameManager script - AV
             }
             else if (this.CompareTag("Weapon"))
             {

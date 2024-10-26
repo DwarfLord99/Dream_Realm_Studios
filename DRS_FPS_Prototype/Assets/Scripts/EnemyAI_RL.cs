@@ -283,6 +283,10 @@ public class EnemyAI_RL : MonoBehaviour, IDamage
         //Drop the first aid item when enemy dies *added by Fuad
         //Debug.Log("Dropping item...");
         DropItem();
+
+        // update enemy kill count in game manager - AV
+        gameManager.instance.updateEnemiesKilled(1);
+
         Destroy(gameObject); // destroy enemy object after death * added by fuad
     }
     
