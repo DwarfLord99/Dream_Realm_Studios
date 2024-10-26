@@ -32,6 +32,6 @@ public class ButtonFunctions_AV : MonoBehaviour
     {
         gameManager.instance.playerScript.PlayerSpawn();
         gameManager.instance.stateUnpause();
-        
+        gameManager.instance.menuLose.SetActive(false); // to hide the lose menu when pressing respawn
     }
 }

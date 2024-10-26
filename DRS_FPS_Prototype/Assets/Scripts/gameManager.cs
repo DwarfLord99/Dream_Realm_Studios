@@ -15,10 +15,10 @@ public class gameManager : MonoBehaviour
     public bool tutorialEnabled = true;
     public bool tutorialRunning = false;
 
-    [SerializeField] GameObject menuActive;
-    [SerializeField] GameObject menuPause;
-    [SerializeField] GameObject menuWin;
-    [SerializeField] GameObject menuLose;
+    [SerializeField] public GameObject menuActive;
+    [SerializeField] public GameObject menuPause;
+    [SerializeField] public GameObject menuWin;
+    [SerializeField] public GameObject menuLose;
 
     // Menu GameObjects - Adriana V
     [SerializeField] public GameObject menuMain;
