@@ -20,7 +20,7 @@ public class SettingsMenu_RL : MonoBehaviour
     [SerializeField] public Slider sfxVolume; // component slider for sfx volume
     [SerializeField] TMPro.TMP_Dropdown resolutionDropDown; //component needed to change resolution
     [SerializeField] Toggle fullscreenToggle; // toggle for adjusting to full screen - Adriana V
-    [SerializeField] public AudioSource backgroundGameMusic; 
+
 
     [SerializeField] public GameObject[] OptionsEnableDisableTabs; // tab objects to enable and disable- AV
     [SerializeField] public Image[] SettingsTabButtons; // tab back image buttons to show which one is active or unactive - AV

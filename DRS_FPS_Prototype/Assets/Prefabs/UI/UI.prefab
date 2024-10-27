@@ -657,7 +657,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8101250408302684290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15619,7 +15619,6 @@ MonoBehaviour:
   sfxVolume: {fileID: 7383717167583390746}
   resolutionDropDown: {fileID: 8238083901100407871}
   fullscreenToggle: {fileID: 6102904777047699117}
-  backgroundGameMusic: {fileID: 0}
   OptionsEnableDisableTabs:
   - {fileID: 4637022331643726563}
   - {fileID: 4055030572197352052}
