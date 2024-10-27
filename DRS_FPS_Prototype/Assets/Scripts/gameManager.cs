@@ -27,7 +27,6 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject menuOptions;
     [SerializeField] public GameObject menuCredits;
     [SerializeField] public GameObject menuSettings;
-    [SerializeField] public GameObject menuControls;
   
     
     [SerializeField] TMP_Text enemyCountText; // added by Adriana V
@@ -169,7 +168,6 @@ public class gameManager : MonoBehaviour
         menuOptions.SetActive(false);
         menuCredits.SetActive(false);
         menuSettings.SetActive(false);
-        menuControls.SetActive(false);
 
     }
 

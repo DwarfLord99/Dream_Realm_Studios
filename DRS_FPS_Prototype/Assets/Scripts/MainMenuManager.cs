@@ -19,7 +19,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] public GameObject menuOptions;
     [SerializeField] public GameObject menuCredits;
     [SerializeField] public GameObject menuSettings;
-    [SerializeField] public GameObject menuControls; 
+
 
     public void Play()
     {
@@ -30,11 +30,8 @@ public class MainMenuManager : MonoBehaviour
     public void NewGame()
     {
         //Debug.Log("NewGame method called.");  
-        // Hide all menus before loading the new scene
-        gameManager.instance.HideMenus();
         gameManager.instance.ResetGameState(); // calls the ResetGameState method before reloading the scene to ensure everything resets and nothing freezes like the player or the screen - AV
         SceneManager.LoadScene("MAINSCENE");
-              
     }
 
     // method to show the help menu
@@ -54,12 +51,6 @@ public class MainMenuManager : MonoBehaviour
         {
             saveSettings = FindObjectOfType<SettingsMenu_RL>();
         }
-    }
-
-    // method to show controls
-    public void Controls()
-    {
-        gameManager.instance.ShowMenu(menuControls);
     }
 
     // method to show the credits menu

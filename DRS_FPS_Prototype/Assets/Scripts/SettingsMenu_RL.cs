@@ -19,7 +19,8 @@ public class SettingsMenu_RL : MonoBehaviour
     [SerializeField] public Slider musicVolume; // componenet slider for music volume
     [SerializeField] public Slider sfxVolume; // component slider for sfx volume
     [SerializeField] TMPro.TMP_Dropdown resolutionDropDown; //component needed to change resolution
-    [SerializeField] Toggle fullscreenToggle; // toggle for adjusting to full screen - Adriana 
+    [SerializeField] Toggle fullscreenToggle; // toggle for adjusting to full screen - Adriana V
+    [SerializeField] public AudioSource backgroundGameMusic; 
 
     [SerializeField] public GameObject[] OptionsEnableDisableTabs; // tab objects to enable and disable- AV
     [SerializeField] public Image[] SettingsTabButtons; // tab back image buttons to show which one is active or unactive - AV
@@ -76,8 +77,8 @@ public class SettingsMenu_RL : MonoBehaviour
         // Initialize full screen toggle - Adriana V
         fullscreenToggle.isOn = Screen.fullScreen;
         fullscreenToggle.onValueChanged.AddListener(SetFullScreen);
-       
-        LoadAllSettings();
+
+
     }
 
     // add Mathf.Max to ensure volume value is never zero or negative
@@ -127,6 +128,17 @@ public class SettingsMenu_RL : MonoBehaviour
 
         Resolution screenRes = resolutions[resolutionIndex];
         Screen.SetResolution(screenRes.width, screenRes.height, Screen.fullScreen);
+    }
+
+    public void SetGameSpeed(float speed)
+    {
+        //This will be set up similar to how the drop down menu is created for the resolution. This time however the menu will not be
+        //populated automatically. I was thinking for now we could use o.5, 1, and 2 for the speeds. These will need to be set up in
+        //the drop down menu options and then from there the method will be passed in same as the others with choosing the method
+        //name inside the dynamic list at the top of the menu. With that set you should be able to use the drop down menu to
+        //manipulate the game speed because it will take whatever you choose and multiply the game speed by the number chosen.
+
+        Time.timeScale = timeScaleOrig * speed;
     }
 
     public void SaveAllSettings()
