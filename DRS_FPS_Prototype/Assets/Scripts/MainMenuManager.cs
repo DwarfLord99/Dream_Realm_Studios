@@ -19,7 +19,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] public GameObject menuOptions;
     [SerializeField] public GameObject menuCredits;
     [SerializeField] public GameObject menuSettings;
-
+    [SerializeField] public GameObject menuControls;
 
     public void Play()
     {
@@ -57,6 +57,11 @@ public class MainMenuManager : MonoBehaviour
     public void Credits()
     {
         gameManager.instance.ShowMenu(menuCredits);
+    }
+
+    public void Controls()
+    {
+        gameManager.instance.ShowMenu(menuControls);
     }
 
     // method to take the player back to the main menu
