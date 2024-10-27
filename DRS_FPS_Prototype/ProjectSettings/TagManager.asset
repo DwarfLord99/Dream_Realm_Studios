@@ -17,7 +17,6 @@ TagManager:
   - Boss
   - ClownBoss
   - LoadScene
-  - Next Level
   layers:
   - Default
   - TransparentFX
