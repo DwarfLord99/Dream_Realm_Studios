@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: a21f50a6469762148a4b24e8dd100913, type: 2}
+  healthAmount: 0
 --- !u!33 &2546448688992252224
 MeshFilter:
   m_ObjectHideFlags: 0
