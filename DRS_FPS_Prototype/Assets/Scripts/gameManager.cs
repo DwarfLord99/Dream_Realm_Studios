@@ -127,7 +127,7 @@ public class gameManager : MonoBehaviour
 
     public void updateGameGoal(int amount)
     {
-        enemyCount += amount;
+        //enemyCount += amount;
         playerKeys += amount;
         enemyCountText.text = enemyCount.ToString("F0"); // added by Adriana V
 

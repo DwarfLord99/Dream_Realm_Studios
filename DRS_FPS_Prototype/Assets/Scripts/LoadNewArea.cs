@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadNewArea : MonoBehaviour
 {
@@ -21,12 +22,13 @@ public class LoadNewArea : MonoBehaviour
         {
             //Debug.Log("Destination Found");
 
-            if (gameManager.instance.playerKeys >= 2)
+            if (this.tag == "Next Level")
             {
                 //Debug.Log("Keys 2 or more, teleporting to alternate area...");
                 //Debug.Log(AlternateDestination.transform.position);
                 controller.enabled = false;
-                other.transform.position = AlternateDestination.transform.position;
+                SceneManager.LoadScene(sceneName:"Clown_Level");
+                other.transform.position = GameObject.FindWithTag("Player Spawn Pos").transform.position;
                 controller.enabled = true;
                 //Debug.Log(other.transform.position);
             }

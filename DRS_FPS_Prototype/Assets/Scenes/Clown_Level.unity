@@ -26306,7 +26306,7 @@ GameObject:
   - component: {fileID: 1447015355}
   m_Layer: 0
   m_Name: Clown_Level_Spawn Pos
-  m_TagString: Untagged
+  m_TagString: Player Spawn Pos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
