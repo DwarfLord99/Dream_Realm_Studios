@@ -1,0 +1,128 @@
+commit 6ed2364fd5cdda43f5f49d65bef165825a99e625
+Merge: c41d126 804df29
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Tue Oct 22 19:24:12 2024 -0400
+
+    Merge branch 'main' of https://github.com/DwarfLord99/Dream_Realm_Studios
+    updating
+
+commit c41d126cea90564b4e6c4639915c8333b7a50f32
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Tue Oct 22 19:23:58 2024 -0400
+
+    textures compressed, compressor added again.
+
+commit b303d4a4114bd95944c7a18093abae67cf2f31e7
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Tue Oct 22 19:15:03 2024 -0400
+
+    committing to save progress, will run texture compressor for next commit
+
+commit a90d16ccc5ab260b812c05de9cbc200dd204390f
+Merge: e19dd39 1ed6a80
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Mon Oct 21 22:49:43 2024 -0400
+
+    Merge branch 'main' of https://github.com/DwarfLord99/Dream_Realm_Studios
+    Finalized merge
+
+commit e19dd3963417b7e45cdcc6e2f919a7b6b4bd2ff0
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Mon Oct 21 14:51:41 2024 -0400
+
+    Clown Stage added, will be able to play it before alpha submission, completion not guaranteed
+
+commit bbc5ba6846af9f02729b3d7fce3bed9876f4bc15
+Merge: 84bbd28 9dba160
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Mon Oct 21 14:30:46 2024 -0400
+
+    Merge branch 'main' of https://github.com/DwarfLord99/Dream_Realm_Studios
+    merging to stay up to date
+
+commit 84bbd285a531527ed49084b04106f0404cbc87b3
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Mon Oct 21 13:16:01 2024 -0400
+
+    saving to avoid any issues
+
+commit bb0b8fc43c7659446a1314e4e080096ee2c860f4
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Mon Oct 21 00:26:35 2024 -0400
+
+    I'm just gonna scrap the tutorial manager, nothing is working and we just don't have time.
+
+commit 5eb0566c725d6d1fb592c36cefb74bbea31fcef6
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Sun Oct 20 13:57:49 2024 -0400
+
+    health pickup logic reintegrated, health pickup uses mesh to avoid collision bugs
+
+commit a47678e6d4d6a45fdbaf2e5580911b826158f7b4
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Sat Oct 19 12:01:25 2024 -0400
+
+    PlayerCamera fixed. All is well. You can push-pull as normal
+
+commit 810b89102aa62960033aee423229999642ad103b
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Sat Oct 19 11:42:03 2024 -0400
+
+    fixed issues, lost control of player camera. this push is unsafe - pull at your own risk
+
+commit 8e4a60922bc01283b44d26844965e4da86dd50bd
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Sat Oct 19 11:33:02 2024 -0400
+
+    Revert "ignore"
+    
+    This reverts commit 6d97b759a61e3170d160a3ed5e5818c9ac415a1a.
+
+commit b548a1a666a4baec53fbba6a8f0908f949ee71bd
+Merge: c424c41 8d06c86
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Sat Oct 19 11:04:35 2024 -0400
+
+    Merge branch 'main' of https://github.com/DwarfLord99/Dream_Realm_Studios
+    fixing issues on my end
+
+commit c424c4101c90dc4a0456b0c058c39f37be803edf
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Sat Oct 19 10:31:06 2024 -0400
+
+    Revert "UI - Settings Tab system set up (almost functional)"
+    
+    This reverts commit 4b346f673b0fd45d3c291f06701db8176907b389.
+
+commit 2ce73eb0ebbbece343cf2d9ebbfbc189dd988e11
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Sat Oct 19 10:27:36 2024 -0400
+
+    Revert "Health pickup fixed. Note - DO NOT ENABLE KEY(2)"
+    
+    This reverts commit a22e6af7ac6514ae466f34a4e246dd75ec089a85.
+
+commit a22e6af7ac6514ae466f34a4e246dd75ec089a85
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Sat Oct 19 09:48:12 2024 -0400
+
+    Health pickup fixed. Note - DO NOT DISABLE KEY(2)
+
+commit c58c87846be47e641d60226e2402708c5d5f2dfd
+Merge: 6d97b75 4b346f6
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Sat Oct 19 09:44:26 2024 -0400
+
+    Merge branch 'main' of https://github.com/DwarfLord99/Dream_Realm_Studios
+
+commit 6d97b759a61e3170d160a3ed5e5818c9ac415a1a
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Sat Oct 19 09:44:21 2024 -0400
+
+    ignore
+
+commit 8da244cfc6908358914f497b0cb6294fed69e7a3
+Author: dbernav <130405520+dbernav@users.noreply.github.com>
+Date:   Fri Oct 18 11:35:26 2024 -0400
+
+    added initials to the prefabs I'm responsible for so that they can be used in the credits. I omitted assets that were directly lifted from asset packs.
