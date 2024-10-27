@@ -26,7 +26,12 @@ public class LoadNewArea : MonoBehaviour
                 //Debug.Log("Keys 2 or more, teleporting to alternate area...");
                 //Debug.Log(AlternateDestination.transform.position);
                 controller.enabled = false;
+<<<<<<< Updated upstream
                 other.transform.position = AlternateDestination.transform.position;
+=======
+                SceneManager.LoadScene("Clown_Level");
+                other.transform.position = GameObject.FindWithTag("Player Spawn Pos").transform.position;
+>>>>>>> Stashed changes
                 controller.enabled = true;
                 //Debug.Log(other.transform.position);
             }
