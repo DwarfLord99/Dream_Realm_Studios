@@ -60,13 +60,13 @@ MonoBehaviour:
   NormalHeight: 1
   CrouchHeight: 0.5
   animate: {fileID: 0}
+  deathCamera: {fileID: 0}
   HP: 20
   playerSpeed: 5
   sprintMod: 2
   jumpSpeed: 5
   jumpMax: 2
   gravity: 10
-  Animate: {fileID: 0}
   Inventory: []
   weaponModel: {fileID: 1382626130087537410}
   MuzzleFlash: {fileID: 2519585748317232584}
@@ -221,7 +221,7 @@ AudioSource:
   m_GameObject: {fileID: 1115721805508629478}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b11f5ebf839a306458c442650fdf1f2e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
