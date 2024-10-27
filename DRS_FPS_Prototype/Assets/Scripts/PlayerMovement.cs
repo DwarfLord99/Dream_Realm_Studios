@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
     [Range(2, 5)][SerializeField] int sprintMod;
     [Range(1, 20)][SerializeField] int jumpSpeed;
     [Range(1, 2)][SerializeField] int jumpMax;
-    [Range(10, 45)][SerializeField] int gravity;
+    [Range(8, 45)][SerializeField] int gravity;
 
     [Header("inventory/guns ")]
 
@@ -174,6 +174,7 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             PlayerVelocity = Vector3.zero;
             numberOfJumps = 0;
+            animate.SetBool("jumping", false);
         }
 
         // basic movemnt
@@ -187,8 +188,11 @@ public class PlayerMovement : MonoBehaviour, IDamage
         {
             numberOfJumps++;
             PlayerVelocity.y = jumpSpeed; //* Time.deltaTime; REMOVED TO TEST TO SEE IF THE PLAYER WILL JUMP, BY FUAD H. 
+            animate.SetBool("jumping", true);
             Audio.PlayOneShot(JumpingAudio[Random.Range(0, JumpingAudio.Length)], JumpingVolume);
         }
+
+        
 
         // relaods the plaeyrs gun
         if (Input.GetButtonDown("Reload") && WeaponList[CurrentWeaponPOS].CurrentAmmo == 0)
